@@ -1,0 +1,5 @@
+store/index.ts
+node_modules
+vue-shim.d.ts
+cypress
+*.config.js

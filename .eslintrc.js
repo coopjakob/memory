@@ -2,10 +2,12 @@ module.exports = {
   root: true,
   env: {
     browser: true,
-    node: true
+    node: true,
+    test: true,
+    cypress: true
   },
   parserOptions: {
-    parser: 'babel-eslint'
+    parser: '@typescript-eslint/parser'
   },
   extends: [
     '@nuxtjs',
@@ -15,10 +17,18 @@ module.exports = {
     'plugin:nuxt/recommended'
   ],
   plugins: [
-    'prettier'
+    'prettier',
+    'cypress',
+    '@typescript-eslint'
   ],
   // add your custom rules here
   rules: {
-    'dot-notation': 0
+    'dot-notation': 0,
+    '@typescript-eslint/semi': 0,
+    'no-unused-vars': 0,
+    '@typescript-eslint/no-unused-vars': 2
+  },
+  env: {
+    'cypress/globals': true
   }
 }

@@ -15,6 +15,17 @@ const configModule: Module<ProductsState, any> = {
       coopStore: '016001',
       cartguid: '8050f27b-ce0b-49f8-b535-daa7f6faca1d'
     }
+  },
+  getters: {
+    getCoopStore(state) {
+      return state.coopStore
+    },
+    getUser(state) {
+      return state.user
+    },
+    getCartGuid(state) {
+      return state.coopStore
+    }
   }
 }
 

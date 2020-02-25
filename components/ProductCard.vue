@@ -3,6 +3,7 @@
     <div
       class="product-card"
       :class="{ added: added }"
+      data-testid="productCard"
       @mousedown="reach"
       @mouseup="withdraw"
     >
@@ -82,16 +83,19 @@
 import Component from 'vue-class-component'
 import { Prop, Vue } from 'vue-property-decorator'
 import get from 'lodash/get'
+import { mapGetters } from 'vuex'
 import ProductImage from './ProductImage.vue'
-
-// dev
-let COOP: any
-// COOP = [];
-// COOP.config = [];
 
 @Component({
   components: {
     ProductImage
+  },
+  computed: {
+    ...mapGetters({
+      storeId: 'config/getCoopStore',
+      user: 'config/getUser',
+      cartguid: 'config/getCartGuid'
+    })
   }
 })
 class ProductCard extends Vue {
@@ -101,6 +105,9 @@ class ProductCard extends Vue {
   isAdding = false
   savedQuantity = 0
   receivedProducts: any[] = []
+  user: String
+  storeId: String
+  cartguid: String
 
   get qty() {
     return 0
@@ -202,21 +209,6 @@ class ProductCard extends Vue {
       'eF5j4cotK8lMETA0N7bUNdQ1ZClN9jAxNDFLS05O1k0xMzTRNTFNSdFNTTFMBXJNk5Is0xKNEg0tAZ_oDyg'
     ) // local env
     return sessionStorage.getItem('rcs') // this.getCookieValue("rr_rcs");
-  }
-
-  get user(): String {
-    // COOP.config.user = "a148649e-235a-4157-8df8-5b2aa424ea7d";
-    return COOP.config.user
-  }
-
-  get storeId(): String {
-    // COOP.config.coopStore = "016001";
-    return COOP.config.coopStore
-  }
-
-  get cartguid(): String {
-    // COOP.config.cartguid = "8050f27b-ce0b-49f8-b535-daa7f6faca1d";
-    return COOP.config.cartguid
   }
 
   eventListener(e: any) {
