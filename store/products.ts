@@ -13,12 +13,10 @@ const productsModule: Module<ProductsState, any> = {
     }
   },
   actions: {
-    async fetch({commit, state, rootState}) {
+    async fetch({ commit, state, rootState }) {
       const url = `https://www.coop.se/ws/v2/coop/users/anonymous/products/recommend-segmented?placements=${
         state.placement
-      }&fields=DEFAULT&storeId=${
-        rootState.coopStore
-      }&rrSessionId=${
+      }&fields=DEFAULT&storeId=${rootState.coopStore}&rrSessionId=${
         rootState.rrSessionId
       }&rcs=${
         // Figure out what this is:
