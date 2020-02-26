@@ -13,17 +13,25 @@ const productsModule: Module<ProductsState, any> = {
     }
   },
   actions: {
-    async fetch({ commit, state, rootState }) {
-      const url = `https://www.coop.se/ws/v2/coop/users/anonymous/products/recommend-segmented?placements=${
-        state.placement
-      }&fields=DEFAULT&storeId=${rootState.coopStore}&rrSessionId=${
-        rootState.rrSessionId
-      }&rcs=${
-        // Figure out what this is:
-        'eF5j4cotK8lMETA0N7bUNdQ1ZClN9jAxNDFLS05O1k0xMzTRNTFNSdFNTTFMBXJNk5Is0xKNEg0tAZ_oDyg'
-      }`
+    async init({ dispatch, rootState, commit }) {
+      const products = await dispatch('fetch', {
+        rcs: rootState.rcs,
+        placement: 'home_page.2020_start_few'
+      })
+      commit('gotProducts', products)
+    },
+    async loadMore({ dispatch, rootState, commit }) {
+      const products = await dispatch('fetch', {
+        rcs: rootState.rcs,
+        placement: 'home_page.2020_start_full'
+      })
+      commit('gotProducts', products)
+    },
+    async fetch({ rootState }, { rcs, placement }) {
+      const baseUrl = 'https://www.coop.se/ws/v2/coop/users/anonymous'
+      const url = `${baseUrl}/products/recommend-segmented?placements=${placement}&fields=DEFAULT&storeId=${rootState.config.coopStore}&rrSessionId=${rootState.config.rrSessionId}&rcs=${rcs}`
       const response = await this['$axios'].$get(url)
-      commit('gotProducts', response.placements[0].products)
+      return response.placements[0].products
     }
   },
   mutations: {

@@ -40,7 +40,7 @@
           />
         </template>
       </div>
-      <div v-if="!added" class="splash">
+      <div v-if="!added && promoDescription" class="splash">
         <img
           src="https://res.cloudinary.com/coopsverige/image/upload/v1569329381/cooponline/SVGs/pricesplash.svg"
         />
@@ -99,7 +99,7 @@ import ProductImage from './ProductImage.vue'
   }
 })
 class ProductCard extends Vue {
-  @Prop() id: string = ''
+  @Prop() id: string
   @Prop() product: any
   added = false
   isAdding = false

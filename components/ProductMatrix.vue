@@ -1,16 +1,28 @@
 <template>
-  <div class="product-matrix">
+  <div>
     <div v-if="error">{{ error }}</div>
-    <template v-for="product in productList">
-      <ProductCard :id="product.code" :key="product.code" :product="product" />
-    </template>
+    <div class="product-matrix">
+      <ProductCard
+        v-for="product in productList"
+        :id="product.code"
+        :key="product.code"
+        :product="product"
+      />
+    </div>
+    <v-row align="center">
+      <v-col class="text-center" cols="12">
+        <v-btn v-if="productList.length <= 6" @click="loadMore">
+          Visa mer
+        </v-btn>
+      </v-col>
+    </v-row>
   </div>
 </template>
 
 <script lang="ts">
 /* eslint-disable dot-notation */
 import Vue from 'vue'
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 import ProductCard from './ProductCard.vue'
 
 export default Vue.extend({
@@ -22,14 +34,16 @@ export default Vue.extend({
       error: ''
     }
   },
-  computed: {
-    ...mapGetters({
-      productList: 'products/receivedProducts'
-    })
+  computed: mapGetters({
+    productList: 'products/receivedProducts'
+  }),
+  mounted() {
+    this.init()
   },
-  async mounted() {
-    await this.$store.dispatch('products/fetch')
-  }
+  methods: mapActions({
+    init: 'products/init',
+    loadMore: 'products/loadMore'
+  })
 })
 </script>
 
