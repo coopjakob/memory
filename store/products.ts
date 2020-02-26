@@ -1,15 +1,14 @@
 import { Module } from 'vuex'
+import Product from '../types/Product'
 
 interface ProductsState {
-  recieved: any[]
-  placement: string
+  recieved: Array<Product>
 }
 
 const productsModule: Module<ProductsState, any> = {
   state() {
     return {
-      recieved: [],
-      placement: 'home_page.horizontal_recs1'
+      recieved: []
     }
   },
   actions: {

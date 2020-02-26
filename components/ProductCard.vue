@@ -84,6 +84,7 @@ import Component from 'vue-class-component'
 import { Prop, Vue } from 'vue-property-decorator'
 import get from 'lodash/get'
 import { mapGetters } from 'vuex'
+import Product from '../types/Product'
 import ProductImage from './ProductImage.vue'
 
 @Component({
@@ -100,7 +101,7 @@ import ProductImage from './ProductImage.vue'
 })
 class ProductCard extends Vue {
   @Prop() id: string
-  @Prop() product: any
+  @Prop() product: Product
   added = false
   isAdding = false
   savedQuantity = 0
