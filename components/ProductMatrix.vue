@@ -11,7 +11,11 @@
     </div>
     <v-row align="center">
       <v-col class="text-center" cols="12">
-        <v-btn v-if="productList.length <= 6" @click="loadMore">
+        <v-btn
+          v-if="productList.length <= 6"
+          :loading="loading"
+          @click="loadMore"
+        >
           Visa mer
         </v-btn>
       </v-col>
@@ -35,7 +39,8 @@ export default Vue.extend({
     }
   },
   computed: mapGetters({
-    productList: 'products/receivedProducts'
+    productList: 'products/receivedProducts',
+    loading: 'products/isLoading'
   }),
   mounted() {
     this.init()
