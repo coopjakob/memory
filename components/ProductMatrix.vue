@@ -4,7 +4,6 @@
     <div class="product-matrix">
       <ProductCard
         v-for="product in productList"
-        :id="product.code"
         :key="product.code"
         :product="product"
       />
