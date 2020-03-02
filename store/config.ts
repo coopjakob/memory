@@ -1,19 +1,30 @@
 import { Module } from 'vuex'
+import pick from 'lodash.pick'
 
 interface ProductsState {
-  rrSessionId: string
-  user: string
-  coopStore: string
-  cartguid: string
+  [key: string]: string
 }
 
 const configModule: Module<ProductsState, any> = {
   state() {
-    return {
-      rrSessionId: 's109421930639200',
-      user: 'a148649e-235a-4157-8df8-5b2aa424ea7d',
-      coopStore: '016001',
-      cartguid: '8050f27b-ce0b-49f8-b535-daa7f6faca1d'
+    return {}
+  },
+  actions: {
+    init({ commit }, fullConfig) {
+      const config = pick(fullConfig, [
+        'rrSessionId',
+        'user',
+        'coopStore',
+        'cartguid'
+      ])
+      commit('setConfig', config)
+    }
+  },
+  mutations: {
+    setConfig(state, config) {
+      Object.entries(config).forEach(([key, value]: [string, any]) => {
+        state[key] = value
+      })
     }
   },
   getters: {
@@ -24,7 +35,7 @@ const configModule: Module<ProductsState, any> = {
       return state.user
     },
     getCartGuid(state) {
-      return state.coopStore
+      return state.cartguid
     }
   }
 }

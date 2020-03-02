@@ -10,7 +10,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import Product from '../types/Product'
+import Product from '~/types/Product'
 
 export default Vue.extend({
   props: {

@@ -25,7 +25,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import get from 'lodash.get'
-import Product from '../types/Product'
+import Product from '~/types/Product'
 
 export default Vue.extend({
   props: {

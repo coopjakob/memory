@@ -2,19 +2,13 @@
   <div>
     <div v-if="error">{{ error }}</div>
     <div class="product-matrix">
-      <ProductCard
-        v-for="product in productList"
-        :key="product.code"
-        :product="product"
-      />
+      <div v-for="card in cards" :key="card.sortKey">
+        <component :is="components[card.type]" :product="card" />
+      </div>
     </div>
     <v-row align="center">
       <v-col class="text-center" cols="12">
-        <v-btn
-          v-if="productList.length <= 6"
-          :loading="loading"
-          @click="loadMore"
-        >
+        <v-btn v-if="cards.length <= 6" :loading="loading" @click="loadMore">
           Visa mer
         </v-btn>
       </v-col>
@@ -27,6 +21,8 @@
 import Vue from 'vue'
 import { mapGetters, mapActions } from 'vuex'
 import ProductCard from './ProductCard.vue'
+import InfoCard from './InfoCard.vue'
+import { CardTypes } from '~/types/Card'
 
 export default Vue.extend({
   components: {
@@ -34,11 +30,15 @@ export default Vue.extend({
   },
   data() {
     return {
-      error: ''
+      error: '',
+      components: {
+        [CardTypes.PRODUCT]: ProductCard,
+        [CardTypes.INFO]: InfoCard
+      }
     }
   },
   computed: mapGetters({
-    productList: 'products/receivedProducts',
+    cards: 'cards/getCards',
     loading: 'products/isLoading'
   }),
   mounted() {

@@ -1,7 +1,7 @@
 <template>
   <div class="card" data-testid="productCard">
     <div class="product-labels">
-      <div v-for="label in product.productLabels" :key="label.code">
+      <div v-for="label in product.productLabels" :key="label.sortKey">
         <img :src="label.icon" />
       </div>
     </div>
@@ -11,9 +11,7 @@
       :title="imgAlt"
     />
     <splash :product="product" />
-    <div class="product-name">
-      {{ product.name }}
-    </div>
+    <div class="product-name">{{ product.name }}</div>
     <div class="product-summary">
       <swedish-flag v-if="product.fromSweden" />
       <span class="brand">{{ product.manufacturer }}.</span>
@@ -39,12 +37,12 @@
 import Vue from 'vue'
 import { mapGetters } from 'vuex'
 import get from 'lodash.get'
-import Product from '../types/Product'
-import ProductImage from './ProductImage.vue'
-import ActionBar from './ActionBar.vue'
-import Splash from './Splash.vue'
-import Price from './Price.vue'
-import SwedishFlag from './SwedishFlag.vue'
+import ProductImage from './productCard/ProductImage.vue'
+import ActionBar from './productCard/ActionBar.vue'
+import Splash from './productCard/Splash.vue'
+import Price from './productCard/Price.vue'
+import SwedishFlag from './productCard/SwedishFlag.vue'
+import Product from '~/types/Product'
 
 export default Vue.extend({
   components: {

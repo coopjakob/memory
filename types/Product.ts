@@ -3,6 +3,7 @@ interface Price {
 }
 
 interface Image {
+  altText: string
   url: string
 }
 
@@ -10,6 +11,11 @@ interface Promotion {
   maxUseText: boolean
   medmera: boolean
   description: string
+}
+
+interface Category {
+  code: string
+  name: string
 }
 
 export default interface Product {
@@ -27,4 +33,6 @@ export default interface Product {
   fromSweden: boolean
   promotionPrice: Price
   potentialPromotions: Array<Promotion>
+  categories: Array<Category>
+  productLabels: Array<Category>
 }

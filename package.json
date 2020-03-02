@@ -11,7 +11,8 @@
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.ts,.vue .",
     "test": "jest",
-    "cypress": "cypress open -p 6129"
+    "cypress": "cypress open -p 6129",
+    "e2e": "cypress run"
   },
   "lint-staged": {
     "*.{js,vue}": "yarn lint"
@@ -29,6 +30,7 @@
     "is-mobile": "^2.2.1",
     "lodash": "^4.17.15",
     "lodash.get": "^4.4.2",
+    "lodash.pick": "^4.4.0",
     "lodash.uniqby": "^4.7.0",
     "nuxt": "^2.0.0",
     "query-string": "^6.11.0",

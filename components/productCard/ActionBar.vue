@@ -1,5 +1,10 @@
 <template>
-  <div class="action">
+  <div
+    class="add-to-cart"
+    :data-product="id"
+    data-category-lvl-1="0"
+    data-category-lvl-3="0"
+  >
     <div
       class="qty-selector js-qty-selector"
       :data-product="id"
@@ -98,18 +103,10 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
-.action {
+.add-to-cart {
   display: flex;
   justify-content: center;
   flex-direction: column;
-}
-.add-to-cart {
-  display: block;
-  justify-content: center;
-  align-items: center;
-  flex-grow: 1;
-  color: white;
-  cursor: pointer;
 }
 .qty-selector {
   width: 100%;

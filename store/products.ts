@@ -2,7 +2,8 @@ import { Module } from 'vuex'
 import qs from 'query-string'
 import uniqBy from 'lodash.uniqby'
 import isMobile from 'is-mobile'
-import Product from '../types/Product'
+import Product from '~/types/Product'
+import Card, { CardTypes } from '~/types/Card'
 
 interface ProductsState {
   recieved: Array<Product>
@@ -82,11 +83,19 @@ const productsModule: Module<ProductsState, any> = {
     }
   },
   getters: {
-    isLoading(state: ProductsState) {
+    isLoading(state: ProductsState): boolean {
       return state.loading
     },
-    receivedProducts(state: ProductsState) {
+    getProducts(state: ProductsState): Array<Product> {
       return state.recieved
+    },
+    getProductsAsCards(state: ProductsState): Array<Card> {
+      return state.recieved.map((p) => ({
+        ...p,
+        id: p.code,
+        sortKey: `${p.code}_order2`,
+        type: CardTypes.PRODUCT
+      }))
     }
   }
 }
