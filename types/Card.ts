@@ -6,11 +6,11 @@ export enum CardTypes {
   AD = 'ad'
 }
 
-export type Card = ProductCard | AdCard | InfoCard
-
 export interface ProductCard extends Partial<Product> {
   type: CardTypes.PRODUCT
 }
+
+export type ExtraCard = AdCard | InfoCard
 
 interface GenericCard {
   position?: number

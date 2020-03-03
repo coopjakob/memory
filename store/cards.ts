@@ -1,9 +1,9 @@
 import { Module } from 'vuex'
-import { Card, CardTypes } from '../types/Card'
+import { CardTypes, ExtraCard, ProductCard } from '../types/Card'
 import Product from '~/types/Product'
 
 interface CardsState {
-  extra: Array<Card>
+  extra: Array<ExtraCard>
 }
 
 const cardsModule: Module<CardsState, any> = {
@@ -40,13 +40,15 @@ const cardsModule: Module<CardsState, any> = {
     }
   },
   getters: {
-    getCards(state, getters, rootState, rootGetters) {
+    getCards(
+      state,
+      getters,
+      rootState,
+      rootGetters
+    ): Array<ProductCard | ExtraCard> {
       const cards = rootGetters['products/getProductsAsCards']
       const used: string[] = []
       state.extra.forEach((card) => {
-        if (card.type === CardTypes.PRODUCT) {
-          return
-        }
         if (card.position) {
           cards.splice(card.position - 1, 0, card)
           return

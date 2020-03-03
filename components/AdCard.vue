@@ -6,12 +6,12 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { Card } from '~/types/Card'
+import { ExtraCard } from '~/types/Card'
 
 export default Vue.extend({
   props: {
     card: {
-      type: Object as () => Card,
+      type: Object as () => ExtraCard,
       required: true
     }
   }
