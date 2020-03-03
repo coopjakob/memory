@@ -1,9 +1,11 @@
 import Product from '~/types/Product'
 
 export enum CardTypes {
-  INFO,
-  PRODUCT
+  INFO = 'info',
+  PRODUCT = 'product',
+  AD = 'ad'
 }
+
 interface Targets {
   category?: string
   product?: string
@@ -11,9 +13,28 @@ interface Targets {
   manufacturer?: string
 }
 
-export default interface Card extends Partial<Product> {
-  type: CardTypes
-  before?: Targets
-  sortKey: string
-  sibling?: Product
+export type Card = ProductCard | AdCard | InfoCard
+
+export interface ProductCard extends Partial<Product> {
+  type: CardTypes.PRODUCT
+}
+
+interface AdCard {
+  type: CardTypes.AD
+  position: number
+  image: string
+  link: string
+}
+
+interface InfoCard {
+  type: CardTypes.INFO
+  image: string
+  imageAltText: string
+  header: string
+  text: string
+  link: string
+  buttonText: string
+  position?: number
+  label?: string
+  brand?: string
 }

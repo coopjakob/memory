@@ -1,35 +1,35 @@
 <template>
   <div class="card" data-testid="productCard">
     <div class="product-labels">
-      <div v-for="label in product.productLabels" :key="label.sortKey">
+      <div v-for="label in card.productLabels" :key="label.sortKey">
         <img :src="label.icon" />
       </div>
     </div>
     <product-image
-      :url="product.url"
-      :image-url="product.images[0].url"
+      :url="card.url"
+      :image-url="card.images[0].url"
       :title="imgAlt"
     />
-    <splash :product="product" />
-    <div class="product-name">{{ product.name }}</div>
+    <splash :product="card" />
+    <div class="product-name">{{ card.name }}</div>
     <div class="product-summary">
-      <swedish-flag v-if="product.fromSweden" />
-      <span class="brand">{{ product.manufacturer }}.</span>
-      {{ product.packageSizeInformation }}.
-      <span>Jmf-pris {{ product.comparisonPrice | price }}.</span>
-      <span v-if="product.depositPrice.value" class="deposit">
-        Pant {{ product.depositPrice | price }}
+      <swedish-flag v-if="card.fromSweden" />
+      <span class="brand">{{ card.manufacturer }}.</span>
+      {{ card.packageSizeInformation }}.
+      <span>Jmf-pris {{ card.comparisonPrice | price }}.</span>
+      <span v-if="card.depositPrice.value" class="deposit">
+        Pant {{ card.depositPrice | price }}
       </span>
     </div>
     <div
-      v-for="text in product.consumerInformationText"
+      v-for="text in card.consumerInformationText"
       :key="text"
       class="consumer-info"
     >
       {{ text }}
     </div>
-    <price :product="product" />
-    <action-bar :id="product.code" />
+    <price :product="card" />
+    <action-bar :id="card.code" />
   </div>
 </template>
 
@@ -42,7 +42,7 @@ import ActionBar from './productCard/ActionBar.vue'
 import Splash from './productCard/Splash.vue'
 import Price from './productCard/Price.vue'
 import SwedishFlag from './productCard/SwedishFlag.vue'
-import Product from '~/types/Product'
+import { ProductCard } from '~/types/Card'
 
 export default Vue.extend({
   components: {
@@ -53,8 +53,8 @@ export default Vue.extend({
     SwedishFlag
   },
   props: {
-    product: {
-      type: Object as () => Product,
+    card: {
+      type: Object as () => ProductCard,
       required: true
     }
   },
@@ -65,10 +65,10 @@ export default Vue.extend({
       cartguid: 'config/getCartGuid'
     }),
     promoDescription(): any {
-      return get(this.product, 'potentialPromotions[0].description')
+      return get(this.card, 'potentialPromotions[0].description')
     },
     imgAlt(): string {
-      return this.product.name + ' ' + this.product.price + 'kr/st'
+      return this.card.name + ' ' + this.card.price + 'kr/st'
     }
   }
 })
