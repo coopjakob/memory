@@ -6,13 +6,6 @@ export enum CardTypes {
   AD = 'ad'
 }
 
-interface Targets {
-  category?: string
-  product?: string
-  label?: string
-  manufacturer?: string
-}
-
 export type Card = ProductCard | AdCard | InfoCard
 
 export interface ProductCard extends Partial<Product> {
