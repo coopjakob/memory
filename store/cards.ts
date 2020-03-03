@@ -44,49 +44,41 @@ const cardsModule: Module<CardsState, any> = {
       const cards = rootGetters['products/getProductsAsCards']
       const used: string[] = []
       state.extra.forEach((card) => {
-        switch (card.type) {
-          case CardTypes.AD:
-            cards.splice(card.position - 1, 0, card)
-            break
-
-          case CardTypes.INFO:
-            if (card.position) {
-              cards.splice(card.position - 1, 0, card)
-              break
-            }
-            if (card.label) {
-              const product = cards.find(
-                (product: Product) =>
-                  product.productLabels?.find(
-                    (label) => card.label === label.code
-                  ) && !used.includes(product.code)
-              )
-              if (product) {
-                const index = cards.indexOf(product)
-                used.push(product.code)
-                cards.splice(index, 0, card)
-                break
-              }
-            }
-            if (card.brand) {
-              const product = cards.find(
-                (product: Product) =>
-                  product.manufacturer === card.brand &&
-                  !used.includes(product.code)
-              )
-              if (product) {
-                const index = cards.indexOf(product)
-                used.push(product.code)
-                cards.splice(index, 0, card)
-                break
-              }
-            }
-            cards.push(card)
-            break
-
-          default:
-            break
+        if (card.type === CardTypes.PRODUCT) {
+          return
         }
+        if (card.position) {
+          cards.splice(card.position - 1, 0, card)
+          return
+        }
+        if (card.label) {
+          const product = cards.find(
+            (product: Product) =>
+              product.productLabels?.find(
+                (label) => card.label === label.code
+              ) && !used.includes(product.code)
+          )
+          if (product) {
+            const index = cards.indexOf(product)
+            used.push(product.code)
+            cards.splice(index, 0, card)
+            return
+          }
+        }
+        if (card.brand) {
+          const product = cards.find(
+            (product: Product) =>
+              product.manufacturer === card.brand &&
+              !used.includes(product.code)
+          )
+          if (product) {
+            const index = cards.indexOf(product)
+            used.push(product.code)
+            cards.splice(index, 0, card)
+            return
+          }
+        }
+        cards.push(card)
       })
       return cards
     }
