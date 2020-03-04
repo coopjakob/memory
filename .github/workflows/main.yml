@@ -26,6 +26,11 @@ jobs:
           eslint: true
           eslint_extensions: js,vue,ts
 
+      - name: Run Jest
+        uses: stefanoeb/jest-action@1.0.2
+        with:
+          jestArgs: test
+
       - name: Build project
         run: yarn build
 

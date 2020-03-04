@@ -35,7 +35,6 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { mapGetters } from 'vuex'
 import get from 'lodash.get'
 import ProductImage from './productCard/ProductImage.vue'
 import ActionBar from './productCard/ActionBar.vue'
@@ -59,11 +58,6 @@ export default Vue.extend({
     }
   },
   computed: {
-    ...mapGetters({
-      storeId: 'config/getCoopStore',
-      user: 'config/getUser',
-      cartguid: 'config/getCartGuid'
-    }),
     promoDescription(): any {
       return get(this.card, 'potentialPromotions[0].description')
     },
