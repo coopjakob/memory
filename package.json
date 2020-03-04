@@ -1,6 +1,7 @@
 {
-  "name": "kenora-thistles-nuxt",
-  "version": "1.0.0",
+  "name": "memory",
+  "version": "0.1.0",
+  "license": "MIT",
   "description": "My best Nuxt.js project",
   "author": "Max Malm",
   "private": true,
