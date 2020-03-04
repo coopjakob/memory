@@ -128,9 +128,6 @@ export default Vue.extend({
   justify-content: center;
   width: 64px;
   height: 47px;
-  position: absolute;
-  top: 10px;
-  right: 10px;
   font-family: 'Coop New', 'CoopNew-Black', sans-serif;
   text-align: center;
   font-size: 22px;

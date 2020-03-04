@@ -10,7 +10,9 @@
       :image-url="card.images[0].url"
       :title="imgAlt"
     />
-    <splash :product="card" />
+    <div class="splash">
+      <splash :product="card" />
+    </div>
     <div class="product-name">{{ card.name }}</div>
     <div class="product-summary">
       <swedish-flag v-if="card.fromSweden" />
@@ -91,6 +93,11 @@ export default Vue.extend({
 
     img
       width: 100%
+
+  .splash
+    position: absolute
+    top: 10px
+    right: 10px
 
   .product-name
     font-size: 16px
