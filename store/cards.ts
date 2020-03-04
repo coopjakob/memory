@@ -150,7 +150,6 @@ const productsModule: Module<CardsState, any> = {
     },
     getCards(state, getters, rootState, rootGetters) {
       const productCards = rootGetters['products/getProductsAsCards']
-      console.log(productCards)
       const siblingsOnly = siblingsOnlyFactory(productCards)
       const addSibling = addSiblingFactory(productCards)
       return state.all
