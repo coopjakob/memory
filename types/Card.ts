@@ -12,19 +12,19 @@ export interface ProductCard extends Partial<Product> {
 
 export type ExtraCard = AdCard | InfoCard
 
-interface GenericCard {
+interface GenericExtraCard {
   position?: number
   label?: string
   brand?: string
 }
 
-export interface AdCard extends GenericCard {
+export interface AdCard extends GenericExtraCard {
   type: CardTypes.AD
   image: string
   link: string
 }
 
-export interface InfoCard extends GenericCard {
+export interface InfoCard extends GenericExtraCard {
   type: CardTypes.INFO
   image: string
   imageAltText: string
