@@ -3,7 +3,7 @@
     <div v-if="error">{{ error }}</div>
     <div class="product-matrix">
       <div v-for="card in cards" :key="card.sortKey">
-        <component :is="components[card.type]" :product="card" />
+        <component :is="components[card.type]" :card="card" />
       </div>
     </div>
     <v-row align="center">
@@ -22,6 +22,7 @@ import Vue from 'vue'
 import { mapGetters, mapActions } from 'vuex'
 import ProductCard from './ProductCard.vue'
 import InfoCard from './InfoCard.vue'
+import AdCard from './AdCard.vue'
 import { CardTypes } from '~/types/Card'
 
 export default Vue.extend({
@@ -33,7 +34,8 @@ export default Vue.extend({
       error: '',
       components: {
         [CardTypes.PRODUCT]: ProductCard,
-        [CardTypes.INFO]: InfoCard
+        [CardTypes.INFO]: InfoCard,
+        [CardTypes.AD]: AdCard
       }
     }
   },

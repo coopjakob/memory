@@ -1,6 +1,6 @@
 <template>
   <v-alert border="bottom">
-    I'm a card of type info named {{ card.header }}.<br />
+    I'm a card of type ad with a link {{ card.link }}.
   </v-alert>
 </template>
 
