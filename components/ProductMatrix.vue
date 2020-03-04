@@ -17,7 +17,6 @@
 </template>
 
 <script lang="ts">
-/* eslint-disable dot-notation */
 import Vue from 'vue'
 import { mapGetters, mapActions } from 'vuex'
 import ProductCard from './ProductCard.vue'
