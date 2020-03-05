@@ -1,6 +1,6 @@
 store/index.ts
 node_modules
 vue-shim.d.ts
-cypress
+test/e2e
 *.config.js
 dist
