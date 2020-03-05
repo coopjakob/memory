@@ -13,7 +13,9 @@
     <div class="splash">
       <splash :product="card" />
     </div>
-    <div class="product-name">{{ card.name }}</div>
+    <div class="product-name">
+      {{ card.name }}
+    </div>
     <div class="product-summary">
       <swedish-flag v-if="card.fromSweden" />
       <span class="brand">{{ card.manufacturer }}.</span>

@@ -1,6 +1,8 @@
 <template>
   <div>
-    <div v-if="error">{{ error }}</div>
+    <div v-if="error">
+      {{ error }}
+    </div>
     <div class="product-matrix">
       <div v-for="card in cards" :key="card.sortKey">
         <component :is="components[card.type]" :card="card" />

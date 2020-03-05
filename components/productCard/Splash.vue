@@ -1,6 +1,8 @@
 <template>
   <div v-if="splash" class="splash">
-    <div v-if="splash.label" class="promo-text">{{ splash.label }}</div>
+    <div v-if="splash.label" class="promo-text">
+      {{ splash.label }}
+    </div>
     <div class="price">
       {{ splash.price }}<span class="unit">{{ splash.unit }}</span>
       <span v-if="splash.decimal" class="decimal">{{ splash.decimal }}</span>

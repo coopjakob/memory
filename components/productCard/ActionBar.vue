@@ -22,7 +22,7 @@
           fill-rule="evenodd"
           stroke="#FFF"
           d="M13.872 1.095H.128"
-        ></path>
+        />
       </button>
       <input
         v-model="qty"
@@ -51,7 +51,7 @@
             stroke-linecap="round"
             stroke-linejoin="round"
           >
-            <path d="M6 .5v11M11.5 6H.5"></path>
+            <path d="M6 .5v11M11.5 6H.5" />
           </g>
         </svg>
       </button>

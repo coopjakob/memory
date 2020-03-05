@@ -14,7 +14,8 @@ module.exports = {
     'prettier',
     'prettier/vue',
     'plugin:prettier/recommended',
-    'plugin:nuxt/recommended'
+    'plugin:vue/recommended',
+    'plugin:nuxt/recommended',
   ],
   plugins: [
     'prettier',
@@ -26,7 +27,14 @@ module.exports = {
     'dot-notation': 0,
     '@typescript-eslint/semi': 0,
     'no-unused-vars': 0,
-    '@typescript-eslint/no-unused-vars': 2
+    '@typescript-eslint/no-unused-vars': 2,
+    'vue/html-self-closing': ['error', {
+      html: {
+        void: 'always',
+        normal: 'always',
+        component: 'always'
+      }
+    }]
   },
   env: {
     'cypress/globals': true
