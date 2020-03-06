@@ -5,6 +5,11 @@
 ## Build Setup
 
 ``` bash
+# clone repository
+$ git clone https://github.com/coopjakob/memory.git
+$ cd memory
+$ git checkout develop
+
 # install dependencies
 $ yarn install
 
