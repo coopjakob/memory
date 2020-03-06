@@ -1,0 +1,6 @@
+store/index.ts
+node_modules
+vue-shim.d.ts
+test/e2e
+*.config.js
+dist
