@@ -40,9 +40,9 @@
 <script lang="ts">
 import Vue from 'vue'
 import get from 'lodash.get'
+import Splash from '@bit/coopjakob.memory.splash'
 import ProductImage from './productCard/ProductImage.vue'
 import ActionBar from './productCard/ActionBar.vue'
-import Splash from './productCard/Splash.vue'
 import Price from './productCard/Price.vue'
 import SwedishFlag from './productCard/SwedishFlag.vue'
 import { ProductCard } from '~/types/Card'
