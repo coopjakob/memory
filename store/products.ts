@@ -34,7 +34,10 @@ const productsModule: Module<ProductsState, any> = {
       })
       commit('gotProducts', products)
     },
-    async loadMore({ dispatch, commit }) {
+    async loadMore({ state, dispatch, commit }) {
+      if (state.didShowMore) {
+        return
+      }
       const products = await dispatch('fetch', {
         placements: 'home_page.2020_start_full'
       })

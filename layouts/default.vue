@@ -1,34 +1,32 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <nuxt-link to="/">
-        Home
-      </nuxt-link>
-      |
-      <nuxt-link to="/about">
-        About
-      </nuxt-link>
-    </div>
+  <div id="app" class="o-start-module">
     <nuxt />
   </div>
 </template>
 
 <style lang="scss">
+*,
+div {
+  //like on coop.se
+  box-sizing: border-box;
+}
+body {
+  background-color: #f5f5f5;
+}
+a {
+  cursor: pointer;
+}
+a {
+  color: #337ab7;
+  text-decoration: none;
+}
+
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: 'Akkurat', 'Roboto', Helvetica, Arial, sans-serif;
+  font-size: 16px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.nuxt-link-exact-active {
-      color: #42b983;
-    }
-  }
+  max-width: 1320px;
 }
 </style>
