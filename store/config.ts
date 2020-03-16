@@ -1,5 +1,4 @@
 import { Module } from 'vuex'
-import pick from 'lodash.pick'
 
 interface ProductsState {
   authToken: String
@@ -20,14 +19,7 @@ const configModule: Module<ProductsState, any> = {
     }
   },
   actions: {
-    init({ commit }, fullConfig) {
-      const config = pick(fullConfig, [
-        'authToken',
-        'cartguid',
-        'coopStore',
-        'rrSessionId',
-        'user'
-      ])
+    init({ commit }, config) {
       if (config.user !== 'anonymous') {
         this['$axios'].setHeader('Authorization', `Bearer ${config.authToken}`)
       }
