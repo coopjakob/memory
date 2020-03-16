@@ -42,7 +42,8 @@ export default Vue.extend({
   },
   computed: {
     columns(): number {
-      const columns = Math.floor(this.width / 152)
+      const cardWidth = 152
+      const columns = Math.floor(this.width / cardWidth)
       return Math.max(2, columns)
     },
     cards(): Cards {
