@@ -1,8 +1,5 @@
 <template>
   <div>
-    <div v-if="error">
-      {{ error }}
-    </div>
     <div ref="matrix" class="product-matrix">
       <div v-for="card in cards" :key="card.sortKey">
         <component :is="components[card.type]" :card="card" />
@@ -24,7 +21,6 @@
 <script lang="ts">
 import Vue from 'vue'
 import { mapGetters, mapActions } from 'vuex'
-import { vueWindowSizeMixin } from 'vue-window-size'
 import ProductCard from './ProductCard.vue'
 import InfoCard from './InfoCard.vue'
 import AdCard from './AdCard.vue'
@@ -34,10 +30,9 @@ export default Vue.extend({
   components: {
     ProductCard
   },
-  mixins: [vueWindowSizeMixin],
   data() {
     return {
-      error: '',
+      width: 0,
       components: {
         [CardTypes.PRODUCT]: ProductCard,
         [CardTypes.INFO]: InfoCard,
@@ -47,7 +42,7 @@ export default Vue.extend({
   },
   computed: {
     columns(): number {
-      const columns = Math.floor(this.windowWidth / 152)
+      const columns = Math.floor(this.width / 152)
       return Math.max(2, columns)
     },
     cards(): Cards {
@@ -82,10 +77,18 @@ export default Vue.extend({
       }
     }
   },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.setContainerWidth)
+  },
   mounted() {
+    window.addEventListener('resize', this.setContainerWidth)
+    this.setContainerWidth()
     this.init()
   },
   methods: {
+    setContainerWidth() {
+      this.width = this.$refs.matrix['clientWidth']
+    },
     ...mapActions({
       init: 'products/init',
       loadMore: 'products/loadMore'

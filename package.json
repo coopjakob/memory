@@ -35,8 +35,7 @@
     "nuxt": "^2.0.0",
     "query-string": "^6.11.1",
     "vue-class-component": "^7.2.3",
-    "vue-property-decorator": "^8.4.0",
-    "vue-window-size": "^0.2.5"
+    "vue-property-decorator": "^8.4.0"
   },
   "devDependencies": {
     "@nuxt/typescript-build": "^0.6.0",
