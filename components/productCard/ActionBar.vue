@@ -57,6 +57,7 @@
       tabindex="0"
       role="button"
       aria-pressed="false"
+      class="js-qty-selector-plus"
       :disabled="qty <= 0"
       @click="addToCart()"
     >
