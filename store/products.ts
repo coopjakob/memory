@@ -30,14 +30,12 @@ const productsModule: Module<ProductsState, any> = {
       dispatch(action)
     },
     async loadFew({ dispatch, commit }) {
-      console.log('loadFew')
       const products = await dispatch('fetch', {
         placements: 'home_page.2020_start_few'
       })
       commit('gotProducts', products)
     },
     async loadFull({ state, dispatch, commit }) {
-      console.log('loadFull')
       if (state.didShowMore) {
         return
       }
