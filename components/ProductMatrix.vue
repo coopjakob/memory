@@ -55,9 +55,6 @@ export default Vue.extend({
     },
     ...mapGetters({
       cards: 'cards/getCards',
-      fillerCards: 'cards/getFillerCards',
-      authToken: 'config/authToken',
-      user: 'config/getUser',
       loading: 'products/isLoading',
       didShowMore: 'products/didShowMore'
     }),
