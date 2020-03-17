@@ -73,6 +73,9 @@ export default Vue.extend({
       return this.card.name + ' ' + this.card.price + 'kr/st'
     },
     initQty(): number {
+      if (!this.$store) {
+        return 0
+      }
       const cart = this.$store.state.cart
       if (cart.entries.length) {
         const foundInCart = cart.entries.find(
