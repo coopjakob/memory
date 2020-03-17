@@ -40,17 +40,8 @@ const cardsModule: Module<CardsState, any> = {
     }
   },
   getters: {
-    getCards(
-      state,
-      getters,
-      rootState,
-      rootGetters
-    ): {
-      cards: Cards
-      fillers: Array<ExtraCard>
-    } {
+    getCards(state, getters, rootState, rootGetters): Cards {
       const cards = rootGetters['products/getProductsAsCards']
-      const fillerCards: Array<ExtraCard> = []
       const used: string[] = []
       state.extra.forEach((card) => {
         if (card.position) {
@@ -84,12 +75,9 @@ const cardsModule: Module<CardsState, any> = {
             return
           }
         }
-        fillerCards.push(card)
+        cards.push(card)
       })
-      return {
-        cards,
-        fillers: fillerCards
-      }
+      return cards
     }
   }
 }

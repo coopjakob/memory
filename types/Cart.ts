@@ -1,5 +1,3 @@
-import Product from '~/types/Product'
-
 interface Price {
   currencyIso: String
   formattedValue: String
@@ -7,7 +5,7 @@ interface Price {
   value: Number
 }
 
-interface Product {
+interface CartProduct {
   code: String
   depositPrice: Price
   keywords: Array<any>
@@ -27,7 +25,7 @@ export interface CartState {
   code: String
   entries: Array<{
     entryNumber: Number
-    product: Product
+    product: CartProduct
     quantity: Number
     replace: Boolean
     totalPrice: Price
