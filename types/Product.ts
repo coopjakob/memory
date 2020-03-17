@@ -32,7 +32,7 @@ export default interface Product {
   consumerInformationText: string
   fromSweden: boolean
   promotionPrice: Price
-  potentialPromotions: Array<Promotion>
+  potentialPromotions?: Array<Promotion>
   categories: Array<Category>
   productLabels: Array<Category>
 }

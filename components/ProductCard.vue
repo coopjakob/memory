@@ -39,7 +39,6 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import get from 'lodash.get'
 import ProductImage from './productCard/ProductImage.vue'
 import ActionBar from './productCard/ActionBar.vue'
 import Splash from './productCard/Splash.vue'
@@ -63,7 +62,7 @@ export default Vue.extend({
   },
   computed: {
     promoDescription(): any {
-      return get(this.card, 'potentialPromotions[0].description')
+      return this.card.potentialPromotions?.[0]?.description
     },
     imgAlt(): string {
       return this.card.name + ' ' + this.card.price + 'kr/st'
