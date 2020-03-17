@@ -1,7 +1,6 @@
 import { Module } from 'vuex'
 import qs from 'query-string'
 import uniqBy from 'lodash.uniqby'
-import isMobile from 'is-mobile'
 import Product from '~/types/Product'
 import { CardTypes, ProductCard } from '~/types/Card'
 
@@ -22,19 +21,23 @@ const productsModule: Module<ProductsState, any> = {
     }
   },
   actions: {
-    async init({ dispatch, commit }) {
+    init({ dispatch, commit }, columns) {
+      const isMobile = columns <= 3
       const rcs = sessionStorage.getItem('rcs')
       commit('newRcs', rcs)
       commit('clearProducts')
-      const placements = isMobile()
-        ? 'home_page.2020_start_few'
-        : 'home_page.2020_start_full'
+      const action = isMobile ? 'loadFew' : 'loadFull'
+      dispatch(action)
+    },
+    async loadFew({ dispatch, commit }) {
+      console.log('loadFew')
       const products = await dispatch('fetch', {
-        placements
+        placements: 'home_page.2020_start_few'
       })
       commit('gotProducts', products)
     },
-    async loadMore({ state, dispatch, commit }) {
+    async loadFull({ state, dispatch, commit }) {
+      console.log('loadFull')
       if (state.didShowMore) {
         return
       }
@@ -88,6 +91,9 @@ const productsModule: Module<ProductsState, any> = {
   getters: {
     isLoading(state: ProductsState): boolean {
       return state.loading
+    },
+    didShowMore(state: ProductsState) {
+      return state.didShowMore
     },
     getProducts(state: ProductsState): Array<Product> {
       return state.recieved

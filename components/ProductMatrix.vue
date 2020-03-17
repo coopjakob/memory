@@ -14,7 +14,7 @@
     </div>
     <v-row align="center">
       <v-col class="text-center" cols="12">
-        <v-btn v-if="cards.length <= 6" :loading="loading" @click="loadMore">
+        <v-btn v-if="!didShowMore" :loading="loading" @click="loadFull">
           Visa mer
         </v-btn>
       </v-col>
@@ -58,7 +58,8 @@ export default Vue.extend({
       fillerCards: 'cards/getFillerCards',
       authToken: 'config/authToken',
       user: 'config/getUser',
-      loading: 'products/isLoading'
+      loading: 'products/isLoading',
+      didShowMore: 'products/didShowMore'
     }),
     fillersNeeded(): Number {
       const itemsOnLastRow = this.cards.length % this.columns
@@ -69,20 +70,13 @@ export default Vue.extend({
       }
     }
   },
-  watch: {
-    columns(columns) {
-      if (columns >= 4) {
-        this.loadMore()
-      }
-    }
-  },
   beforeDestroy() {
     window.removeEventListener('resize', this.setContainerWidth)
   },
   mounted() {
     window.addEventListener('resize', this.setContainerWidth)
     this.setContainerWidth()
-    this.init()
+    this.init(this.columns)
   },
   methods: {
     setContainerWidth() {
@@ -91,7 +85,7 @@ export default Vue.extend({
     },
     ...mapActions({
       init: 'products/init',
-      loadMore: 'products/loadMore'
+      loadFull: 'products/loadFull'
     })
   }
 })
