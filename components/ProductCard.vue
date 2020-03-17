@@ -33,7 +33,11 @@
       {{ text }}
     </div>
     <price :product="card" />
-    <action-bar :id="card.code" :init-qty="initQty" />
+    <action-bar
+      :id="card.code"
+      :categories="card.categories"
+      :init-qty="initQty"
+    />
   </div>
 </template>
 
