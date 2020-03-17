@@ -33,7 +33,7 @@
       {{ text }}
     </div>
     <price :product="card" />
-    <action-bar :id="card.code" />
+    <action-bar :id="card.code" :init-qty="initQty" />
   </div>
 </template>
 
@@ -67,6 +67,18 @@ export default Vue.extend({
     },
     imgAlt(): string {
       return this.card.name + ' ' + this.card.price + 'kr/st'
+    },
+    initQty(): number {
+      const cart = this.$store.state.cart
+      if (cart.entries.length) {
+        const foundInCart = cart.entries.find(
+          (entry: any) => entry.product.code === this.card.code
+        )
+        if (foundInCart) {
+          return foundInCart.quantity
+        }
+      }
+      return 0
     }
   }
 })

@@ -75,11 +75,15 @@ export default Vue.extend({
     id: {
       type: String,
       required: true
+    },
+    initQty: {
+      type: Number,
+      required: true
     }
   },
   data() {
     return {
-      qty: 0
+      qty: this.initQty
     }
   },
   watch: {
