@@ -6,7 +6,7 @@ export enum CardTypes {
   AD = 'ad'
 }
 
-export interface ProductCard extends Partial<Product> {
+export interface ProductCard extends Product {
   type: CardTypes.PRODUCT
 }
 

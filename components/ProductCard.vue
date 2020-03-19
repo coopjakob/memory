@@ -61,8 +61,8 @@ export default Vue.extend({
     }
   },
   computed: {
-    promoDescription(): any {
-      return this.card.potentialPromotions?.[0]?.description
+    promoDescription(): string | undefined {
+      return this.card.potentialPromotions[0]?.description
     },
     imgAlt(): string {
       return this.card.name + ' ' + this.card.price + 'kr/st'

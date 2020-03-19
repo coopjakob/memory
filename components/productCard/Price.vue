@@ -35,13 +35,13 @@ export default Vue.extend({
   },
   computed: {
     isMedmera(): any {
-      return this.product.potentialPromotions?.[0]?.medmera
+      return this.product.potentialPromotions[0]?.medmera
     },
     promoPrice(): any {
       return this.product.promotionPrice?.formattedValue
     },
     maxUseText(): any {
-      return this.product.potentialPromotions?.[0]?.maxUseText
+      return this.product.potentialPromotions[0]?.maxUseText
     }
   }
 })

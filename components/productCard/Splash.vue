@@ -23,7 +23,7 @@ export default Vue.extend({
   },
   computed: {
     splash(): any {
-      if (!this.product.potentialPromotions?.[0]) {
+      if (!this.product.potentialPromotions[0]) {
         return false
       }
       const regex = /(?<label>\d+ för )*(?<price>\d+):(?<decimal>[-\d]+) *\/*(?<unit>.*)/g
