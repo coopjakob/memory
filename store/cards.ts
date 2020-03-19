@@ -4,11 +4,36 @@ import Product from '~/types/Product'
 
 interface CardsState {
   extra: Array<ExtraCard>
+  columns: number
+}
+
+function findByLabel(
+  extraCard,
+  columns,
+  cards,
+  unavailable: Array<string> = []
+) {
+  const product = cards.find(
+    (product: Product) =>
+      product.productLabels?.find((label) => extraCard.label === label.code) &&
+      !unavailable.includes(product.code)
+  )
+  if (product) {
+    const index = cards.indexOf(product)
+    console.log('hmm', product.name, (index + 1) % columns, index + 1, columns)
+    if ((index + 1) % columns === 0) {
+      console.log(`${product.name} was in the last column and was skipped`)
+      unavailable.push(product.code)
+      return findByLabel(extraCard, columns, cards, unavailable)
+    }
+    return { index, code: cards[index].code }
+  }
 }
 
 const cardsModule: Module<CardsState, any> = {
   state(): CardsState {
     return {
+      columns: 0,
       extra: [
         {
           type: CardTypes.AD,
@@ -45,6 +70,11 @@ const cardsModule: Module<CardsState, any> = {
       ]
     }
   },
+  mutations: {
+    setColumns(state, columns: number) {
+      state.columns = columns
+    }
+  },
   getters: {
     getAllCards(state, getters, rootState, rootGetters): Cards {
       const cards = rootGetters['products/getProductsAsCards']
@@ -56,16 +86,11 @@ const cardsModule: Module<CardsState, any> = {
           return
         }
         if (card.label) {
-          const product = cards.find(
-            (product: Product) =>
-              product.productLabels?.find(
-                (label) => card.label === label.code
-              ) && !used.includes(product.code)
-          )
+          const product = findByLabel(card, state.columns, cards, used)
           if (product) {
-            const index = cards.indexOf(product)
+            console.log('product')
             used.push(product.code)
-            cards.splice(index, 0, card)
+            cards.splice(product.index, 0, card)
             return
           }
         }

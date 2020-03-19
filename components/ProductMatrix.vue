@@ -25,7 +25,7 @@ import { mapGetters, mapActions } from 'vuex'
 import ProductCard from './ProductCard.vue'
 import InfoCard from './InfoCard.vue'
 import AdCard from './AdCard.vue'
-import { CardTypes } from '~/types/Card'
+import { CardTypes, Cards } from '~/types/Card'
 
 const initialCardWidth = 152
 
@@ -58,6 +58,9 @@ export default Vue.extend({
       loading: 'products/isLoading',
       didShowMore: 'products/didShowMore'
     }),
+    cards2(): Cards {
+      return this.cards
+    },
     emptySlots(): number {
       const itemsOnLastRow = this.cards.length % this.columns
       if (itemsOnLastRow === 0) {
@@ -89,6 +92,7 @@ export default Vue.extend({
     setContainerWidth() {
       this.cardWidth = this.$refs.card[0].$el.clientWidth
       this.width = this.$refs.matrix['clientWidth']
+      this.$store.commit('cards/setColumns', this.columns)
     },
     ...mapActions({
       init: 'products/init',
