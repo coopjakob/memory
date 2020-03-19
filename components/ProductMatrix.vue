@@ -33,13 +33,15 @@ import InfoCard from './InfoCard.vue'
 import AdCard from './AdCard.vue'
 import { CardTypes } from '~/types/Card'
 
+const initialCardWidth = 152
+
 export default Vue.extend({
   components: {
     ProductCard
   },
   data() {
     return {
-      cardWidth: 152,
+      cardWidth: initialCardWidth,
       width: 0,
       components: {
         [CardTypes.PRODUCT]: ProductCard,
