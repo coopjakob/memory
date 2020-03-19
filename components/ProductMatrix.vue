@@ -70,6 +70,13 @@ export default Vue.extend({
       return Math.max(this.emptySlots - this.unusedCards.length, 0)
     }
   },
+  watch: {
+    isMobile(newValue, oldValue) {
+      if (oldValue === true && newValue === false) {
+        this.loadFull()
+      }
+    }
+  },
   beforeDestroy() {
     window.removeEventListener('resize', this.setContainerWidth)
   },
