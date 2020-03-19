@@ -1,27 +1,21 @@
 <template>
   <div>
     <div ref="matrix" class="product-matrix">
-      <div v-for="(card, index) in cards" :key="card.sortKey">
-        <component
-          :is="components[card.type]"
-          v-if="index === 0"
-          ref="card"
-          :card="card"
-        />
-        <component :is="components[card.type]" v-else :card="card" />
+      <div v-for="card in cards" :key="card.sortKey">
+        <component :is="components[card.type]" ref="card" :card="card" />
       </div>
       <div v-for="card in unusedCards.slice(0, emptySlots)" :key="card.sortKey">
         <component :is="components[card.type]" :card="card" />
       </div>
       <div v-for="n in fillersNeeded" :key="n" class="card fill-last-row" />
     </div>
-    <v-row align="center">
-      <v-col class="text-center" cols="12">
-        <v-btn v-if="!didShowMore" :loading="loading" @click="loadFull">
-          Visa mer
-        </v-btn>
-      </v-col>
-    </v-row>
+    <button
+      v-if="!didShowMore && isMobile"
+      :disabled="loading"
+      @click="loadFull"
+    >
+      Visa mer
+    </button>
   </div>
 </template>
 

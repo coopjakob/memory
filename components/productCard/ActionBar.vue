@@ -53,7 +53,7 @@
         </svg>
       </button>
     </div>
-    <v-btn
+    <button
       tabindex="0"
       role="button"
       aria-pressed="false"
@@ -62,7 +62,7 @@
       @click="qty = 1"
     >
       <span>Köp</span>
-    </v-btn>
+    </button>
   </div>
 </template>
 

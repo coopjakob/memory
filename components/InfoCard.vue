@@ -1,8 +1,6 @@
 <template>
   <div class="card">
-    <v-alert border="bottom">
-      I'm a card of type info named {{ card.header }}.<br />
-    </v-alert>
+    I'm a card of type info named {{ card.header }}. test test test
   </div>
 </template>
 
