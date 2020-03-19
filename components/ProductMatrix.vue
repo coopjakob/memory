@@ -45,6 +45,7 @@ export default Vue.extend({
     loading: 'products/isLoading'
   }),
   mounted() {
+    this.$chat('c', 'Hej! 👋')
     this.init()
   },
   methods: mapActions({

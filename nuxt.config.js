@@ -27,7 +27,12 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['~plugins/filters.js', { src: '~/plugins/config.js', mode: 'client' }],
+  plugins: [
+    '~plugins/bus.js',
+    '~plugins/chat.js',
+    '~plugins/filters.js',
+    { src: '~/plugins/config.js', mode: 'client' }
+  ],
   /*
    ** Nuxt.js dev-modules
    */
