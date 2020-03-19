@@ -51,6 +51,9 @@ export default Vue.extend({
     }
   },
   computed: {
+    isMobile(): boolean {
+      return this.columns <= 3
+    },
     columns(): number {
       const columns = Math.floor(this.width / this.cardWidth)
       return Math.max(2, columns)
@@ -82,7 +85,7 @@ export default Vue.extend({
   mounted() {
     window.addEventListener('resize', this.setContainerWidth)
     this.setContainerWidth()
-    this.init(this.columns)
+    this.init(this.isMobile)
   },
   methods: {
     setContainerWidth() {

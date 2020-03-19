@@ -21,8 +21,7 @@ const productsModule: Module<ProductsState, any> = {
     }
   },
   actions: {
-    init({ dispatch, commit }, columns) {
-      const isMobile = columns <= 3
+    init({ dispatch, commit }, isMobile) {
       const rcs = sessionStorage.getItem('rcs')
       commit('newRcs', rcs)
       commit('clearProducts')
