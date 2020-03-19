@@ -52,9 +52,6 @@ export default Vue.extend({
       const columns = Math.floor(this.width / this.cardWidth)
       return Math.max(2, columns)
     },
-    rows(): number {
-      return this.columns > 3 ? 3 : 999
-    },
     ...mapGetters({
       cards: 'cards/getCards',
       unusedCards: 'cards/getUnusedCards',
