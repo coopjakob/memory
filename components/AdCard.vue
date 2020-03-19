@@ -1,7 +1,7 @@
 <template>
-  <v-alert border="bottom">
-    I'm a card of type ad with a link {{ card.link }}.
-  </v-alert>
+  <div class="card">
+    I'm a card of type ad with a link {{ card.link }}. test test test
+  </div>
 </template>
 
 <script lang="ts">

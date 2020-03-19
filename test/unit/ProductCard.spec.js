@@ -1,9 +1,7 @@
 import { mount } from '@vue/test-utils'
 import Vue from 'vue'
-import Vuetify from 'vuetify'
 import ProductCard from '@/components/ProductCard.vue'
 
-Vue.use(Vuetify)
 Vue.filter('price', () => '')
 
 const card = {
