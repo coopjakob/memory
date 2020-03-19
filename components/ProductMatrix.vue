@@ -10,6 +10,9 @@
         />
         <component :is="components[card.type]" v-else :card="card" />
       </div>
+      <div v-for="card in unusedCards.slice(0, emptySlots)" :key="card.sortKey">
+        <component :is="components[card.type]" :card="card" />
+      </div>
       <div v-for="n in fillersNeeded" :key="n" class="card fill-last-row" />
     </div>
     <v-row align="center">
@@ -55,16 +58,20 @@ export default Vue.extend({
     },
     ...mapGetters({
       cards: 'cards/getCards',
+      unusedCards: 'cards/getUnusedCards',
       loading: 'products/isLoading',
       didShowMore: 'products/didShowMore'
     }),
-    fillersNeeded(): Number {
+    emptySlots(): number {
       const itemsOnLastRow = this.cards.length % this.columns
       if (itemsOnLastRow === 0) {
         return 0
       } else {
         return this.columns - itemsOnLastRow
       }
+    },
+    fillersNeeded(): number {
+      return Math.max(this.emptySlots - this.unusedCards.length, 0)
     }
   },
   beforeDestroy() {

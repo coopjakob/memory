@@ -17,6 +17,12 @@ const cardsModule: Module<CardsState, any> = {
           link: 'http://coop.se/product'
         },
         {
+          type: CardTypes.AD,
+          label: 'unknown',
+          image: 'http://coop.se/img.webp',
+          link: 'http://coop.se/unknown'
+        },
+        {
           type: CardTypes.INFO,
           label: 'KRAV0U0MARK',
           image: 'http://coop.se/img.webp',
@@ -40,8 +46,9 @@ const cardsModule: Module<CardsState, any> = {
     }
   },
   getters: {
-    getCards(state, getters, rootState, rootGetters): Cards {
+    getAllCards(state, getters, rootState, rootGetters): Cards {
       const cards = rootGetters['products/getProductsAsCards']
+      const unusedCards: Array<ExtraCard> = []
       const used: string[] = []
       state.extra.forEach((card) => {
         if (card.position) {
@@ -75,9 +82,15 @@ const cardsModule: Module<CardsState, any> = {
             return
           }
         }
-        cards.push(card)
+        unusedCards.push(card)
       })
-      return cards
+      return [cards, unusedCards]
+    },
+    getCards(state, getters) {
+      return getters.getAllCards[0]
+    },
+    getUnusedCards(state, getters) {
+      return getters.getAllCards[1]
     }
   }
 }
