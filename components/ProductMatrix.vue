@@ -71,8 +71,8 @@ export default Vue.extend({
     }
   },
   watch: {
-    isMobile(newValue, oldValue) {
-      if (oldValue === true && newValue === false) {
+    isMobile(newValue) {
+      if (newValue === false) {
         this.loadFull()
       }
     }
@@ -83,7 +83,7 @@ export default Vue.extend({
   mounted() {
     window.addEventListener('resize', this.setContainerWidth)
     this.setContainerWidth()
-    this.init(this.isMobile)
+    this.init()
   },
   methods: {
     setContainerWidth() {

@@ -21,12 +21,11 @@ const productsModule: Module<ProductsState, any> = {
     }
   },
   actions: {
-    init({ dispatch, commit }, isMobile) {
+    init({ dispatch, commit }) {
       const rcs = sessionStorage.getItem('rcs')
       commit('newRcs', rcs)
       commit('clearProducts')
-      const action = isMobile ? 'loadFew' : 'loadFull'
-      dispatch(action)
+      dispatch('loadFew')
     },
     async loadFew({ dispatch, commit }) {
       const products = await dispatch('fetch', {
