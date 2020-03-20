@@ -1,11 +1,7 @@
 <template>
   <div class="card" :style="{ 'background-image': 'url(' + card.image + ')' }">
     <div class="action">
-      <a
-        class="button"
-        :href="card.link"
-        :target="/\Wcoop\.se\W/.test(card.link) ? '_self' : '_blank'"
-      >
+      <a class="button" :href="card.link">
         Handla nu
       </a>
     </div>
