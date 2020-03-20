@@ -24,7 +24,6 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import get from 'lodash.get'
 import Product from '~/types/Product'
 
 export default Vue.extend({
@@ -36,13 +35,13 @@ export default Vue.extend({
   },
   computed: {
     isMedmera(): any {
-      return get(this.product, 'potentialPromotions[0].medmera')
+      return this.product.potentialPromotions[0]?.medmera
     },
     promoPrice(): any {
-      return get(this.product, 'promotionPrice.formattedValue')
+      return this.product.promotionPrice?.formattedValue
     },
     maxUseText(): any {
-      return get(this.product, 'potentialPromotions[0].maxUseText')
+      return this.product.potentialPromotions[0]?.maxUseText
     }
   }
 })
