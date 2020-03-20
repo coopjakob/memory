@@ -94,7 +94,6 @@ export default Vue.extend({
   },
   methods: {
     setContainerWidth() {
-      this.cardWidth = this.$refs.card[0].$el.clientWidth
       this.width = this.$refs.matrix['clientWidth']
     },
     ...mapActions({
