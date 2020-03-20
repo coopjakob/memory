@@ -66,7 +66,7 @@ figure
   padding-top: 100%
 
   img
-    position: absolute;
+    position: absolute
     max-width: 80%
     max-height: 150px
     bottom: 0;
