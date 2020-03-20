@@ -1,22 +1,28 @@
 import { Module } from 'vuex'
-import pick from 'lodash.pick'
 
 interface ProductsState {
-  [key: string]: string
+  authToken: String
+  cartguid: String
+  coopStore: String
+  rrSessionId: String
+  user: String
 }
 
 const configModule: Module<ProductsState, any> = {
   state() {
-    return {}
+    return {
+      authToken: '',
+      cartguid: '',
+      coopStore: '',
+      rrSessionId: '',
+      user: ''
+    }
   },
   actions: {
-    init({ commit }, fullConfig) {
-      const config = pick(fullConfig, [
-        'rrSessionId',
-        'user',
-        'coopStore',
-        'cartguid'
-      ])
+    init({ commit }, config) {
+      if (config.user !== 'anonymous') {
+        this['$axios'].setHeader('Authorization', `Bearer ${config.authToken}`)
+      }
       commit('setConfig', config)
     }
   },

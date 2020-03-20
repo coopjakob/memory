@@ -1,18 +1,15 @@
 <template>
-  <div
-    class="add-to-cart"
-    :data-product="id"
-    data-category-lvl-1="0"
-    data-category-lvl-3="0"
-  >
+  <div class="action">
     <div
-      class="qty-selector js-qty-selector"
+      class="add-to-cart m-cart-addition qty-selector js-qty-selector"
+      :class="{ 'has-value': qty > 0 }"
       :data-product="id"
-      data-category-lvl-1="0"
-      data-category-lvl-3="0"
+      :data-category-lvl-1="categories[0].code"
+      :data-category-lvl-3="categories[2].code"
     >
       <button
-        class="add js-qty-selector-minus"
+        class="remove js-qty-selector-minus"
+        :disabled="qty === 0"
         aria-label="Minska antalet"
         @click="qty = qty - 1"
       >
@@ -33,7 +30,7 @@
         data-max="999"
       />
       <button
-        class="remove js-qty-selector-plus"
+        class="add js-qty-selector-plus"
         aria-label="Öka antalet"
         @click="qty = qty + 1"
       >
@@ -56,15 +53,16 @@
         </svg>
       </button>
     </div>
-    <v-btn
+    <button
       tabindex="0"
       role="button"
       aria-pressed="false"
+      class="js-qty-selector-plus"
       :disabled="qty <= 0"
-      @click="addToCart()"
+      @click="qty = 1"
     >
-      <span>Lägg till</span>
-    </v-btn>
+      <span>Köp</span>
+    </button>
   </div>
 </template>
 
@@ -75,11 +73,19 @@ export default Vue.extend({
     id: {
       type: String,
       required: true
+    },
+    initQty: {
+      type: Number,
+      required: true
+    },
+    categories: {
+      type: Array,
+      required: true
     }
   },
   data() {
     return {
-      qty: 0
+      qty: this.initQty
     }
   },
   watch: {
@@ -106,7 +112,7 @@ export default Vue.extend({
 .add-to-cart {
   display: flex;
   justify-content: center;
-  flex-direction: column;
+  flex-direction: row;
 }
 .qty-selector {
   width: 100%;

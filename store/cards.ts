@@ -1,5 +1,5 @@
 import { Module } from 'vuex'
-import { CardTypes, ExtraCard, ProductCard } from '../types/Card'
+import { CardTypes, ExtraCard, Cards } from '../types/Card'
 import Product from '~/types/Product'
 
 interface CardsState {
@@ -15,6 +15,12 @@ const cardsModule: Module<CardsState, any> = {
           position: 12,
           image: 'http://coop.se/img.webp',
           link: 'http://coop.se/product'
+        },
+        {
+          type: CardTypes.AD,
+          label: 'unknown',
+          image: 'http://coop.se/img.webp',
+          link: 'http://coop.se/unknown'
         },
         {
           type: CardTypes.INFO,
@@ -40,13 +46,9 @@ const cardsModule: Module<CardsState, any> = {
     }
   },
   getters: {
-    getCards(
-      state,
-      getters,
-      rootState,
-      rootGetters
-    ): Array<ProductCard | ExtraCard> {
+    getAllCards(state, getters, rootState, rootGetters): Cards {
       const cards = rootGetters['products/getProductsAsCards']
+      const unusedCards: Array<ExtraCard> = []
       const used: string[] = []
       state.extra.forEach((card) => {
         if (card.position) {
@@ -80,9 +82,15 @@ const cardsModule: Module<CardsState, any> = {
             return
           }
         }
-        cards.push(card)
+        unusedCards.push(card)
       })
-      return cards
+      return [cards, unusedCards]
+    },
+    getCards(state, getters) {
+      return getters.getAllCards[0]
+    },
+    getUnusedCards(state, getters) {
+      return getters.getAllCards[1]
     }
   }
 }

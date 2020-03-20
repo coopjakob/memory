@@ -33,7 +33,11 @@
       {{ text }}
     </div>
     <price :product="card" />
-    <action-bar :id="card.code" />
+    <action-bar
+      :id="card.code"
+      :categories="card.categories"
+      :init-qty="initQty"
+    />
   </div>
 </template>
 
@@ -66,59 +70,60 @@ export default Vue.extend({
     },
     imgAlt(): string {
       return this.card.name + ' ' + this.card.price + 'kr/st'
+    },
+    initQty(): number {
+      if (!this.$store) {
+        return 0
+      }
+      const cart = this.$store.state.cart
+      if (cart.entries.length) {
+        const foundInCart = cart.entries.find(
+          (entry: any) => entry.product.code === this.card.code
+        )
+        if (foundInCart) {
+          return foundInCart.quantity
+        }
+      }
+      return 0
     }
   }
 })
 </script>
 
 <style lang="sass" scoped>
-.card
-  display: flex
-  flex-direction: column
-  position: relative
-  // box-sizing: border-box;
-  min-width: 115px
-  max-width: 200px
-  flex-basis: 115px
-  flex-grow: 1
-  margin: 1px
-  background-color: white
-  padding: 15px
-  color: #333
+.product-labels
+  position: absolute
+  top: 10px
+  left: 10px
+  width: 30px
 
-  .product-labels
-    position: absolute
-    top: 10px
-    left: 10px
-    width: 30px
+  img
+    width: 100%
 
-    img
-      width: 100%
+.splash
+  position: absolute
+  top: 10px
+  right: 10px
 
-  .splash
-    position: absolute
-    top: 10px
-    right: 10px
+.product-name
+  font-size: 16px
+  margin-bottom: 7px
 
-  .product-name
-    font-size: 16px
-    margin-bottom: 7px
+.product-summary
+  font-size: 12px
+  margin-bottom: 15px
 
-  .product-summary
-    font-size: 12px
-    margin-bottom: 15px
+.brand
+  font-weight: bold
 
-  .brand
-    font-weight: bold
+.consumer-info
+  font-size: 14px
+  color: rgb(170, 170, 170)
+  margin-bottom: 10px
 
-  .consumer-info
-    font-size: 14px
-    color: rgb(170, 170, 170)
-    margin-bottom: 10px
-
-  .deposit
-    font-size: 12px
-    color: rgb(153, 153, 153)
-    font-style: italic
-    white-space: nowrap
+.deposit
+  font-size: 12px
+  color: rgb(153, 153, 153)
+  font-style: italic
+  white-space: nowrap
 </style>

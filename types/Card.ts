@@ -10,6 +10,8 @@ export interface ProductCard extends Product {
   type: CardTypes.PRODUCT
 }
 
+export type Cards = Array<ProductCard | ExtraCard>
+
 export type ExtraCard = AdCard | InfoCard
 
 interface GenericExtraCard {
