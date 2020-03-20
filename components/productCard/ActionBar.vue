@@ -109,13 +109,13 @@ export default Vue.extend({
 
   .buy-mobile
     width: 100%
-    height: 34px
+    height: 40px
     justify-content: center
     align-items: center
     background-color: #00aa46
     border: 0
     outline: 0
-    border-radius: 17px
+    border-radius: 20px
     cursor: pointer
     text-align: center
     font-size: 16px

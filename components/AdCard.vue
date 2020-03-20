@@ -45,16 +45,16 @@ export default Vue.extend({
 .button
   display: inline-block
   width: 100%
-  height: 34px
+  height: 40px
   justify-content: center
   align-items: center
   background-color: #00aa46
   border: 0
   outline: 0
-  border-radius: 17px
+  border-radius: 20px
   cursor: pointer
   text-align: center
   font-size: 16px
-  line-height: 34px
+  line-height: 40px
   color: white
 </style>
