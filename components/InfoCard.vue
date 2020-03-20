@@ -2,7 +2,7 @@
   <div class="card">
     <article>
       <figure>
-        <img :src="card.image" :alt="imageAltText" />
+        <img :src="card.image" :alt="card.imageAltText" />
       </figure>
       <header>{{ card.header }}</header>
       <p>{{ card.text }}</p>
@@ -57,15 +57,16 @@ export default Vue.extend({
   color: #333
 
 figure
-  display: flex
+  margin: 0 //reset
+  position: relative
   width: 100%
-  height: 120px
-  margin: 0
+  padding-top: 100%
 
   img
-    margin-top: auto
+    position: absolute;
     max-width: 80%
-    mac-height: 150px
+    max-height: 150px
+    bottom: 0;
 
 header
   margin: 10px 0 3px 0
