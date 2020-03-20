@@ -28,10 +28,10 @@ export default Vue.extend({
 
 <style lang="sass" scoped>
 .card
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center top;
-  min-height: 300px;
+  background-size: cover
+  background-repeat: no-repeat
+  background-position: center top
+  min-height: 300px
   background-color: white
   padding: 10px
   color: #333

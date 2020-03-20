@@ -80,6 +80,6 @@ p
   color: #00aa46
 
 .icon-pointer
-  vertical-align: middle;
-  line-height: 1;
+  vertical-align: middle
+  line-height: 1
 </style>
