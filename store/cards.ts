@@ -12,35 +12,50 @@ const cardsModule: Module<CardsState, any> = {
       extra: [
         {
           type: CardTypes.AD,
-          position: 12,
-          image: 'http://coop.se/img.webp',
+          position: 1,
+          image: 'https://source.unsplash.com/random/230x460/?dinner',
           link: 'http://coop.se/product'
-        },
-        {
-          type: CardTypes.AD,
-          label: 'unknown',
-          image: 'http://coop.se/img.webp',
-          link: 'http://coop.se/unknown'
         },
         {
           type: CardTypes.INFO,
           label: 'KRAV0U0MARK',
-          image: 'http://coop.se/img.webp',
+          image:
+            'https://res.cloudinary.com/coopsverige/image/upload/cooponline/alltid-bra-pris-200x200.png',
           imageAltText: '',
-          buttonText: '',
-          header: 'Label: Kravmärkt',
-          text: 'Ekologiskt betyder att det är...',
+          buttonText: 'Krav på Coop',
+          header: 'Kravmärkt',
+          text:
+            'Ekologiskt betyder att det är dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
           link: 'http://coop.se/product'
         },
         {
           type: CardTypes.INFO,
           brand: 'Änglamark',
-          image: 'http://coop.se/img.webp',
+          image:
+            'https://res.cloudinary.com/coopsverige/image/upload/cooponline/produktmarkning/NyckelhalLogo.svg',
           imageAltText: '',
           buttonText: 'Mer info',
-          header: 'Brand: Änglamark',
-          text: 'Änglamark är vårt varumärke...',
+          header: 'Änglamark',
+          text: `Änglamark är vårt varumärke. Smod tempor incididunt ut labore et dol.
+            Magna aliqua. Ut enim ad minim veniam`,
           link: 'http://coop.se/product'
+        },
+        {
+          type: CardTypes.INFO,
+          image:
+            'https://res.cloudinary.com/coopsverige/image/upload/v1576163066/cooponline/G%C3%A5rdsbutiken/landingpage-recommended-producers/syltkrukan-type4.jpg',
+          imageAltText: '',
+          buttonText: 'Gårdsbutiken',
+          header: 'Handla lokalt',
+          text:
+            'I gårdsbutiken finns lokala varo rdolor sit amet, consectetur adipiscing elit, sed do et dolore magna aliqua. Ut enim ad minim veniam',
+          link: 'http://coop.se/product'
+        },
+        {
+          type: CardTypes.AD,
+          position: 12,
+          image: 'https://source.unsplash.com/random/230x460/?food',
+          link: 'http://example.com/product'
         }
       ]
     }

@@ -1,12 +1,19 @@
 <template>
   <div>
     <div ref="matrix" class="product-matrix">
-      <div v-for="card in cards" :key="card.sortKey">
-        <component :is="components[card.type]" ref="card" :card="card" />
-      </div>
-      <div v-for="card in unusedCards.slice(0, emptySlots)" :key="card.sortKey">
-        <component :is="components[card.type]" :card="card" />
-      </div>
+      <component
+        :is="components[card.type]"
+        v-for="card in cards"
+        :key="card.sortKey"
+        ref="card"
+        :card="card"
+      />
+      <component
+        :is="components[card.type]"
+        v-for="card in unusedCards.slice(0, emptySlots)"
+        :key="card.sortKey"
+        :card="card"
+      />
       <div v-for="n in fillersNeeded" :key="n" class="card fill-last-row" />
     </div>
     <button
@@ -87,7 +94,6 @@ export default Vue.extend({
   },
   methods: {
     setContainerWidth() {
-      this.cardWidth = this.$refs.card[0].$el.clientWidth
       this.width = this.$refs.matrix['clientWidth']
     },
     ...mapActions({
@@ -98,36 +104,26 @@ export default Vue.extend({
 })
 </script>
 
-<style lang="scss" scoped>
-.product-matrix {
-  display: flex;
-  flex-wrap: wrap;
-}
+<style lang="sass" scoped>
+.product-matrix
+  display: flex
+  flex-wrap: wrap
 
-.fill-last-row {
-  background-color: red;
-}
-</style>
+.fill-last-row
+  background-color: red
 
-<style lang="scss">
-.card {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  // box-sizing: border-box;
-  min-width: 115px;
-  max-width: 200px;
-  flex-basis: 115px;
-  flex-grow: 1;
-  margin: 1px;
-  background-color: white;
-  padding: 15px;
-  color: #333;
+.card
+  box-sizing: border-box
+  display: flex
+  flex-direction: column
+  position: relative
+  min-width: 142px
+  max-width: 230px
+  flex-basis: 142px
+  flex-grow: 1
+  margin: 1px
 
-  @media (min-width: 425px) {
-    min-width: 150px;
-    flex-basis: 150px;
-    padding: 15px;
-  }
-}
+  @media (min-width: 425px)
+    min-width: 150px
+    flex-basis: 150px
 </style>

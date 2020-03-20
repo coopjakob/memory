@@ -91,6 +91,14 @@ export default Vue.extend({
 </script>
 
 <style lang="sass" scoped>
+.card
+  background-color: white
+  padding: 10px
+  color: #333
+
+  @media (min-width: 425px)
+    padding: 15px
+
 .product-labels
   position: absolute
   top: 10px
