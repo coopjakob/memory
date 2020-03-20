@@ -56,6 +56,9 @@ export default Vue.extend({
   padding: 10px
   color: #333
 
+  @media (min-width: 425px)
+    padding: 15px
+
 figure
   margin: 0 //reset
   position: relative

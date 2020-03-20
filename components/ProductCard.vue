@@ -97,8 +97,6 @@ export default Vue.extend({
   color: #333
 
   @media (min-width: 425px)
-    min-width: 150px
-    flex-basis: 150px
     padding: 15px
 
 .product-labels

@@ -36,6 +36,9 @@ export default Vue.extend({
   padding: 10px
   color: #333
 
+  @media (min-width: 425px)
+    padding: 15px
+
 .action
   margin-top: auto
 
