@@ -143,8 +143,8 @@ export default Vue.extend({
     background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMCAyMCI+PHBhdGggZD0iTTE5IDkuNUgxIiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmYiLz48L3N2Zz4=')
 
   .add:focus, .remove:focus
-    border: none;
-    background-color: #001b11;
+    border: none
+    background-color: #001b11
 
   input
     display: none
