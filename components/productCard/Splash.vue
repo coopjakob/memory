@@ -57,67 +57,6 @@ export default Vue.extend({
       }
 
       return { label, price, decimal, unit }
-    },
-    splashText(): any {
-      if (this.product.potentialPromotions[0]) {
-        const regex = /(\d{1,} för) \d{1,}/g
-        const promoText = regex.exec(
-          this.product.potentialPromotions[0].description
-        )
-        if (promoText) {
-          return promoText[1]
-        } else {
-          return false
-        }
-      } else {
-        return false
-      }
-    },
-    splashTextPrice(): any {
-      if (this.product.potentialPromotions[0]) {
-        const regex = /\d{1,} för (\d{1,}.+)/g
-        const promoText = regex.exec(
-          this.product.potentialPromotions[0].description
-        )
-        if (promoText) {
-          return promoText[1]
-        } else {
-          return false
-        }
-      } else {
-        return false
-      }
-    },
-    splashPrice(): any {
-      if (this.product.potentialPromotions[0]) {
-        const regex = /(\d+)(.+) \/(.+)/g
-        const promoText = regex.exec(
-          this.product.potentialPromotions[0].description
-        )
-
-        if (promoText) {
-          if (promoText[3] === 'st') {
-            return promoText[1] + promoText[2]
-          } else {
-            return false
-          }
-        } else {
-          return false
-        }
-      } else {
-        return false
-      }
-    },
-    splashDecimal(): any {
-      if (this.product.potentialPromotions[0]) {
-        const regex = /\d+ för \d+(.+)/g
-        const promoText: any = regex.exec(
-          this.product.potentialPromotions[0].description
-        )
-        return promoText[1]
-      } else {
-        return false
-      }
     }
   }
 })
