@@ -69,7 +69,7 @@ figure
     position: absolute
     max-width: 80%
     max-height: 150px
-    bottom: 0;
+    bottom: 0
 
 header
   margin: 10px 0 3px 0
