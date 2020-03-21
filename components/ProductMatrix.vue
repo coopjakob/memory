@@ -32,7 +32,7 @@ import { mapGetters, mapActions } from 'vuex'
 import ProductCard from './ProductCard.vue'
 import InfoCard from './InfoCard.vue'
 import AdCard from './AdCard.vue'
-import { CardTypes } from '~/types/Card'
+import { CardTypes, Cards } from '~/types/Card'
 
 const initialCardWidth = 152
 
@@ -59,8 +59,14 @@ export default Vue.extend({
       const columns = Math.floor(this.width / this.cardWidth)
       return Math.max(2, columns)
     },
+    cards(): Cards {
+      if (!this.isMobile || !this.didShowMore) {
+        return this.allCards.slice(0, this.columns * 3)
+      }
+      return this.allCards
+    },
     ...mapGetters({
-      cards: 'cards/getCards',
+      allCards: 'cards/getCards',
       unusedCards: 'cards/getUnusedCards',
       loading: 'products/isLoading',
       didShowMore: 'products/didShowMore'
