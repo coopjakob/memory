@@ -80,7 +80,8 @@ const cardsModule: Module<CardsState, any> = {
           if (product) {
             const index = cards.indexOf(product)
             used.push(product.code)
-            cards.splice(index, 0, card)
+            cards[index] = [card, product]
+            // cards.splice(index, 0, card)
             return
           }
         }
@@ -93,7 +94,8 @@ const cardsModule: Module<CardsState, any> = {
           if (product) {
             const index = cards.indexOf(product)
             used.push(product.code)
-            cards.splice(index, 0, card)
+            cards[index] = [card, product]
+            // cards.splice(index, 0, card)
             return
           }
         }

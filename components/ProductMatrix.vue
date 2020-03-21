@@ -1,13 +1,24 @@
 <template>
   <div>
     <div ref="matrix" class="product-matrix">
-      <component
-        :is="components[card.type]"
-        v-for="card in cards"
-        :key="card.sortKey"
-        ref="card"
-        :card="card"
-      />
+      <template v-for="card in cards">
+        <div v-if="Array.isArray(card)" :key="card.sortKey" class="buddy">
+          <component
+            :is="components[_card.type]"
+            v-for="_card in card"
+            :key="_card.sortKey"
+            ref="card"
+            :card="_card"
+          />
+        </div>
+        <component
+          :is="components[card.type]"
+          v-else
+          :key="card.sortKey"
+          ref="card"
+          :card="card"
+        />
+      </template>
       <component
         :is="components[card.type]"
         v-for="card in unusedCards.slice(0, emptySlots)"
@@ -72,7 +83,9 @@ export default Vue.extend({
       didShowMore: 'products/didShowMore'
     }),
     emptySlots(): number {
-      const itemsOnLastRow = this.cards.length % this.columns
+      const numberOfCards =
+        this.cards.length + this.cards.filter(Array.isArray).length
+      const itemsOnLastRow = numberOfCards % this.columns
       if (itemsOnLastRow === 0) {
         return 0
       } else {
@@ -119,8 +132,12 @@ export default Vue.extend({
 
 <style lang="sass" scoped>
 .product-matrix
-  display: flex
+  display: flex // fallback
   flex-wrap: wrap
+  display: grid
+  grid-template-columns: repeat(auto-fill, minmax(142px, 1fr))
+  grid-auto-rows: minmax(142px, auto)
+  grid-auto-flow: dense
 
 .fill-last-row
   background-color: #E8E8E8
@@ -139,4 +156,9 @@ export default Vue.extend({
   @media (min-width: 425px)
     min-width: 150px
     flex-basis: 150px
+
+.buddy
+  grid-column-end: span 2
+  display: flex
+  flex-direction: row
 </style>
