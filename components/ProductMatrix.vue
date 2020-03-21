@@ -84,6 +84,9 @@ export default Vue.extend({
     }
   },
   watch: {
+    allCards() {
+      this.setCardWidth()
+    },
     isMobile(newValue) {
       if (newValue === false) {
         this.loadFull()
@@ -100,7 +103,11 @@ export default Vue.extend({
   },
   methods: {
     setContainerWidth() {
+      this.setCardWidth()
       this.width = this.$refs.matrix['clientWidth']
+    },
+    setCardWidth() {
+      this.cardWidth = this.$refs.card[0].$el.clientWidth
     },
     ...mapActions({
       init: 'products/init',
@@ -116,7 +123,7 @@ export default Vue.extend({
   flex-wrap: wrap
 
 .fill-last-row
-  background-color: red
+  background-color: #E8E8E8
 
 .card
   box-sizing: border-box
