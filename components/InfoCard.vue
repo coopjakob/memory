@@ -8,11 +8,7 @@
       <p>{{ card.text }}</p>
 
       <p>
-        <a
-          class="pointer"
-          :href="card.link"
-          :target="/\Wcoop\.se\W/.test(card.link) ? '_self' : '_blank'"
-        >
+        <a class="pointer" :href="card.link">
           {{ card.buttonText }}
 
           <span class="icon-pointer">
