@@ -41,6 +41,7 @@ export default ProductImage
   margin-bottom: 10px;
 
   img {
+    display: block;
     width: 100%;
     height: auto;
   }
