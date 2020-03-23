@@ -113,6 +113,7 @@ export default Vue.extend({
   mounted() {
     window.addEventListener('resize', this.setContainerWidth)
     this.setContainerWidth()
+    this.$bus.$emit('init')
     this.init()
   },
   methods: {
