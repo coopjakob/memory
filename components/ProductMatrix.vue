@@ -139,6 +139,10 @@ export default Vue.extend({
   grid-auto-rows: minmax(142px, auto)
   grid-auto-flow: dense
 
+  @media (min-width: 425px)
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr))
+      grid-auto-rows: minmax(150px, auto)
+
 .fill-last-row
   background-color: #E8E8E8
 
