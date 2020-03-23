@@ -5,11 +5,14 @@
         <img :src="card.image" :alt="card.imageAltText" />
       </figure>
       <header>{{ card.header }}</header>
-      <p>{{ card.text }}</p>
 
-      <p>
+      <p v-for="p in card.text.split('\n')" :key="p">
+        {{ p }}
+      </p>
+
+      <p v-if="card.link">
         <a class="pointer" :href="card.link">
-          {{ card.buttonText }}
+          {{ card.buttonText || 'Läs mer' }}
 
           <span class="icon-pointer">
             <svg
@@ -34,12 +37,12 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { ExtraCard } from '@/types/Card'
+import { InfoCard } from '@/types/Card'
 
 export default Vue.extend({
   props: {
     card: {
-      type: Object as () => ExtraCard,
+      type: Object as () => InfoCard,
       required: true
     }
   }
