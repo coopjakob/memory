@@ -1,13 +1,24 @@
 <template>
   <div>
     <div ref="matrix" class="product-matrix">
-      <component
-        :is="components[card.type]"
-        v-for="card in cards"
-        :key="card.sortKey"
-        ref="card"
-        :card="card"
-      />
+      <template v-for="card in cards">
+        <div v-if="Array.isArray(card)" :key="card.sortKey" class="buddy">
+          <component
+            :is="components[_card.type]"
+            v-for="_card in card"
+            :key="_card.sortKey"
+            ref="card"
+            :card="_card"
+          />
+        </div>
+        <component
+          :is="components[card.type]"
+          v-else
+          :key="card.sortKey"
+          ref="card"
+          :card="card"
+        />
+      </template>
       <component
         :is="components[card.type]"
         v-for="card in unusedCards.slice(0, emptySlots)"
@@ -32,7 +43,7 @@ import { mapGetters, mapActions } from 'vuex'
 import ProductCard from './ProductCard.vue'
 import InfoCard from './InfoCard.vue'
 import AdCard from './AdCard.vue'
-import { CardTypes } from '~/types/Card'
+import { CardTypes, Cards } from '~/types/Card'
 
 const initialCardWidth = 152
 
@@ -59,14 +70,22 @@ export default Vue.extend({
       const columns = Math.floor(this.width / this.cardWidth)
       return Math.max(2, columns)
     },
+    cards(): Cards {
+      if (!this.isMobile || !this.didShowMore) {
+        return this.allCards.slice(0, this.columns * 3)
+      }
+      return this.allCards
+    },
     ...mapGetters({
-      cards: 'cards/getCards',
+      allCards: 'cards/getCards',
       unusedCards: 'cards/getUnusedCards',
       loading: 'products/isLoading',
       didShowMore: 'products/didShowMore'
     }),
     emptySlots(): number {
-      const itemsOnLastRow = this.cards.length % this.columns
+      const numberOfCards =
+        this.cards.length + this.cards.filter(Array.isArray).length
+      const itemsOnLastRow = numberOfCards % this.columns
       if (itemsOnLastRow === 0) {
         return 0
       } else {
@@ -78,6 +97,9 @@ export default Vue.extend({
     }
   },
   watch: {
+    allCards() {
+      this.setCardWidth()
+    },
     isMobile(newValue) {
       if (newValue === false) {
         this.loadFull()
@@ -94,7 +116,11 @@ export default Vue.extend({
   },
   methods: {
     setContainerWidth() {
+      this.setCardWidth()
       this.width = this.$refs.matrix['clientWidth']
+    },
+    setCardWidth() {
+      this.cardWidth = this.$refs.card[0].$el.clientWidth
     },
     ...mapActions({
       init: 'products/init',
@@ -106,11 +132,15 @@ export default Vue.extend({
 
 <style lang="sass" scoped>
 .product-matrix
-  display: flex
+  display: flex // fallback
   flex-wrap: wrap
+  display: grid
+  grid-template-columns: repeat(auto-fill, minmax(142px, 1fr))
+  grid-auto-rows: minmax(142px, auto)
+  grid-auto-flow: dense
 
 .fill-last-row
-  background-color: red
+  background-color: #E8E8E8
 
 .card
   box-sizing: border-box
@@ -126,4 +156,9 @@ export default Vue.extend({
   @media (min-width: 425px)
     min-width: 150px
     flex-basis: 150px
+
+.buddy
+  grid-column-end: span 2
+  display: flex
+  flex-direction: row
 </style>
