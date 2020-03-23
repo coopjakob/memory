@@ -72,7 +72,8 @@ export default Vue.extend({
     },
     cards(): Cards {
       if (!this.isMobile || !this.didShowMore) {
-        return this.allCards.slice(0, this.columns * 3)
+        const buddies = this.allCards.filter((card) => Array.isArray(card))
+        return this.allCards.slice(0, this.columns * 3 - buddies.length)
       }
       return this.allCards
     },
