@@ -29,7 +29,6 @@
       <button
         class="buy-mobile js-qty-selector-plus"
         aria-label="Lägg till i varukorgen"
-        :disabled="qty <= 0"
         @click="qty = 1"
       >
         Köp
@@ -99,7 +98,6 @@ export default Vue.extend({
   display: flex
   justify-content: space-between
   flex-grow: 1
-  padding: 3px
   border-radius: 20px
   background-color: #00aa46
   color: white
@@ -110,6 +108,7 @@ export default Vue.extend({
   .buy-mobile
     width: 100%
     height: 40px
+    padding: 0
     justify-content: center
     align-items: center
     background-color: #00aa46
@@ -125,6 +124,7 @@ export default Vue.extend({
     display: none
     width: 34px
     height: 34px
+    margin: 3px
     background-color: #005537
     background-repeat: no-repeat
     background-position: center
