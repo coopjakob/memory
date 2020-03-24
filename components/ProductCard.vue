@@ -44,10 +44,10 @@
 <script lang="ts">
 import Vue from 'vue'
 import ProductImage from './productCard/ProductImage.vue'
-import ActionBar from './productCard/ActionBar.vue'
-import Splash from './productCard/Splash.vue'
-import Price from './productCard/Price.vue'
+import Splash from './Splash.vue'
 import SwedishFlag from './productCard/SwedishFlag.vue'
+import Price from './productCard/Price.vue'
+import ActionBar from './productCard/ActionBar.vue'
 import { ProductCard } from '~/types/Card'
 
 export default Vue.extend({
