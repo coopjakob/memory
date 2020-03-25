@@ -8,7 +8,7 @@
     <product-image
       :url="card.url"
       :image-url="card.images[0].url"
-      :title="imgAlt"
+      :title="card.name"
     />
     <div class="splash">
       <splash :product="card" />
@@ -67,9 +67,6 @@ export default Vue.extend({
   computed: {
     promoDescription(): string | undefined {
       return this.card.potentialPromotions[0]?.description
-    },
-    imgAlt(): string {
-      return this.card.name + ' ' + this.card.price + 'kr/st'
     },
     initQty(): number {
       if (!this.$store) {
