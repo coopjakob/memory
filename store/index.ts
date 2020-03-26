@@ -1,9 +1,3 @@
-export default {
-  state() {
-    return {
-    }
-  },
-  mutations: {},
-  actions: {},
-  modules: {}
-}
+export const state = () => ({
+  
+})

@@ -112,9 +112,11 @@ export default Vue.extend({
   },
   mounted() {
     window.addEventListener('resize', this.setContainerWidth)
-    this.setContainerWidth()
-    this.$bus.$emit('init')
-    this.init()
+    Vue.nextTick(() => {
+      this.setContainerWidth()
+      this.$bus.$emit('init')
+      this.init()
+    })
   },
   methods: {
     setContainerWidth() {
@@ -122,7 +124,11 @@ export default Vue.extend({
       this.width = this.$refs.matrix['clientWidth']
     },
     setCardWidth() {
-      this.cardWidth = this.$refs.card[0].$el.clientWidth
+      if (this.$refs.card) {
+        this.cardWidth = this.$refs.card[0].$el.clientWidth
+      } else {
+        this.cardWidth = initialCardWidth
+      }
     },
     ...mapActions({
       init: 'products/init',
