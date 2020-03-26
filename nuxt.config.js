@@ -1,3 +1,4 @@
+const webpack = require('webpack')
 export default {
   mode: 'spa',
   /*
@@ -54,11 +55,38 @@ export default {
   axios: {},
   /*
    ** Build configuration
+
+    analyze: true,
    */
   build: {
+    publicPath: '/',
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {}
+    extend(config, ctx) {
+      config.plugins.push(
+        new webpack.optimize.LimitChunkCountPlugin({
+          maxChunks: 1
+        })
+      )
+    },
+    filenames: {
+      app: '[name].js',
+      chunk: '[name].js',
+      css: '[name].css',
+    },
+    extractCSS: false,
+    optimization: {
+      splitChunks: {
+        chunks: 'async',
+      }
+    },
+    splitChunks: {
+      pages: false,
+      vendor: false,
+      commons: false,
+      runtime: false,
+      layouts: false
+    },
   }
 }
