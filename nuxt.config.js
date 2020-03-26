@@ -59,7 +59,6 @@ export default {
     analyze: true,
    */
   build: {
-    publicPath: '/',
     /*
      ** You can extend webpack config here
      */
@@ -75,7 +74,7 @@ export default {
       chunk: '[name].js',
       css: '[name].css',
     },
-    extractCSS: false,
+    extractCSS: true,
     optimization: {
       splitChunks: {
         chunks: 'async',
