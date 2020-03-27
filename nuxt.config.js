@@ -30,7 +30,7 @@ export default {
   plugins: [
     '~plugins/bus.js',
     '~plugins/filters.js',
-    { src: '~/plugins/config.js', mode: 'client' }
+    { src: '~/plugins/config.ts', mode: 'client' }
   ],
   /*
    ** Nuxt.js dev-modules
