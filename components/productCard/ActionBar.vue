@@ -2,34 +2,28 @@
   <div class="action">
     <div
       class="add-to-cart m-cart-addition qty-selector js-qty-selector"
-      :class="{ 'has-value': qty > 0 }"
+      :class="{ 'has-value': initQty > 0 }"
       :data-product="id"
       :data-category-lvl-1="categories[0].code"
       :data-category-lvl-3="categories[2].code"
     >
       <button
         class="remove js-qty-selector-minus"
-        :disabled="qty === 0"
+        :disabled="initQty === 0"
         aria-label="Minska antalet"
-        @click="qty = qty - 1"
       />
       <input
         class="js-qty-selector-input"
         type="number"
-        :value="qty"
+        :value="initQty"
         min="0"
         max="999"
         data-max="999"
       />
-      <button
-        class="add js-qty-selector-plus"
-        aria-label="Öka antalet"
-        @click="qty = qty + 1"
-      />
+      <button class="add js-qty-selector-plus" aria-label="Öka antalet" />
       <button
         class="buy-mobile js-qty-selector-plus"
         aria-label="Lägg till i varukorgen"
-        @click="qty = 1"
       >
         Köp
       </button>
@@ -53,28 +47,6 @@ export default Vue.extend({
       type: Array,
       required: true
     }
-  },
-  data() {
-    return {
-      qty: this.initQty
-    }
-  },
-  watch: {
-    qty(newValue) {
-      if (newValue < 0) {
-        this.qty = 0
-      }
-    }
-  },
-  methods: {
-    addToCart() {
-      const toAdd = {
-        id: this.id,
-        qty: this.qty
-      }
-      this.$store.dispatch('cart/add', toAdd)
-      this.qty = 0
-    }
   }
 })
 </script>
@@ -93,6 +65,9 @@ export default Vue.extend({
   flex-grow: 1
   color: white
   cursor: pointer
+
+.m-cart-addition
+  padding: 0 // reset coop.se
 
 .qty-selector
   display: flex
