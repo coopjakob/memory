@@ -72,9 +72,11 @@ export default Vue.extend({
       if (!this.$store) {
         return 0
       }
+
       const cart = this.$store.state.cart
-      if (cart.entries.length) {
-        const foundInCart = cart.entries.find(
+
+      if (cart.response?.entries) {
+        const foundInCart = cart.response.entries.find(
           (entry: any) => entry.product.code === this.card.code
         )
         if (foundInCart) {
