@@ -1,5 +1,5 @@
 export const actions = {
-  async getCart({ rootState, commit }) {
+  async fetchCart({ rootState, commit }) {
     const { config } = rootState
 
     let axiosConfig = {}
