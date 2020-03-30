@@ -1,11 +1,15 @@
 const webpack = require('webpack')
+
 export default {
   mode: 'spa',
   /*
    ** Headers of the page
    */
   head: {
-  },
+    meta: [
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+    ]
+  }
   /*
    ** Customize the progress-bar color
    */
