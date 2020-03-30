@@ -3,7 +3,7 @@
 context('Categories', () => {
   it('should render products', () => {
     cy.visit('/')
-    cy.get('[data-testid="productCard"]')
+    cy.get('.product-matrix')
       .its('length')
       .should('be.gt', 0)
   })
