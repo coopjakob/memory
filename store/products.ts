@@ -46,7 +46,7 @@ const productsModule: Module<ProductsState, any> = {
     async fetch({ rootState, state, commit }, { placements }) {
       const { config } = rootState
       commit('loading')
-      const baseUrl = 'https://www.coop.se/ws/v2/coop/users/anonymous'
+      const baseUrl = 'https://www.coop.se/ws/v2/coop/users/' + config.user
       const query = {
         placements,
         fields: 'DEFAULT',

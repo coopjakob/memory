@@ -27,13 +27,11 @@
       />
       <div v-for="n in fillersNeeded" :key="n" class="card fill-last-row" />
     </div>
-    <button
-      v-if="!didShowMore && isMobile"
-      :disabled="loading"
-      @click="loadFull"
-    >
-      Visa mer
-    </button>
+    <div v-if="!didShowMore && isMobile" class="show-more">
+      <button class="coopknapp" :disabled="loading" @click="loadFull">
+        Visa mer
+      </button>
+    </div>
   </div>
 </template>
 
@@ -114,6 +112,7 @@ export default Vue.extend({
     window.addEventListener('resize', this.setContainerWidth)
     this.setContainerWidth()
     this.$bus.$emit('init')
+    this.fetchCart()
     this.init()
   },
   methods: {
@@ -126,6 +125,7 @@ export default Vue.extend({
     },
     ...mapActions({
       init: 'products/init',
+      fetchCart: 'cart/fetchCart',
       loadFull: 'products/loadFull'
     })
   }
@@ -167,4 +167,20 @@ export default Vue.extend({
   grid-column-end: span 2
   display: flex
   flex-direction: row
+
+.show-more
+  width: 100%
+  text-align: center
+
+.coopknapp
+  width: 190px
+  margin: 10px auto
+  padding: 10px
+  color: white
+  cursor: pointer
+  height: 40px
+  border-radius: 20px
+  background-color: #00aa46
+  font-size: 16px
+  border: 0
 </style>
