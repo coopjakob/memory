@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <div class="card extra-card info-card">
     <article>
       <figure>
         <img :src="card.image" :alt="card.imageAltText" />

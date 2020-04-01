@@ -1,5 +1,8 @@
 <template>
-  <div class="card" :style="{ 'background-image': 'url(' + card.image + ')' }">
+  <div
+    class="card extra-card ad-card"
+    :style="{ 'background-image': 'url(' + card.image + ')' }"
+  >
     <div class="action">
       <a class="button" :href="card.link">
         Handla nu

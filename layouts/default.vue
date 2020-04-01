@@ -12,6 +12,7 @@ div {
 }
 body {
   background-color: #f5f5f5;
+  margin: 0;
 }
 a {
   color: #337ab7;
