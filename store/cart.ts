@@ -1,3 +1,5 @@
+import { CartState } from '~/types/Cart'
+
 export const actions = {
   async fetchCart({ rootState, commit }) {
     const { config } = rootState
@@ -27,8 +29,7 @@ export const actions = {
 }
 
 export const mutations = {
-  setCart(state, payload) {
-    // `state = payload` doesn't work
+  setCart(state, payload: CartState) {
     state.response = payload
   }
 }
