@@ -20,7 +20,7 @@ const configModule: Module<ProductsState, any> = {
   },
   actions: {
     init({ commit }, config) {
-      if (config.user !== 'anonymous') {
+      if (config.user !== 'anonymous' && config.user !== 'anonymousb2b') {
         this['$axios'].setHeader('Authorization', `Bearer ${config.authToken}`)
       }
       commit('setConfig', config)
