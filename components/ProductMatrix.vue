@@ -25,7 +25,6 @@
         :key="card.sortKey"
         :card="card"
       />
-      <div v-for="n in fillersNeeded" :key="n" class="card fill-last-row" />
     </div>
     <div v-if="!didShowMore && isMobile" class="show-more">
       <button class="coopknapp" :disabled="loading" @click="loadFull">

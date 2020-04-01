@@ -18,18 +18,6 @@ const cardsModule: Module<CardsState, any> = {
         },
         {
           type: CardTypes.INFO,
-          label: 'KRAV0U0MARK',
-          image:
-            'https://res.cloudinary.com/coopsverige/image/upload/cooponline/alltid-bra-pris-200x200.png',
-          imageAltText: '',
-          buttonText: 'Krav på Coop',
-          header: 'Kravmärkt',
-          text:
-            'Ekologiskt betyder att det är dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
-          link: 'http://coop.se/product'
-        },
-        {
-          type: CardTypes.INFO,
           brand: 'Änglamark',
           image:
             'https://res.cloudinary.com/coopsverige/image/upload/cooponline/produktmarkning/NyckelhalLogo.svg',
@@ -38,6 +26,18 @@ const cardsModule: Module<CardsState, any> = {
           header: 'Änglamark',
           text: `Änglamark är vårt varumärke. Smod tempor incididunt ut labore et dol.
             Magna aliqua. Ut enim ad minim veniam`,
+          link: 'http://coop.se/product'
+        },
+        {
+          type: CardTypes.INFO,
+          label: 'KRAV0U0MARK',
+          image:
+            'https://res.cloudinary.com/coopsverige/image/upload/cooponline/alltid-bra-pris-200x200.png',
+          imageAltText: '',
+          buttonText: 'Krav på Coop',
+          header: 'Kravmärkt',
+          text:
+            'Ekologiskt betyder att det är dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
           link: 'http://coop.se/product'
         },
         {
