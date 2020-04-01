@@ -112,7 +112,7 @@ export default Vue.extend({
     window.addEventListener('resize', this.setContainerWidth)
     this.setContainerWidth()
     this.$bus.$emit('init')
-    this.getCart()
+    this.fetchCart()
     this.init()
   },
   methods: {
@@ -125,7 +125,7 @@ export default Vue.extend({
     },
     ...mapActions({
       init: 'products/init',
-      getCart: 'cart/getCart',
+      fetchCart: 'cart/fetchCart',
       loadFull: 'products/loadFull'
     })
   }

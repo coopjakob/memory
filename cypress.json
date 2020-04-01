@@ -1,6 +1,6 @@
 {
   "baseUrl": "http://localhost:3000",
-  "projectId": "atpc1m",
+  "projectId": "55t2mo",
   "integrationFolder": "test/e2e/integration",
   "fixturesFolder": false,
   "pluginsFile": "test/e2e/plugins/index.js",

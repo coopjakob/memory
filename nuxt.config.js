@@ -1,10 +1,14 @@
 const webpack = require('webpack')
+
 export default {
   mode: 'spa',
   /*
    ** Headers of the page
    */
   head: {
+    meta: [
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+    ]
   },
   /*
    ** Customize the progress-bar color
@@ -20,7 +24,7 @@ export default {
   plugins: [
     '~plugins/bus.js',
     '~plugins/filters.js',
-    { src: '~/plugins/config.js', mode: 'client' }
+    { src: '~/plugins/config.ts', mode: 'client' }
   ],
   /*
    ** Nuxt.js dev-modules
