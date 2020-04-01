@@ -28,7 +28,7 @@
     "eslint-plugin-cypress": "^2.10.3",
     "lodash": "^4.17.15",
     "lodash.uniqby": "^4.7.0",
-    "nuxt": "^2.0.0",
+    "nuxt": "^2.12.2",
     "query-string": "^6.11.1",
     "vue-class-component": "^7.2.3",
     "vue-property-decorator": "^8.4.0"
