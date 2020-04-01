@@ -31,13 +31,13 @@ jobs:
         with:
           jestArgs: test/unit
 
-      - name: Build project
-        run: yarn build
+      # - name: Build project
+      #   run: yarn build
 
       - name: Run e2e tests
         uses: cypress-io/github-action@v1
         with:
-          start: yarn start
+          start: yarn dev
           record: true
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
