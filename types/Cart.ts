@@ -1,7 +1,7 @@
 export interface CartState {
-  entries: {
+  entries: Array<{
     product: {
       code: String
     }
-  }
+  }>
 }
