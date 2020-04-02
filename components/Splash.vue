@@ -17,6 +17,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import event from '@/event'
 
 export default Vue.extend({
   props: {
@@ -28,6 +29,7 @@ export default Vue.extend({
   computed: {
     splash(): any {
       if (this.description === '') {
+        event('no-splash')
         return false
       }
 
@@ -37,6 +39,8 @@ export default Vue.extend({
       const parts = regex.exec(this.description)
 
       if (parts?.groups) {
+        event('show-splash')
+
         let label = parts.groups.label
         let price = parts.groups.price
         const decimal = parts.groups.decimal

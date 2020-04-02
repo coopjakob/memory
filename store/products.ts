@@ -3,6 +3,7 @@ import qs from 'query-string'
 import uniqBy from 'lodash.uniqby'
 import Product from '~/types/Product'
 import { CardTypes, ProductCard } from '~/types/Card'
+import event from '@/event'
 
 interface ProductsState {
   recieved: Array<Product>
@@ -28,6 +29,7 @@ const productsModule: Module<ProductsState, any> = {
       dispatch('loadFew')
     },
     async loadFew({ dispatch, commit }) {
+      event('load-few')
       const products = await dispatch('fetch', {
         placements: 'home_page.2020_start_few'
       })
@@ -35,8 +37,10 @@ const productsModule: Module<ProductsState, any> = {
     },
     async loadFull({ state, dispatch, commit }) {
       if (state.didShowMore) {
+        event('full-exists')
         return
       }
+      event('load-full')
       const products = await dispatch('fetch', {
         placements: 'home_page.2020_start_full'
       })
@@ -44,6 +48,7 @@ const productsModule: Module<ProductsState, any> = {
       commit('didShowMore')
     },
     async fetch({ rootState, state, commit }, { placements }) {
+      event('fetch-products')
       const { config } = rootState
       commit('loading')
       const baseUrl = 'https://www.coop.se/ws/v2/coop/users/' + config.user
@@ -70,6 +75,7 @@ const productsModule: Module<ProductsState, any> = {
       if (!rcs) {
         return
       }
+      event('set-rcs')
       sessionStorage.setItem('rcs', rcs)
       state.rcs = rcs
     },
@@ -77,9 +83,11 @@ const productsModule: Module<ProductsState, any> = {
       state.didShowMore = true
     },
     clearProducts(state: ProductsState) {
+      event('clear-products')
       state.recieved = []
     },
     gotProducts(state: ProductsState, products: Array<Product>) {
+      event('remove-duplicates')
       state.recieved = uniqBy([...state.recieved, ...products], 'code')
       state.loading = false
     }

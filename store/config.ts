@@ -1,4 +1,5 @@
 import { Module } from 'vuex'
+import event from '@/event'
 
 interface ProductsState {
   authToken: String
@@ -21,13 +22,17 @@ const configModule: Module<ProductsState, any> = {
   actions: {
     init({ commit }, config) {
       if (config.user !== 'anonymous' && config.user !== 'anonymousb2b') {
+        event('user-found')
         this['$axios'].setHeader('Authorization', `Bearer ${config.authToken}`)
+      } else {
+        event('anonymous')
       }
       commit('setConfig', config)
     }
   },
   mutations: {
     setConfig(state, config) {
+      event('set-config')
       Object.entries(config).forEach(([key, value]: [string, any]) => {
         state[key] = value
       })

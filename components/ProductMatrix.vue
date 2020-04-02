@@ -41,6 +41,7 @@ import ProductCard from './ProductCard.vue'
 import InfoCard from './InfoCard.vue'
 import AdCard from './AdCard.vue'
 import { CardTypes, Cards } from '~/types/Card'
+import event from '@/event'
 
 const initialCardWidth = 152
 
@@ -100,6 +101,7 @@ export default Vue.extend({
     },
     isMobile(newValue) {
       if (newValue === false) {
+        event('not-phone')
         this.loadFull()
       }
     }
@@ -108,18 +110,20 @@ export default Vue.extend({
     window.removeEventListener('resize', this.setContainerWidth)
   },
   mounted() {
+    event('grid-mounted')
     window.addEventListener('resize', this.setContainerWidth)
     this.setContainerWidth()
-    this.$bus.$emit('init')
     this.fetchCart()
     this.init()
   },
   methods: {
     setContainerWidth() {
+      event('set-widths')
       this.setCardWidth()
       this.width = this.$refs.matrix['clientWidth']
     },
     setCardWidth() {
+      event('card-width')
       this.cardWidth = this.$refs.card[0].$el.clientWidth
     },
     ...mapActions({

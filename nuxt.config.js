@@ -22,8 +22,7 @@ export default {
    ** Plugins to load before mounting the App
    */
   plugins: [
-    '~plugins/bus.js',
-    '~plugins/filters.js',
+    '~/plugins/filters.js',
     { src: '~/plugins/config.ts', mode: 'client' }
   ],
   /*

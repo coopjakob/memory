@@ -1,6 +1,7 @@
 import { Module } from 'vuex'
 import { CardTypes, ExtraCard, Cards } from '../types/Card'
 import Product from '~/types/Product'
+import event from '@/event'
 
 interface CardsState {
   extra: Array<ExtraCard>
@@ -86,10 +87,12 @@ const cardsModule: Module<CardsState, any> = {
       const used: string[] = []
       state.extra.forEach((card) => {
         if (card.position) {
+          event('position-card')
           cards.splice(card.position - 1, 0, card)
           return
         }
         if (card.label) {
+          event('label-card')
           const product = cards.find(
             (product: Product) =>
               product.productLabels?.find(
@@ -105,6 +108,7 @@ const cardsModule: Module<CardsState, any> = {
           }
         }
         if (card.brand) {
+          event('brand-card')
           const product = cards.find(
             (product: Product) =>
               product.manufacturer === card.brand &&
@@ -123,9 +127,11 @@ const cardsModule: Module<CardsState, any> = {
       return [cards, unusedCards]
     },
     getCards(state, getters) {
+      event('get-cards')
       return getters.getAllCards[0]
     },
     getUnusedCards(state, getters) {
+      event('unused-cards')
       return getters.getAllCards[1]
     }
   }
