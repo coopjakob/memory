@@ -13,7 +13,22 @@ const cardsModule: Module<CardsState, any> = {
         {
           type: CardTypes.AD,
           position: 1,
-          image: 'https://source.unsplash.com/random/230x460/?dinner',
+          image:
+            'https://res.cloudinary.com/coopsverige/image/upload/v1585574793/cooponline/2020/480x760.jpg',
+          link: 'http://coop.se/product'
+        },
+        {
+          type: CardTypes.AD,
+          position: 14,
+          image:
+            'https://res.cloudinary.com/coopsverige/image/upload/v1585574785/cooponline/2020/330x704_ny_grid.jpg',
+          link: 'http://coop.se/product'
+        },
+        {
+          type: CardTypes.AD,
+          position: 21,
+          image:
+            'https://res.cloudinary.com/coopsverige/image/upload/v1585574777/cooponline/2020/Coop_kategoribanners5.jpg',
           link: 'http://coop.se/product'
         },
         {
@@ -53,9 +68,13 @@ const cardsModule: Module<CardsState, any> = {
         },
         {
           type: CardTypes.AD,
-          position: 12,
           image: 'https://source.unsplash.com/random/230x460/?food',
           link: 'http://example.com/product'
+        },
+        {
+          type: CardTypes.AD,
+          image: 'https://source.unsplash.com/random/230x460/?dinner',
+          link: 'http://coop.se/product'
         }
       ]
     }
