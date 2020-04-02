@@ -52,11 +52,8 @@ export default Vue.extend({
 <style lang="sass" scoped>
 .card
   background-color: white
-  padding: 10px
+  padding: 15px
   color: #333
-
-  @media (min-width: 425px)
-    padding: 15px
 
 figure
   margin: 0 //reset

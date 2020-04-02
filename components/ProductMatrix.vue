@@ -43,7 +43,7 @@ import AdCard from './AdCard.vue'
 import { CardTypes, Cards } from '~/types/Card'
 import event from '@/event'
 
-const initialCardWidth = 152
+const initialCardWidth = 150
 
 export default Vue.extend({
   components: {
@@ -70,8 +70,34 @@ export default Vue.extend({
     },
     cards(): Cards {
       if (!this.isMobile || !this.didShowMore) {
-        const buddies = this.allCards.filter((card) => Array.isArray(card))
-        return this.allCards.slice(0, this.columns * 3 - buddies.length)
+        const cardContent: Cards = []
+
+        const limitRows = 3
+        const limitSpace = this.columns * limitRows
+
+        let filledSpace = 0
+        let index = 0
+        while (filledSpace < limitSpace) {
+          if (!this.allCards[index]) {
+            break
+          }
+
+          if (Array.isArray(this.allCards[index])) {
+            if (limitSpace - filledSpace > 1) {
+              cardContent.push(this.allCards[index])
+              filledSpace = filledSpace + 2
+            } else {
+              cardContent.push(this.allCards[index][1])
+              filledSpace++
+            }
+          } else {
+            cardContent.push(this.allCards[index])
+            filledSpace++
+          }
+
+          index++
+        }
+        return cardContent
       }
       return this.allCards
     },
@@ -120,11 +146,15 @@ export default Vue.extend({
     setContainerWidth() {
       event('set-widths')
       this.setCardWidth()
-      this.width = this.$refs.matrix['clientWidth']
+      if (this.$refs.matrix) {
+        this.width = this.$refs.matrix['clientWidth']
+      }
     },
     setCardWidth() {
-      event('card-width')
-      this.cardWidth = this.$refs.card[0].$el.clientWidth
+      if (this.$refs.card) {
+        event('card-width')
+        this.cardWidth = this.$refs.card[0].$el.clientWidth
+      }
     },
     ...mapActions({
       init: 'products/init',
@@ -137,39 +167,25 @@ export default Vue.extend({
 
 <style lang="sass" scoped>
 .product-matrix
-  display: flex // fallback
-  flex-wrap: wrap
   display: grid
   grid-template-columns: repeat(auto-fill, minmax(142px, 1fr))
-  grid-auto-rows: minmax(142px, auto)
   grid-auto-flow: dense
+  grid-gap: 2px
 
   @media (min-width: 425px)
-      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr))
-      grid-auto-rows: minmax(150px, auto)
-
-.fill-last-row
-  background-color: #E8E8E8
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr))
 
 .card
   box-sizing: border-box
   display: flex
   flex-direction: column
   position: relative
-  min-width: 142px
-  max-width: 230px
-  flex-basis: 142px
-  flex-grow: 1
-  margin: 1px
-
-  @media (min-width: 425px)
-    min-width: 150px
-    flex-basis: 150px
 
 .buddy
   grid-column-end: span 2
-  display: flex
-  flex-direction: row
+  display: grid
+  grid-template-columns: repeat(auto-fill, minmax(142px, 1fr))
+  grid-gap: 2px
 
 .show-more
   width: 100%

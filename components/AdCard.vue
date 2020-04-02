@@ -32,11 +32,8 @@ export default Vue.extend({
   background-position: center top
   min-height: 300px
   background-color: white
-  padding: 10px
+  padding: 15px
   color: #333
-
-  @media (min-width: 425px)
-    padding: 15px
 
 .action
   margin-top: auto
