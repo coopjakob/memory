@@ -11,6 +11,7 @@
         class="remove js-qty-selector-minus"
         :disabled="initQty === 0"
         aria-label="Minska antalet"
+        @click="event('product-remove')"
       />
       <input
         class="js-qty-selector-input"
@@ -19,11 +20,17 @@
         min="0"
         max="999"
         data-max="999"
+        @change="event('qty-change')"
       />
-      <button class="add js-qty-selector-plus" aria-label="Öka antalet" />
+      <button
+        class="add js-qty-selector-plus"
+        aria-label="Öka antalet"
+        @click="event('product-add')"
+      />
       <button
         class="buy-mobile js-qty-selector-plus"
         aria-label="Lägg till i varukorgen"
+        @click="event('product-add')"
       >
         Köp
       </button>
@@ -33,6 +40,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import event from '@/event'
 export default Vue.extend({
   props: {
     id: {
@@ -47,6 +55,9 @@ export default Vue.extend({
       type: Array,
       required: true
     }
+  },
+  methods: {
+    event
   }
 })
 </script>
