@@ -7,6 +7,11 @@ interface CardsState {
   extra: Array<ExtraCard>
 }
 
+const generateSkeltons = (n: number) =>
+  Array(n).fill({
+    type: CardTypes.SKELETON
+  })
+
 const cardsModule: Module<CardsState, any> = {
   state(): CardsState {
     return {
@@ -82,7 +87,9 @@ const cardsModule: Module<CardsState, any> = {
   },
   getters: {
     getAllCards(state, getters, rootState, rootGetters): Cards {
-      const cards = rootGetters['products/getProductsAsCards']
+      const cards = !rootGetters['products/isInited']
+        ? generateSkeltons(30)
+        : rootGetters['products/getProductsAsCards']
       const unusedCards: Array<ExtraCard> = []
       const used: string[] = []
       state.extra.forEach((card) => {

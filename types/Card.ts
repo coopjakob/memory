@@ -3,7 +3,8 @@ import Product from '~/types/Product'
 export enum CardTypes {
   INFO = 'info',
   PRODUCT = 'product',
-  AD = 'ad'
+  AD = 'ad',
+  SKELETON = 'skeleton'
 }
 
 export interface ProductCard extends Product {
@@ -12,12 +13,16 @@ export interface ProductCard extends Product {
 
 export type Cards = Array<ProductCard | ExtraCard>
 
-export type ExtraCard = AdCard | InfoCard
+export type ExtraCard = AdCard | InfoCard | SkeletonCard
 
 interface GenericExtraCard {
   position?: number
   label?: string
   brand?: string
+}
+
+interface SkeletonCard extends GenericExtraCard {
+  type: CardTypes.SKELETON
 }
 
 export interface AdCard extends GenericExtraCard {

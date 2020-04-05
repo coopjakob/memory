@@ -40,21 +40,20 @@ import { mapGetters, mapActions } from 'vuex'
 import ProductCard from './ProductCard.vue'
 import InfoCard from './InfoCard.vue'
 import AdCard from './AdCard.vue'
+import SkeletonCard from './SkeletonCard.vue'
 import { CardTypes, Cards } from '~/types/Card'
 import event from '@/event'
 
 const initialCardWidth = 150
 
 export default Vue.extend({
-  components: {
-    ProductCard
-  },
   data() {
     return {
       cardWidth: initialCardWidth,
       width: 0,
       components: {
         [CardTypes.PRODUCT]: ProductCard,
+        [CardTypes.SKELETON]: SkeletonCard,
         [CardTypes.INFO]: InfoCard,
         [CardTypes.AD]: AdCard
       }
