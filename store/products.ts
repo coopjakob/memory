@@ -5,11 +5,17 @@ import Product from '~/types/Product'
 import { CardTypes, ProductCard } from '~/types/Card'
 import event from '@/event'
 
+const wait = (time: number) =>
+  new Promise((resolve) => {
+    setTimeout(resolve, time)
+  })
+
 interface ProductsState {
   recieved: Array<Product>
   rcs?: string
   didShowMore: boolean
   loading: boolean
+  inited: boolean
 }
 
 const productsModule: Module<ProductsState, any> = {
@@ -18,7 +24,8 @@ const productsModule: Module<ProductsState, any> = {
       recieved: [],
       rcs: undefined,
       didShowMore: false,
-      loading: false
+      loading: false,
+      inited: false
     }
   },
   actions: {
@@ -51,6 +58,9 @@ const productsModule: Module<ProductsState, any> = {
       event('fetch-products')
       const { config } = rootState
       commit('loading')
+      if (process.env.NODE_ENV === 'development') {
+        await wait(3000)
+      }
       const baseUrl = 'https://www.coop.se/ws/v2/coop/users/' + config.user
       const query = {
         placements,
@@ -90,11 +100,15 @@ const productsModule: Module<ProductsState, any> = {
       event('remove-duplicates')
       state.recieved = uniqBy([...state.recieved, ...products], 'code')
       state.loading = false
+      state.inited = true
     }
   },
   getters: {
     isLoading(state: ProductsState): boolean {
       return state.loading
+    },
+    isInited(state: ProductsState): boolean {
+      return state.inited
     },
     didShowMore(state: ProductsState) {
       return state.didShowMore
