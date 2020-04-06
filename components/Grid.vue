@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div ref="matrix" class="product-matrix">
+    <div ref="grid" class="grid">
       <template v-for="card in cards">
         <div v-if="Array.isArray(card)" :key="card.sortKey" class="buddy">
           <component
@@ -146,8 +146,8 @@ export default Vue.extend({
     setContainerWidth() {
       event('set-widths')
       this.setCardWidth()
-      if (this.$refs.matrix) {
-        this.width = this.$refs.matrix['clientWidth']
+      if (this.$refs.grid) {
+        this.width = this.$refs.grid['clientWidth']
       }
     },
     setCardWidth() {
@@ -166,7 +166,7 @@ export default Vue.extend({
 </script>
 
 <style lang="sass" scoped>
-.product-matrix
+.grid
   display: grid
   grid-template-columns: repeat(auto-fill, minmax(142px, 1fr))
   grid-auto-flow: dense

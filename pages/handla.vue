@@ -1,15 +1,15 @@
 <template>
   <div class="home">
-    <ProductMatrix />
+    <Grid />
   </div>
 </template>
 
 <script>
-import ProductMatrix from '@/components/ProductMatrix.vue'
+import Grid from '@/components/Grid.vue'
 export default {
   name: 'Home',
   components: {
-    ProductMatrix
+    Grid
   }
 }
 </script>
