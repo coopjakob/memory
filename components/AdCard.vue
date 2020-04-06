@@ -32,7 +32,12 @@ export default Vue.extend({
 
       if (this.card.column) {
         const row = this.card.row || 1
-        const column = this.card.column
+        let column = this.card.column
+
+        if (column === 'last') {
+          column = -2
+        }
+
         style = {
           ...style,
           'grid-row': row,

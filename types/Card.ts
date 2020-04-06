@@ -16,7 +16,7 @@ export type ExtraCard = AdCard | InfoCard
 
 interface GenericExtraCard {
   position?: number
-  column?: number
+  column?: number | 'last'
   row?: number
   label?: string
   brand?: string

@@ -1,5 +1,5 @@
 <template>
-  <div class="card extra-card info-card">
+  <div class="card extra-card info-card" :style="classObject">
     <article>
       <figure>
         <img :src="card.image" :alt="card.imageAltText" />
@@ -44,6 +44,28 @@ export default Vue.extend({
     card: {
       type: Object as () => InfoCard,
       required: true
+    }
+  },
+  computed: {
+    classObject() {
+      let style = {}
+
+      if (this.card.column) {
+        const row = this.card.row || 1
+        let column = this.card.column
+
+        if (column === 'last') {
+          column = -2
+        }
+
+        style = {
+          ...style,
+          'grid-row': row,
+          'grid-column': column
+        }
+      }
+
+      return style
     }
   }
 })
