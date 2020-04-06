@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="card extra-card ad-card"
-    :style="{ 'background-image': 'url(' + card.image + ')' }"
-  >
+  <div class="card extra-card ad-card" :style="classObject">
     <div class="action">
       <a class="button" :href="card.link">
         Handla nu
@@ -13,13 +10,37 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { ExtraCard } from '@/types/Card'
+import { AdCard } from '@/types/Card'
 
 export default Vue.extend({
   props: {
     card: {
-      type: Object as () => ExtraCard,
+      type: Object as () => AdCard,
       required: true
+    }
+  },
+  computed: {
+    classObject() {
+      let style = {}
+
+      if (this.card.image) {
+        style = {
+          ...style,
+          'background-image': `url('${this.card.image}')`
+        }
+      }
+
+      if (this.card.column) {
+        const row = this.card.row || 1
+        const column = this.card.column
+        style = {
+          ...style,
+          'grid-row': row,
+          'grid-column': column
+        }
+      }
+
+      return style
     }
   }
 })
