@@ -2,7 +2,11 @@
   <div>
     <div ref="grid" class="grid">
       <template v-for="card in cards">
-        <div v-if="Array.isArray(card)" :key="card.sortKey" class="buddy">
+        <div
+          v-if="didShowMore && Array.isArray(card)"
+          :key="card.sortKey"
+          class="buddy"
+        >
           <component
             :is="components[_card.type]"
             v-for="_card in card"
@@ -17,6 +21,7 @@
           :key="card.sortKey"
           ref="card"
           :card="card"
+          :columns="columns"
         />
       </template>
       <component
@@ -24,6 +29,7 @@
         v-for="card in unusedCards.slice(0, emptySlots)"
         :key="card.sortKey"
         :card="card"
+        :columns="columns"
       />
     </div>
     <div v-if="!didShowMore && isMobile" class="show-more">
@@ -82,7 +88,7 @@ export default Vue.extend({
             break
           }
 
-          if (Array.isArray(this.allCards[index])) {
+          if (this.didShowMore && Array.isArray(this.allCards[index])) {
             if (limitSpace - filledSpace > 1) {
               cardContent.push(this.allCards[index])
               filledSpace = filledSpace + 2

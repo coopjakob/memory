@@ -44,6 +44,10 @@ export default Vue.extend({
     card: {
       type: Object as () => InfoCard,
       required: true
+    },
+    columns: {
+      type: Number,
+      required: true
     }
   },
   computed: {
@@ -54,8 +58,20 @@ export default Vue.extend({
         const row = this.card.row || 1
         let column = this.card.column
 
+        if (column === -1) {
+          column = 'last'
+        }
+
         if (column === 'last') {
           column = -2
+        }
+
+        if (column > this.columns) {
+          column = this.columns
+        }
+
+        if (column < -this.columns) {
+          column = 1
         }
 
         style = {
