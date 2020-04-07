@@ -1,4 +1,5 @@
 import Product from '~/types/Product'
+import { ConfigState } from '~/types/Config'
 
 export enum CardTypes {
   INFO = 'info',
@@ -19,6 +20,8 @@ interface GenericExtraCard {
   position?: number
   label?: string
   brand?: string
+  include?: ConfigState
+  exclude?: ConfigState
 }
 
 interface SkeletonCard extends GenericExtraCard {
@@ -29,14 +32,15 @@ export interface AdCard extends GenericExtraCard {
   type: CardTypes.AD
   image: string
   link: string
+  buttonText?: string
 }
 
 export interface InfoCard extends GenericExtraCard {
   type: CardTypes.INFO
   image: string
-  imageAltText: string
+  imageAltText?: string
   header: string
   text: string
   link: string
-  buttonText: string
+  buttonText?: string
 }

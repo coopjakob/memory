@@ -5,7 +5,7 @@
   >
     <div class="action">
       <a class="button" :href="card.link">
-        Handla nu
+        {{ card.buttonText || 'Handla nu' }}
       </a>
     </div>
   </div>
@@ -13,12 +13,12 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { ExtraCard } from '@/types/Card'
+import { AdCard } from '@/types/Card'
 
 export default Vue.extend({
   props: {
     card: {
-      type: Object as () => ExtraCard,
+      type: Object as () => AdCard,
       required: true
     }
   }
