@@ -1,15 +1,21 @@
 const webpack = require('webpack')
 
+let meta = []
+
+if (process.env.NODE_ENV === 'development') {
+  meta = [
+    { charset: 'utf-8' },
+    { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+  ]
+}
+
 export default {
   mode: 'spa',
   /*
    ** Headers of the page
    */
   head: {
-    meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-    ]
+    meta: meta
   },
   /*
    ** Customize the progress-bar color
