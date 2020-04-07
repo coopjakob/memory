@@ -87,9 +87,15 @@ const cardsModule: Module<CardsState, any> = {
   },
   getters: {
     getAllCards(state, getters, rootState, rootGetters): Cards {
-      const cards = !rootGetters['products/isInited']
-        ? generateSkeltons(30)
-        : rootGetters['products/getProductsAsCards']
+      let cards = rootGetters['products/getProductsAsCards']
+
+      if (!rootGetters['products/isInited']) {
+        cards = [
+          ...rootGetters['products/getProductsAsCards'],
+          ...generateSkeltons(30)
+        ]
+      }
+
       const unusedCards: Array<ExtraCard> = []
       const used: string[] = []
       state.extra.forEach((card) => {
