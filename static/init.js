@@ -1,19 +1,10 @@
 ;(function() {
   const domain = 'https://zealous-murdock-e708be.netlify.com'
 
-  const replaceElement = document.querySelector(
-    "[data-type='MOST_PURCHASED_PRODUCTS']"
-  )
-
-  if (!replaceElement) {
-    // eslint-disable-next-line no-console
-    console.error('No place for memory')
-    return
-  }
-
-  replaceElement.id = '__nuxt'
-  replaceElement.innerHTML = ''
-  replaceElement.className = ''
+  const link = document.createElement('link')
+  link.rel = 'stylesheet'
+  link.href = domain + '/_nuxt/app.css'
+  document.querySelector('head').appendChild(link)
 
   function addScript(path) {
     const script = document.createElement('script')
@@ -21,11 +12,31 @@
     document.querySelector('body').appendChild(script)
   }
 
-  addScript('/_nuxt/app.js')
-  addScript('/_nuxt/runtime.js')
+  const checkExist = setInterval(function() {
+    if (window.ACC) {
+      clearInterval(checkExist)
+      // eslint-disable-next-line no-console
+      console.debug('Memory: Config availible')
 
-  const link = document.createElement('link')
-  link.rel = 'stylesheet'
-  link.href = domain + '/_nuxt/app.css'
-  document.querySelector('head').appendChild(link)
+      const replaceElement = document.querySelector(
+        "[data-type='MOST_PURCHASED_PRODUCTS']"
+      )
+
+      if (!replaceElement) {
+        // eslint-disable-next-line no-console
+        console.error('Memory: Element not found')
+        return
+      }
+
+      replaceElement.id = '__nuxt'
+      replaceElement.innerHTML = ''
+      replaceElement.className = ''
+
+      addScript('/_nuxt/app.js')
+      addScript('/_nuxt/runtime.js')
+    } else {
+      // eslint-disable-next-line no-console
+      console.debug('Memory: Config not found')
+    }
+  }, 100)
 })()
