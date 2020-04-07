@@ -26,15 +26,14 @@
         :card="card"
       />
     </div>
+
     <div v-if="!loading" class="show-more">
-      <button
+      <Coopknapp
         v-if="!didShowMore && isMobile"
-        class="coopknapp"
+        cta="Visa mer"
         :disabled="loading"
         @click="loadFull"
-      >
-        Visa mer
-      </button>
+      />
     </div>
     <div v-else-if="isMobile" class="show-more">
       <div class="lds-ellipsis">
@@ -53,12 +52,16 @@ import ProductCard from './ProductCard.vue'
 import InfoCard from './InfoCard.vue'
 import AdCard from './AdCard.vue'
 import SkeletonCard from './SkeletonCard.vue'
+import Coopknapp from './Coopknapp.vue'
 import { CardTypes, Cards } from '~/types/Card'
 import event from '@/event'
 
 const initialCardWidth = 150
 
 export default Vue.extend({
+  components: {
+    Coopknapp
+  },
   data() {
     return {
       cardWidth: initialCardWidth,
@@ -261,16 +264,4 @@ export default Vue.extend({
 .show-more
   width: 100%
   text-align: center
-
-.coopknapp
-  width: 190px
-  margin: 10px auto
-  padding: 10px
-  color: white
-  cursor: pointer
-  height: 40px
-  border-radius: 20px
-  background-color: #00aa46
-  font-size: 16px
-  border: 0
 </style>
