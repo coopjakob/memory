@@ -1,5 +1,5 @@
 ;(function() {
-  const domain = 'https://zealous-murdock-e708be.netlify.com'
+  const domain = 'https://coop-memory-jam.netlify.com/'
 
   const link = document.createElement('link')
   link.rel = 'stylesheet'
