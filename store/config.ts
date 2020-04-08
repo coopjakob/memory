@@ -1,15 +1,8 @@
 import { Module } from 'vuex'
+import { ConfigState } from '~/types/Config'
 import event from '@/event'
 
-interface ProductsState {
-  authToken: String
-  cartguid: String
-  coopStore: String
-  rrSessionId: String
-  user: String
-}
-
-const configModule: Module<ProductsState, any> = {
+const configModule: Module<ConfigState, any> = {
   state() {
     return {
       authToken: '',

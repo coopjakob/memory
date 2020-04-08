@@ -19,9 +19,27 @@ const cardsModule: Module<CardsState, any> = {
         {
           type: CardTypes.AD,
           position: 1,
+          include: {
+            user: 'anonymous'
+          },
           image:
             'https://res.cloudinary.com/coopsverige/image/upload/v1585574793/cooponline/2020/480x760.jpg',
           link: 'http://coop.se/product'
+        },
+        {
+          type: CardTypes.AD,
+          position: 2,
+          include: {
+            user: 'anonymous',
+            storeName: 'STOCKHOLM'
+          },
+          exclude: {
+            postCode: undefined,
+            b2bUser: true
+          },
+          image: 'https://source.unsplash.com/random/230x460/?stockholm',
+          link: 'http://coop.se/product',
+          buttonText: 'Stockholm'
         },
         {
           type: CardTypes.AD,
@@ -46,7 +64,6 @@ const cardsModule: Module<CardsState, any> = {
           brand: 'Änglamark',
           image:
             'https://res.cloudinary.com/coopsverige/image/upload/cooponline/produktmarkning/NyckelhalLogo.svg',
-          imageAltText: '',
           buttonText: 'Mer info',
           header: 'Änglamark',
           text: `Änglamark är vårt varumärke. Smod tempor incididunt ut labore et dol.
@@ -93,6 +110,8 @@ const cardsModule: Module<CardsState, any> = {
   },
   getters: {
     getAllCards(state, getters, rootState, rootGetters): Cards {
+      const { config } = rootState
+
       const cards = !rootGetters['products/isInited']
         ? generateSkeltons(30)
         : rootGetters['products/getProductsAsCards']
@@ -103,6 +122,16 @@ const cardsModule: Module<CardsState, any> = {
           event('grid-position')
           cards.splice(0, 0, card)
           return
+        }
+        if (card.include) {
+          for (const [key, value] of Object.entries(card.include)) {
+            if (config[key] !== value) return
+          }
+        }
+        if (card.exclude) {
+          for (const [key, value] of Object.entries(card.exclude)) {
+            if (config[key] === value) return
+          }
         }
         if (card.position) {
           event('position-card')

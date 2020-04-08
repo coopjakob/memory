@@ -2,7 +2,7 @@
   <div class="card extra-card ad-card" :style="classObject">
     <div class="action">
       <a class="button" :href="card.link">
-        Handla nu
+        {{ card.buttonText || 'Handla nu' }}
       </a>
     </div>
   </div>
