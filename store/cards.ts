@@ -26,6 +26,8 @@ const cardsModule: Module<CardsState, any> = {
         {
           type: CardTypes.AD,
           position: 14,
+          row: 2,
+          column: 3,
           image:
             'https://res.cloudinary.com/coopsverige/image/upload/v1585574785/cooponline/2020/330x704_ny_grid.jpg',
           link: 'http://coop.se/product'
@@ -33,6 +35,8 @@ const cardsModule: Module<CardsState, any> = {
         {
           type: CardTypes.AD,
           position: 21,
+          row: 3,
+          column: 'last',
           image:
             'https://res.cloudinary.com/coopsverige/image/upload/v1585574777/cooponline/2020/Coop_kategoribanners5.jpg',
           link: 'http://coop.se/product'
@@ -63,6 +67,8 @@ const cardsModule: Module<CardsState, any> = {
         },
         {
           type: CardTypes.INFO,
+          row: 3,
+          column: -3,
           image:
             'https://res.cloudinary.com/coopsverige/image/upload/v1576163066/cooponline/G%C3%A5rdsbutiken/landingpage-recommended-producers/syltkrukan-type4.jpg',
           imageAltText: '',
@@ -93,6 +99,11 @@ const cardsModule: Module<CardsState, any> = {
       const unusedCards: Array<ExtraCard> = []
       const used: string[] = []
       state.extra.forEach((card) => {
+        if (card.column && !card.position) {
+          event('grid-position')
+          cards.splice(0, 0, card)
+          return
+        }
         if (card.position) {
           event('position-card')
           cards.splice(card.position - 1, 0, card)

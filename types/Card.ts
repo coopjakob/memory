@@ -17,6 +17,8 @@ export type ExtraCard = AdCard | InfoCard | SkeletonCard
 
 interface GenericExtraCard {
   position?: number
+  column?: number | 'last'
+  row?: number
   label?: string
   brand?: string
 }
