@@ -1,5 +1,5 @@
 <template>
-  <div class="card" data-testid="productCard">
+  <div class="card" :data-clickurl="card.clickUrl">
     <div class="product-labels">
       <div v-for="label in card.productLabels" :key="label.sortKey">
         <img :src="label.icon" />
