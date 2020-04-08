@@ -11,9 +11,6 @@ if (process.env.NODE_ENV === 'development') {
 
 export default {
   mode: 'spa',
-  generate: {
-    fallback: 'index.html'
-  },
   /*
    ** Headers of the page
    */
@@ -32,8 +29,7 @@ export default {
    ** Plugins to load before mounting the App
    */
   plugins: [
-    '~/plugins/filters.js',
-    { src: '~/plugins/config.ts', mode: 'client' }
+    '~/plugins/filters.js'
   ],
   /*
    ** Nuxt.js dev-modules

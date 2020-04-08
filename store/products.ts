@@ -5,10 +5,10 @@ import Product from '~/types/Product'
 import { CardTypes, ProductCard } from '~/types/Card'
 import event from '@/event'
 
-const wait = (time: number) =>
-  new Promise((resolve) => {
-    setTimeout(resolve, time)
-  })
+// const wait = (time: number) =>
+//   new Promise((resolve) => {
+//     setTimeout(resolve, time)
+//   })
 
 interface ProductsState {
   recieved: Array<Product>
@@ -57,13 +57,10 @@ const productsModule: Module<ProductsState, any> = {
       commit('gotProductsFull', products)
       commit('didShowMore')
     },
-    async fetch({ rootState, state, commit }, { placements }) {
+    async fetch({ state, commit }, { placements }) {
       event('fetch-products')
-      const { config } = rootState
+      const config = window.ACC.config
       commit('loading')
-      if (process.env.NODE_ENV === 'development') {
-        await wait(3000)
-      }
       const baseUrl = 'https://www.coop.se/ws/v2/coop/users/' + config.user
       const query = {
         placements,
@@ -74,7 +71,15 @@ const productsModule: Module<ProductsState, any> = {
       }
       const queryString = qs.stringify(query)
       const url = `${baseUrl}/products/recommend-segmented?${queryString}`
-      const response = await this['$axios'].$get(url)
+
+      let axiosConfig = {}
+      if (config.user !== 'anonymous' && config.user !== 'anonymousb2b') {
+        axiosConfig = {
+          headers: { Authorization: `Bearer ${config.authToken}` }
+        }
+      }
+
+      const response = await this['$axios'].$get(url, axiosConfig)
       const { products, rcs } = response.placements[0]
       commit('newRcs', rcs)
       return products

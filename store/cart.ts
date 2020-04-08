@@ -15,13 +15,20 @@ export const state = () => ({
 })
 
 export const actions = {
-  async fetchCart({ rootState, commit }) {
-    const { config } = rootState
+  async fetchCart({ commit }) {
+    const config = window.ACC.config
 
     try {
       event('fetch-cart')
-      const { data } = await this['$axios'].get(
-        `https://www.coop.se/ws/v2/coop/users/${config.user}/carts/${config.cartguid}?fields=DEFAULT`
+      let axiosConfig = {}
+      if (config.user !== 'anonymous' && config.user !== 'anonymousb2b') {
+        axiosConfig = {
+          headers: { Authorization: `Bearer ${config.authToken}` }
+        }
+      }
+      const { data } = await this['$axios'].$get(
+        `https://www.coop.se/ws/v2/coop/users/${config.user}/carts/${config.cartguid}?fields=DEFAULT`,
+        axiosConfig
       )
       commit('setCart', data)
     } catch (error) {
