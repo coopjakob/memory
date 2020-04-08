@@ -11,6 +11,9 @@ if (process.env.NODE_ENV === 'development') {
 
 export default {
   mode: 'spa',
+  generate: {
+    fallback: 'index.html'
+  },
   /*
    ** Headers of the page
    */
