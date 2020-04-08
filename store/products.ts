@@ -40,18 +40,21 @@ const productsModule: Module<ProductsState, any> = {
       const products = await dispatch('fetch', {
         placements: 'home_page.2020_start_few'
       })
-      commit('gotProducts', products)
+      commit('gotProductsFew', products)
     },
     async loadFull({ state, dispatch, commit }) {
       if (state.didShowMore) {
         event('full-exists')
         return
       }
+      if (process.env.NODE_ENV === 'development') {
+        await wait(3000)
+      }
       event('load-full')
       const products = await dispatch('fetch', {
         placements: 'home_page.2020_start_full'
       })
-      commit('gotProducts', products)
+      commit('gotProductsFull', products)
       commit('didShowMore')
     },
     async fetch({ rootState, state, commit }, { placements }) {
@@ -96,7 +99,12 @@ const productsModule: Module<ProductsState, any> = {
       event('clear-products')
       state.recieved = []
     },
-    gotProducts(state: ProductsState, products: Array<Product>) {
+    gotProductsFew(state: ProductsState, products: Array<Product>) {
+      event('remove-duplicates')
+      state.recieved = uniqBy([...state.recieved, ...products], 'code')
+      state.loading = false
+    },
+    gotProductsFull(state: ProductsState, products: Array<Product>) {
       event('remove-duplicates')
       state.recieved = uniqBy([...state.recieved, ...products], 'code')
       state.loading = false
