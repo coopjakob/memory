@@ -47,9 +47,6 @@ const productsModule: Module<ProductsState, any> = {
         event('full-exists')
         return
       }
-      if (process.env.NODE_ENV === 'development') {
-        await wait(3000)
-      }
       event('load-full')
       const products = await dispatch('fetch', {
         placements: 'home_page.2020_start_full'

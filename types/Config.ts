@@ -7,9 +7,9 @@ export interface ConfigState {
   user?: String
   numberOfOrders?: Number
   hasSavedCarts?: Boolean
-  medmeraId?: string
+  medmeraId?: String
   b2bUser?: Boolean
-  postCode?: String
+  sessionPostCode?: String
   deliveryMode?: {
     code: String
     name: String

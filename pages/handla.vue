@@ -11,12 +11,11 @@
 </template>
 
 <script>
-import Vue from 'vue'
 import Grid from '@/components/Grid.vue'
 
-export default Vue.extend({
+export default {
   components: {
     Grid
   }
-})
+}
 </script>

@@ -23,19 +23,27 @@ const cardsModule: Module<CardsState, any> = {
             user: 'anonymous'
           },
           image:
-            'https://res.cloudinary.com/coopsverige/image/upload/v1585574793/cooponline/2020/480x760.jpg',
-          link: 'http://coop.se/product'
+            'https://coop-static.netlify.com/SFC0864_Dumle_easter_330x704px.jpg',
+          link: 'https://www.coop.se/handla/search?text=dumle'
+        },
+        {
+          type: CardTypes.AD,
+          position: 1,
+          include: {
+            user: 'anonymousb2b'
+          },
+          image: 'https://coop-static.netlify.com/anglamark.jpg',
+          link: 'https://www.coop.se/handla/anglamark',
+          buttonText: 'Änglamark'
         },
         {
           type: CardTypes.AD,
           position: 2,
           include: {
-            user: 'anonymous',
             storeName: 'STOCKHOLM'
           },
           exclude: {
-            postCode: undefined,
-            b2bUser: true
+            sessionPostCode: ''
           },
           image: 'https://source.unsplash.com/random/230x460/?stockholm',
           link: 'http://coop.se/product',
@@ -43,74 +51,51 @@ const cardsModule: Module<CardsState, any> = {
         },
         {
           type: CardTypes.AD,
-          position: 14,
+          include: {
+            user: 'anonymous'
+          },
+          position: 8,
           row: 2,
           column: 3,
-          image:
-            'https://res.cloudinary.com/coopsverige/image/upload/v1585574785/cooponline/2020/330x704_ny_grid.jpg',
-          link: 'http://coop.se/product'
+          image: 'https://coop-static.netlify.com/sa-funkar-det.jpg',
+          link: 'https://www.coop.se/handla/sa-funkar-det',
+          buttonText: 'Så funkar det'
         },
         {
           type: CardTypes.AD,
-          position: 21,
+          include: {
+            b2bUser: false
+          },
+          position: 15,
           row: 3,
           column: 'last',
-          image:
-            'https://res.cloudinary.com/coopsverige/image/upload/v1585574777/cooponline/2020/Coop_kategoribanners5.jpg',
-          link: 'http://coop.se/product'
-        },
-        {
-          type: CardTypes.INFO,
-          brand: 'Änglamark',
-          image:
-            'https://res.cloudinary.com/coopsverige/image/upload/cooponline/produktmarkning/NyckelhalLogo.svg',
-          buttonText: 'Mer info',
-          header: 'Änglamark',
-          text: `Änglamark är vårt varumärke. Smod tempor incididunt ut labore et dol.
-            Magna aliqua. Ut enim ad minim veniam`,
-          link: 'http://coop.se/product'
-        },
-        {
-          type: CardTypes.INFO,
-          label: 'KRAV0U0MARK',
-          image:
-            'https://res.cloudinary.com/coopsverige/image/upload/cooponline/alltid-bra-pris-200x200.png',
-          imageAltText: '',
-          buttonText: 'Krav på Coop',
-          header: 'Kravmärkt',
-          text:
-            'Ekologiskt betyder att det är dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
-          link: 'http://coop.se/product'
-        },
-        {
-          type: CardTypes.INFO,
-          row: 3,
-          column: -3,
-          image:
-            'https://res.cloudinary.com/coopsverige/image/upload/v1576163066/cooponline/G%C3%A5rdsbutiken/landingpage-recommended-producers/syltkrukan-type4.jpg',
-          imageAltText: '',
-          buttonText: 'Gårdsbutiken',
-          header: 'Handla lokalt',
-          text:
-            'I gårdsbutiken finns lokala varo rdolor sit amet, consectetur adipiscing elit, sed do et dolore magna aliqua. Ut enim ad minim veniam',
-          link: 'http://coop.se/product'
+          image: 'https://coop-static.netlify.com/matkassar.jpg',
+          link: 'https://www.coop.se/handla/matkasse',
+          buttonText: 'Matkassar'
         },
         {
           type: CardTypes.AD,
-          image: 'https://source.unsplash.com/random/230x460/?food',
-          link: 'http://example.com/product'
+          image:
+            'https://coop-static.netlify.com/Gridbanner_Valio_Desktop330x704_Vanilj.jpg',
+          link: 'https://www.coop.se/handla/search?text=valio'
         },
         {
           type: CardTypes.AD,
-          image: 'https://source.unsplash.com/random/230x460/?dinner',
-          link: 'http://coop.se/product'
+          image: 'https://coop-static.netlify.com/poang.jpg',
+          link: 'https://www.coop.se/medlemsinfo',
+          buttonText: 'Läs mer'
+        },
+        {
+          type: CardTypes.AD,
+          image: 'https://coop-static.netlify.com/Gridbanner_OLW_330x704.jpg',
+          link: 'https://www.coop.se/handla/search?text=OLW'
         }
       ]
     }
   },
   getters: {
     getAllCards(state, getters, rootState, rootGetters): Cards {
-      const { config } = rootState
+      const { config } = window.ACC
       let cards = rootGetters['products/getProductsAsCards']
 
       if (!rootGetters['products/isInited']) {
