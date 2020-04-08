@@ -1,6 +1,19 @@
 import { CartState } from '~/types/Cart'
 import event from '@/event'
 
+export const state = () => ({
+  response: {
+    entries: [
+      {
+        product: {
+          code: ''
+        },
+        quantity: 0
+      }
+    ]
+  }
+})
+
 export const actions = {
   async fetchCart({ rootState, commit }) {
     const { config } = rootState
