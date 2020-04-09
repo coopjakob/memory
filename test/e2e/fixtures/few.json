@@ -1,381 +1,379 @@
 {
-    "JSON": {
-        "placements": [
-            {
-                "products": [
-                    {
-                        "categories": [
-                            {
-                                "code": "6327",
-                                "name": "Ost"
-                            },
-                            {
-                                "code": "32462",
-                                "name": "Matost"
-                            },
-                            {
-                                "code": "32542",
-                                "name": "Fetaost - Salladsost"
-                            }
-                        ],
-                        "clickUrl": "https://recs.richrelevance.com/rrserver/apiclick?a=c5aa3f92242c950c&cak=182bc783b3c1fff9&vg=bca3a193-b5fe-418c-7993-645c579502d0&stid=31574&pti=9&pa=52046&pos=0&p=7350002402658&channelId=182bc783b3c1fff9&s=s162292562862688&rid=016001&sgs=customer_private%3APrivate+Customer&mvtId=-1&mvtTs=1586425564727",
-                        "code": "7350002402658",
-                        "comparisonPrice": {
-                            "currencyIso": "SEK",
-                            "formattedValue": "133:- kr/kg",
-                            "priceType": "BUY",
-                            "value": 133
+    "placements": [
+        {
+            "products": [
+                {
+                    "categories": [
+                        {
+                            "code": "6327",
+                            "name": "Ost"
                         },
-                        "consumerInformationText": [],
-                        "depositPrice": {
-                            "currencyIso": "SEK",
-                            "formattedValue": "0:-",
-                            "priceType": "BUY",
-                            "value": 0
+                        {
+                            "code": "32462",
+                            "name": "Matost"
                         },
-                        "fromSweden": false,
-                        "images": [
-                            {
-                                "altText": "Feta 23 %",
-                                "url": "https://res.cloudinary.com/coopsverige/image/upload/303124.tiff"
-                            }
-                        ],
-                        "manufacturer": "Zeta",
-                        "name": "Feta 23 %",
-                        "packageSize": 150,
-                        "packageSizeInformation": "150 g",
-                        "packageSizeUnit": "G",
-                        "pieceWeight": 0,
-                        "potentialPromotions": [
-                            {
-                                "code": "flerköp zeta ost",
-                                "description": "2 för 38:-",
-                                "endDate": "2020-05-10T19:59:00+0000",
-                                "medmera": false,
-                                "startDate": "2020-01-19T23:00:00+0000"
-                            }
-                        ],
-                        "price": {
-                            "currencyIso": "SEK",
-                            "formattedValue": "19:95",
-                            "priceType": "BUY",
-                            "value": 19.95
-                        },
-                        "productLabels": [],
-                        "url": "/handla/varor/ost/matost/fetaost-salladsost/feta-23-7350002402658",
-                        "variances": []
+                        {
+                            "code": "32542",
+                            "name": "Fetaost - Salladsost"
+                        }
+                    ],
+                    "clickUrl": "https://recs.richrelevance.com/rrserver/apiclick?a=c5aa3f92242c950c&cak=182bc783b3c1fff9&vg=bca3a193-b5fe-418c-7993-645c579502d0&stid=31574&pti=9&pa=52046&pos=0&p=7350002402658&channelId=182bc783b3c1fff9&s=s162292562862688&rid=016001&sgs=customer_private%3APrivate+Customer&mvtId=-1&mvtTs=1586425564727",
+                    "code": "7350002402658",
+                    "comparisonPrice": {
+                        "currencyIso": "SEK",
+                        "formattedValue": "133:- kr/kg",
+                        "priceType": "BUY",
+                        "value": 133
                     },
-                    {
-                        "categories": [
-                            {
-                                "code": "6262",
-                                "name": "Mejeri & Ägg"
-                            },
-                            {
-                                "code": "10090522",
-                                "name": "Yoghurt"
-                            },
-                            {
-                                "code": "10090571",
-                                "name": "Enliters Yoghurt"
-                            }
-                        ],
-                        "clickUrl": "https://recs.richrelevance.com/rrserver/apiclick?a=c5aa3f92242c950c&cak=182bc783b3c1fff9&vg=bca3a193-b5fe-418c-7993-645c579502d0&stid=31574&pti=9&pa=52046&pos=1&p=7300156491763&channelId=182bc783b3c1fff9&s=s162292562862688&rid=016001&sgs=customer_private%3APrivate+Customer&mvtId=-1&mvtTs=1586425564727",
-                        "code": "7300156491763",
-                        "comparisonPrice": {
-                            "currencyIso": "SEK",
-                            "formattedValue": "12:60 kr/lit",
-                            "priceType": "BUY",
-                            "value": 12.6
-                        },
-                        "consumerInformationText": [],
-                        "depositPrice": {
-                            "currencyIso": "SEK",
-                            "formattedValue": "0:-",
-                            "priceType": "BUY",
-                            "value": 0
-                        },
-                        "fromSweden": false,
-                        "images": [
-                            {
-                                "altText": "Mild Yoghurt Naturell ",
-                                "url": "https://res.cloudinary.com/coopsverige/image/upload/361712.tiff"
-                            }
-                        ],
-                        "manufacturer": "Coop",
-                        "name": "Mild Yoghurt Naturell ",
-                        "packageSize": 1,
-                        "packageSizeInformation": "1 L",
-                        "packageSizeUnit": "L",
-                        "pieceWeight": 0,
-                        "potentialPromotions": [],
-                        "price": {
-                            "currencyIso": "SEK",
-                            "formattedValue": "12:60",
-                            "priceType": "BUY",
-                            "value": 12.6
-                        },
-                        "productLabels": [
-                            {
-                                "code": "alltidlagtpris",
-                                "icon": "https://res.cloudinary.com/coopsverige/image/upload/cooponline/alltid-bra-pris-200x200.png",
-                                "priority": 10
-                            }
-                        ],
-                        "url": "/handla/varor/mejeri-agg/yoghurt/enliters-yoghurt/mild-yoghurt-naturell-7300156491763",
-                        "variances": []
+                    "consumerInformationText": [],
+                    "depositPrice": {
+                        "currencyIso": "SEK",
+                        "formattedValue": "0:-",
+                        "priceType": "BUY",
+                        "value": 0
                     },
-                    {
-                        "categories": [
-                            {
-                                "code": "6262",
-                                "name": "Mejeri & Ägg"
-                            },
-                            {
-                                "code": "32205",
-                                "name": "Bak - Matlagning"
-                            },
-                            {
-                                "code": "32217",
-                                "name": "Gräddfil -Creme Fraiche"
-                            }
-                        ],
-                        "clickUrl": "https://recs.richrelevance.com/rrserver/apiclick?a=c5aa3f92242c950c&cak=182bc783b3c1fff9&vg=bca3a193-b5fe-418c-7993-645c579502d0&stid=31574&pti=9&pa=52046&pos=2&p=7310865004703&channelId=182bc783b3c1fff9&s=s162292562862688&rid=016001&sgs=customer_private%3APrivate+Customer&mvtId=-1&mvtTs=1586425564727",
-                        "code": "7310865004703",
-                        "comparisonPrice": {
-                            "currencyIso": "SEK",
-                            "formattedValue": "36:50 kr/lit",
-                            "priceType": "BUY",
-                            "value": 36.5
-                        },
-                        "consumerInformationText": [],
-                        "depositPrice": {
-                            "currencyIso": "SEK",
-                            "formattedValue": "0:-",
-                            "priceType": "BUY",
-                            "value": 0
-                        },
-                        "fromSweden": false,
-                        "images": [
-                            {
-                                "altText": "Gräddfil",
-                                "url": "https://res.cloudinary.com/coopsverige/image/upload/385304.tiff"
-                            }
-                        ],
-                        "manufacturer": "Arla Ko",
-                        "name": "Gräddfil",
-                        "packageSize": 3,
-                        "packageSizeInformation": "3 dl",
-                        "packageSizeUnit": "DL",
-                        "pieceWeight": 0,
-                        "potentialPromotions": [],
-                        "price": {
-                            "currencyIso": "SEK",
-                            "formattedValue": "10:95",
-                            "priceType": "BUY",
-                            "value": 10.95
-                        },
-                        "productLabels": [
-                            {
-                                "code": "alltidlagtpris",
-                                "icon": "https://res.cloudinary.com/coopsverige/image/upload/cooponline/alltid-bra-pris-200x200.png",
-                                "priority": 10
-                            }
-                        ],
-                        "url": "/handla/varor/mejeri-agg/bak-matlagning/graddfil-creme-fraiche/graddfil-7310865004703",
-                        "variances": []
+                    "fromSweden": false,
+                    "images": [
+                        {
+                            "altText": "Feta 23 %",
+                            "url": "https://res.cloudinary.com/coopsverige/image/upload/303124.tiff"
+                        }
+                    ],
+                    "manufacturer": "Zeta",
+                    "name": "Feta from fixture 23 %",
+                    "packageSize": 150,
+                    "packageSizeInformation": "150 g",
+                    "packageSizeUnit": "G",
+                    "pieceWeight": 0,
+                    "potentialPromotions": [
+                        {
+                            "code": "flerköp zeta ost",
+                            "description": "2 för 38:-",
+                            "endDate": "2020-05-10T19:59:00+0000",
+                            "medmera": false,
+                            "startDate": "2020-01-19T23:00:00+0000"
+                        }
+                    ],
+                    "price": {
+                        "currencyIso": "SEK",
+                        "formattedValue": "19:95",
+                        "priceType": "BUY",
+                        "value": 19.95
                     },
-                    {
-                        "categories": [
-                            {
-                                "code": "18121",
-                                "name": "Bröd & Bageri"
-                            },
-                            {
-                                "code": "32528",
-                                "name": "Bröd"
-                            },
-                            {
-                                "code": "7775188",
-                                "name": "Hårt Bröd - Portion"
-                            }
-                        ],
-                        "clickUrl": "https://recs.richrelevance.com/rrserver/apiclick?a=c5aa3f92242c950c&cak=182bc783b3c1fff9&vg=bca3a193-b5fe-418c-7993-645c579502d0&stid=31574&pti=9&pa=52046&pos=3&p=7300400114813&channelId=182bc783b3c1fff9&s=s162292562862688&rid=016001&sgs=customer_private%3APrivate+Customer&mvtId=-1&mvtTs=1586425564727",
-                        "code": "7300400114813",
-                        "comparisonPrice": {
-                            "currencyIso": "SEK",
-                            "formattedValue": "40:32 kr/kg",
-                            "priceType": "BUY",
-                            "value": 40.32
+                    "productLabels": [],
+                    "url": "/handla/varor/ost/matost/fetaost-salladsost/feta-23-7350002402658",
+                    "variances": []
+                },
+                {
+                    "categories": [
+                        {
+                            "code": "6262",
+                            "name": "Mejeri & Ägg"
                         },
-                        "consumerInformationText": [],
-                        "depositPrice": {
-                            "currencyIso": "SEK",
-                            "formattedValue": "0:-",
-                            "priceType": "BUY",
-                            "value": 0
+                        {
+                            "code": "10090522",
+                            "name": "Yoghurt"
                         },
-                        "fromSweden": false,
-                        "images": [
-                            {
-                                "altText": "Falu Råg-Rut",
-                                "url": "https://res.cloudinary.com/coopsverige/image/upload/396432.tiff"
-                            }
-                        ],
-                        "manufacturer": "Wasa",
-                        "name": "Falu Råg-Rut",
-                        "packageSize": 470,
-                        "packageSizeInformation": "470g",
-                        "packageSizeUnit": "G",
-                        "pieceWeight": 0,
-                        "potentialPromotions": [],
-                        "price": {
-                            "currencyIso": "SEK",
-                            "formattedValue": "18:95",
-                            "priceType": "BUY",
-                            "value": 18.95
-                        },
-                        "productLabels": [
-                            {
-                                "code": "NYCKELHALET",
-                                "icon": "https://res.cloudinary.com/coopsverige/image/upload/cooponline/produktmarkning/NyckelhalLogo.svg",
-                                "priority": 10
-                            },
-                            {
-                                "code": "alltidlagtpris",
-                                "icon": "https://res.cloudinary.com/coopsverige/image/upload/cooponline/alltid-bra-pris-200x200.png",
-                                "priority": 10
-                            }
-                        ],
-                        "url": "/handla/varor/brod-bageri/brod/hart-brod-portion/falu-rag-rut-7300400114813",
-                        "variances": []
+                        {
+                            "code": "10090571",
+                            "name": "Enliters Yoghurt"
+                        }
+                    ],
+                    "clickUrl": "https://recs.richrelevance.com/rrserver/apiclick?a=c5aa3f92242c950c&cak=182bc783b3c1fff9&vg=bca3a193-b5fe-418c-7993-645c579502d0&stid=31574&pti=9&pa=52046&pos=1&p=7300156491763&channelId=182bc783b3c1fff9&s=s162292562862688&rid=016001&sgs=customer_private%3APrivate+Customer&mvtId=-1&mvtTs=1586425564727",
+                    "code": "7300156491763",
+                    "comparisonPrice": {
+                        "currencyIso": "SEK",
+                        "formattedValue": "12:60 kr/lit",
+                        "priceType": "BUY",
+                        "value": 12.6
                     },
-                    {
-                        "categories": [
-                            {
-                                "code": "6262",
-                                "name": "Mejeri & Ägg"
-                            },
-                            {
-                                "code": "6264",
-                                "name": "Mjölk & Fil"
-                            },
-                            {
-                                "code": "6266",
-                                "name": "Mjölk"
-                            }
-                        ],
-                        "clickUrl": "https://recs.richrelevance.com/rrserver/apiclick?a=c5aa3f92242c950c&cak=182bc783b3c1fff9&vg=bca3a193-b5fe-418c-7993-645c579502d0&stid=31574&pti=9&pa=52046&pos=4&p=5760466821995&channelId=182bc783b3c1fff9&s=s162292562862688&rid=016001&sgs=customer_private%3APrivate+Customer&mvtId=-1&mvtTs=1586425564727",
-                        "code": "5760466821995",
-                        "comparisonPrice": {
-                            "currencyIso": "SEK",
-                            "formattedValue": "15:95 kr/lit",
-                            "priceType": "BUY",
-                            "value": 15.95
-                        },
-                        "consumerInformationText": [],
-                        "depositPrice": {
-                            "currencyIso": "SEK",
-                            "formattedValue": "0:-",
-                            "priceType": "BUY",
-                            "value": 0
-                        },
-                        "fromSweden": false,
-                        "images": [
-                            {
-                                "altText": "Mjölk Längre Hållbarhet",
-                                "url": "https://res.cloudinary.com/coopsverige/image/upload/396310.tiff"
-                            }
-                        ],
-                        "manufacturer": "Arla®",
-                        "name": "Mjölk Längre Hållbarhet",
-                        "packageSize": 1,
-                        "packageSizeInformation": "1 liter",
-                        "packageSizeUnit": "L",
-                        "pieceWeight": 0,
-                        "potentialPromotions": [],
-                        "price": {
-                            "currencyIso": "SEK",
-                            "formattedValue": "15:95",
-                            "priceType": "BUY",
-                            "value": 15.95
-                        },
-                        "productLabels": [
-                            {
-                                "code": "alltidlagtpris",
-                                "icon": "https://res.cloudinary.com/coopsverige/image/upload/cooponline/alltid-bra-pris-200x200.png",
-                                "priority": 10
-                            }
-                        ],
-                        "url": "/handla/varor/mejeri-agg/mjolk-fil/mjolk/mjolk-langre-hallbarhet-5760466821995",
-                        "variances": []
+                    "consumerInformationText": [],
+                    "depositPrice": {
+                        "currencyIso": "SEK",
+                        "formattedValue": "0:-",
+                        "priceType": "BUY",
+                        "value": 0
                     },
-                    {
-                        "categories": [
-                            {
-                                "code": "6262",
-                                "name": "Mejeri & Ägg"
-                            },
-                            {
-                                "code": "6264",
-                                "name": "Mjölk & Fil"
-                            },
-                            {
-                                "code": "32191",
-                                "name": "Havre - Soja - Ris"
-                            }
-                        ],
-                        "clickUrl": "https://recs.richrelevance.com/rrserver/apiclick?a=c5aa3f92242c950c&cak=182bc783b3c1fff9&vg=bca3a193-b5fe-418c-7993-645c579502d0&stid=31574&pti=9&pa=52046&pos=5&p=7394376615733&channelId=182bc783b3c1fff9&s=s162292562862688&rid=016001&sgs=customer_private%3APrivate+Customer&mvtId=-1&mvtTs=1586425564727",
-                        "code": "7394376615733",
-                        "comparisonPrice": {
-                            "currencyIso": "SEK",
-                            "formattedValue": "17:95 kr/lit",
-                            "priceType": "BUY",
-                            "value": 17.95
+                    "fromSweden": false,
+                    "images": [
+                        {
+                            "altText": "Mild Yoghurt Naturell ",
+                            "url": "https://res.cloudinary.com/coopsverige/image/upload/361712.tiff"
+                        }
+                    ],
+                    "manufacturer": "Coop",
+                    "name": "Mild Yoghurt Naturell ",
+                    "packageSize": 1,
+                    "packageSizeInformation": "1 L",
+                    "packageSizeUnit": "L",
+                    "pieceWeight": 0,
+                    "potentialPromotions": [],
+                    "price": {
+                        "currencyIso": "SEK",
+                        "formattedValue": "12:60",
+                        "priceType": "BUY",
+                        "value": 12.6
+                    },
+                    "productLabels": [
+                        {
+                            "code": "alltidlagtpris",
+                            "icon": "https://res.cloudinary.com/coopsverige/image/upload/cooponline/alltid-bra-pris-200x200.png",
+                            "priority": 10
+                        }
+                    ],
+                    "url": "/handla/varor/mejeri-agg/yoghurt/enliters-yoghurt/mild-yoghurt-naturell-7300156491763",
+                    "variances": []
+                },
+                {
+                    "categories": [
+                        {
+                            "code": "6262",
+                            "name": "Mejeri & Ägg"
                         },
-                        "consumerInformationText": [],
-                        "depositPrice": {
-                            "currencyIso": "SEK",
-                            "formattedValue": "0:-",
-                            "priceType": "BUY",
-                            "value": 0
+                        {
+                            "code": "32205",
+                            "name": "Bak - Matlagning"
                         },
-                        "fromSweden": false,
-                        "images": [
-                            {
-                                "altText": "Havredryck",
-                                "url": "https://res.cloudinary.com/coopsverige/image/upload/380544.tiff"
-                            }
-                        ],
-                        "manufacturer": "Oatly",
-                        "name": "Havredryck",
-                        "packageSize": 1000,
-                        "packageSizeInformation": "1L",
-                        "packageSizeUnit": "ML",
-                        "pieceWeight": 0,
-                        "potentialPromotions": [],
-                        "price": {
-                            "currencyIso": "SEK",
-                            "formattedValue": "17:95",
-                            "priceType": "BUY",
-                            "value": 17.95
+                        {
+                            "code": "32217",
+                            "name": "Gräddfil -Creme Fraiche"
+                        }
+                    ],
+                    "clickUrl": "https://recs.richrelevance.com/rrserver/apiclick?a=c5aa3f92242c950c&cak=182bc783b3c1fff9&vg=bca3a193-b5fe-418c-7993-645c579502d0&stid=31574&pti=9&pa=52046&pos=2&p=7310865004703&channelId=182bc783b3c1fff9&s=s162292562862688&rid=016001&sgs=customer_private%3APrivate+Customer&mvtId=-1&mvtTs=1586425564727",
+                    "code": "7310865004703",
+                    "comparisonPrice": {
+                        "currencyIso": "SEK",
+                        "formattedValue": "36:50 kr/lit",
+                        "priceType": "BUY",
+                        "value": 36.5
+                    },
+                    "consumerInformationText": [],
+                    "depositPrice": {
+                        "currencyIso": "SEK",
+                        "formattedValue": "0:-",
+                        "priceType": "BUY",
+                        "value": 0
+                    },
+                    "fromSweden": false,
+                    "images": [
+                        {
+                            "altText": "Gräddfil",
+                            "url": "https://res.cloudinary.com/coopsverige/image/upload/385304.tiff"
+                        }
+                    ],
+                    "manufacturer": "Arla Ko",
+                    "name": "Gräddfil",
+                    "packageSize": 3,
+                    "packageSizeInformation": "3 dl",
+                    "packageSizeUnit": "DL",
+                    "pieceWeight": 0,
+                    "potentialPromotions": [],
+                    "price": {
+                        "currencyIso": "SEK",
+                        "formattedValue": "10:95",
+                        "priceType": "BUY",
+                        "value": 10.95
+                    },
+                    "productLabels": [
+                        {
+                            "code": "alltidlagtpris",
+                            "icon": "https://res.cloudinary.com/coopsverige/image/upload/cooponline/alltid-bra-pris-200x200.png",
+                            "priority": 10
+                        }
+                    ],
+                    "url": "/handla/varor/mejeri-agg/bak-matlagning/graddfil-creme-fraiche/graddfil-7310865004703",
+                    "variances": []
+                },
+                {
+                    "categories": [
+                        {
+                            "code": "18121",
+                            "name": "Bröd & Bageri"
                         },
-                        "productLabels": [
-                            {
-                                "code": "alltidlagtpris",
-                                "icon": "https://res.cloudinary.com/coopsverige/image/upload/cooponline/alltid-bra-pris-200x200.png",
-                                "priority": 10
-                            }
-                        ],
-                        "url": "/handla/varor/mejeri-agg/mjolk-fil/havre-soja-ris/havredryck-7394376615733",
-                        "variances": []
-                    }
-                ],
-                "count": 6,
-                "placementId": "home_page.2020_start_few",
-                "rcs": "eF5j4cotK8lMETA0N7bUNdQ1ZClN9jAxNDFLS05O1k0xMzTRNTFNSdFNTTFMBXJNk5Is0xKNEg0tAZ_oDyg",
-                "strategyMessage": "Bästsäljande varor"
-            }
-        ]
-    }
+                        {
+                            "code": "32528",
+                            "name": "Bröd"
+                        },
+                        {
+                            "code": "7775188",
+                            "name": "Hårt Bröd - Portion"
+                        }
+                    ],
+                    "clickUrl": "https://recs.richrelevance.com/rrserver/apiclick?a=c5aa3f92242c950c&cak=182bc783b3c1fff9&vg=bca3a193-b5fe-418c-7993-645c579502d0&stid=31574&pti=9&pa=52046&pos=3&p=7300400114813&channelId=182bc783b3c1fff9&s=s162292562862688&rid=016001&sgs=customer_private%3APrivate+Customer&mvtId=-1&mvtTs=1586425564727",
+                    "code": "7300400114813",
+                    "comparisonPrice": {
+                        "currencyIso": "SEK",
+                        "formattedValue": "40:32 kr/kg",
+                        "priceType": "BUY",
+                        "value": 40.32
+                    },
+                    "consumerInformationText": [],
+                    "depositPrice": {
+                        "currencyIso": "SEK",
+                        "formattedValue": "0:-",
+                        "priceType": "BUY",
+                        "value": 0
+                    },
+                    "fromSweden": false,
+                    "images": [
+                        {
+                            "altText": "Falu Råg-Rut",
+                            "url": "https://res.cloudinary.com/coopsverige/image/upload/396432.tiff"
+                        }
+                    ],
+                    "manufacturer": "Wasa",
+                    "name": "Falu Råg-Rut",
+                    "packageSize": 470,
+                    "packageSizeInformation": "470g",
+                    "packageSizeUnit": "G",
+                    "pieceWeight": 0,
+                    "potentialPromotions": [],
+                    "price": {
+                        "currencyIso": "SEK",
+                        "formattedValue": "18:95",
+                        "priceType": "BUY",
+                        "value": 18.95
+                    },
+                    "productLabels": [
+                        {
+                            "code": "NYCKELHALET",
+                            "icon": "https://res.cloudinary.com/coopsverige/image/upload/cooponline/produktmarkning/NyckelhalLogo.svg",
+                            "priority": 10
+                        },
+                        {
+                            "code": "alltidlagtpris",
+                            "icon": "https://res.cloudinary.com/coopsverige/image/upload/cooponline/alltid-bra-pris-200x200.png",
+                            "priority": 10
+                        }
+                    ],
+                    "url": "/handla/varor/brod-bageri/brod/hart-brod-portion/falu-rag-rut-7300400114813",
+                    "variances": []
+                },
+                {
+                    "categories": [
+                        {
+                            "code": "6262",
+                            "name": "Mejeri & Ägg"
+                        },
+                        {
+                            "code": "6264",
+                            "name": "Mjölk & Fil"
+                        },
+                        {
+                            "code": "6266",
+                            "name": "Mjölk"
+                        }
+                    ],
+                    "clickUrl": "https://recs.richrelevance.com/rrserver/apiclick?a=c5aa3f92242c950c&cak=182bc783b3c1fff9&vg=bca3a193-b5fe-418c-7993-645c579502d0&stid=31574&pti=9&pa=52046&pos=4&p=5760466821995&channelId=182bc783b3c1fff9&s=s162292562862688&rid=016001&sgs=customer_private%3APrivate+Customer&mvtId=-1&mvtTs=1586425564727",
+                    "code": "5760466821995",
+                    "comparisonPrice": {
+                        "currencyIso": "SEK",
+                        "formattedValue": "15:95 kr/lit",
+                        "priceType": "BUY",
+                        "value": 15.95
+                    },
+                    "consumerInformationText": [],
+                    "depositPrice": {
+                        "currencyIso": "SEK",
+                        "formattedValue": "0:-",
+                        "priceType": "BUY",
+                        "value": 0
+                    },
+                    "fromSweden": false,
+                    "images": [
+                        {
+                            "altText": "Mjölk Längre Hållbarhet",
+                            "url": "https://res.cloudinary.com/coopsverige/image/upload/396310.tiff"
+                        }
+                    ],
+                    "manufacturer": "Arla®",
+                    "name": "Mjölk Längre Hållbarhet",
+                    "packageSize": 1,
+                    "packageSizeInformation": "1 liter",
+                    "packageSizeUnit": "L",
+                    "pieceWeight": 0,
+                    "potentialPromotions": [],
+                    "price": {
+                        "currencyIso": "SEK",
+                        "formattedValue": "15:95",
+                        "priceType": "BUY",
+                        "value": 15.95
+                    },
+                    "productLabels": [
+                        {
+                            "code": "alltidlagtpris",
+                            "icon": "https://res.cloudinary.com/coopsverige/image/upload/cooponline/alltid-bra-pris-200x200.png",
+                            "priority": 10
+                        }
+                    ],
+                    "url": "/handla/varor/mejeri-agg/mjolk-fil/mjolk/mjolk-langre-hallbarhet-5760466821995",
+                    "variances": []
+                },
+                {
+                    "categories": [
+                        {
+                            "code": "6262",
+                            "name": "Mejeri & Ägg"
+                        },
+                        {
+                            "code": "6264",
+                            "name": "Mjölk & Fil"
+                        },
+                        {
+                            "code": "32191",
+                            "name": "Havre - Soja - Ris"
+                        }
+                    ],
+                    "clickUrl": "https://recs.richrelevance.com/rrserver/apiclick?a=c5aa3f92242c950c&cak=182bc783b3c1fff9&vg=bca3a193-b5fe-418c-7993-645c579502d0&stid=31574&pti=9&pa=52046&pos=5&p=7394376615733&channelId=182bc783b3c1fff9&s=s162292562862688&rid=016001&sgs=customer_private%3APrivate+Customer&mvtId=-1&mvtTs=1586425564727",
+                    "code": "7394376615733",
+                    "comparisonPrice": {
+                        "currencyIso": "SEK",
+                        "formattedValue": "17:95 kr/lit",
+                        "priceType": "BUY",
+                        "value": 17.95
+                    },
+                    "consumerInformationText": [],
+                    "depositPrice": {
+                        "currencyIso": "SEK",
+                        "formattedValue": "0:-",
+                        "priceType": "BUY",
+                        "value": 0
+                    },
+                    "fromSweden": false,
+                    "images": [
+                        {
+                            "altText": "Havredryck",
+                            "url": "https://res.cloudinary.com/coopsverige/image/upload/380544.tiff"
+                        }
+                    ],
+                    "manufacturer": "Oatly",
+                    "name": "Havredryck",
+                    "packageSize": 1000,
+                    "packageSizeInformation": "1L",
+                    "packageSizeUnit": "ML",
+                    "pieceWeight": 0,
+                    "potentialPromotions": [],
+                    "price": {
+                        "currencyIso": "SEK",
+                        "formattedValue": "17:95",
+                        "priceType": "BUY",
+                        "value": 17.95
+                    },
+                    "productLabels": [
+                        {
+                            "code": "alltidlagtpris",
+                            "icon": "https://res.cloudinary.com/coopsverige/image/upload/cooponline/alltid-bra-pris-200x200.png",
+                            "priority": 10
+                        }
+                    ],
+                    "url": "/handla/varor/mejeri-agg/mjolk-fil/havre-soja-ris/havredryck-7394376615733",
+                    "variances": []
+                }
+            ],
+            "count": 6,
+            "placementId": "home_page.2020_start_few",
+            "rcs": "eF5j4cotK8lMETA0N7bUNdQ1ZClN9jAxNDFLS05O1k0xMzTRNTFNSdFNTTFMBXJNk5Is0xKNEg0tAZ_oDyg",
+            "strategyMessage": "Bästsäljande varor"
+        }
+    ]
 }
