@@ -107,7 +107,7 @@ export default Vue.extend({
     event('grid-mounted')
     window.addEventListener('resize', this.setContainerWidth)
     this.setContainerWidth()
-    // this.fetchCart()
+    this.fetchCart()
     this.init()
   },
   methods: {
