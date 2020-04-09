@@ -13,7 +13,10 @@
 <script>
 import Grid from '@/components/Grid.vue'
 
-if (process.env.NODE_ENV !== 'production') {
+if (
+  process.env.NODE_ENV !== 'production' ||
+  window.location.toString() === 'http://localhost:3000/'
+) {
   // eslint-disable-next-line no-console
   console.warn('Using fake config - data is not real')
   window.ACC = {

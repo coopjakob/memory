@@ -1,6 +1,5 @@
 context('extra cards', () => {
   it('is visible', () => {
-    cy.wait(10000)
     cy.visit('/')
     cy.get('.extra-card').should('have.length.greaterThan', 0)
     cy.contains('Feta from fixture')
