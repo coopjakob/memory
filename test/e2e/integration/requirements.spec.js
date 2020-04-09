@@ -1,9 +1,11 @@
 context('extra cards', () => {
-  it('can visit page', () => {
+  it('is visible', () => {
     cy.server()
     cy.route('**home_page.2020_start_full*', 'fixture:full.json').as('getFull')
     cy.route('**home_page.2020_start_few*', 'fixture:few.json').as('getFew')
     cy.visit('/')
+    cy.wait(2000)
+    cy.get('.extra-card').should('have.length.greaterThan', 0)
   }),
 
   it.skip('info card visible', () => {
