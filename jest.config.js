@@ -8,8 +8,8 @@ module.exports = {
   transform: {
     '^.+\\.js$': 'babel-jest',
     '^.+\\.vue$': 'vue-jest',
-    "^.+\\.ts?$": "ts-jest"
+    '^.+\\.ts?$': 'ts-jest'
   },
-  "collectCoverage": true,
-  "collectCoverageFrom": ["**/*.{ts,vue}", "!**/node_modules/**"]
+  collectCoverage: true,
+  collectCoverageFrom: ['**/*.{ts,vue}', '!**/node_modules/**']
 }
