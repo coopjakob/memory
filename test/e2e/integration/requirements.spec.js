@@ -1,6 +1,8 @@
 context('extra cards', () => {
-
   it('is visible', () => {
+    cy.server()
+    cy.route('**home_page.2020_start_full*', 'fixture:full.json').as('getFull')
+    cy.route('**home_page.2020_start_few*', 'fixture:few.json').as('getFew')
     cy.visit('/')
     cy.get('.extra-card').should('have.length.greaterThan', 0)
   }),
