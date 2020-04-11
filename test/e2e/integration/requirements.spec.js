@@ -1,32 +1,19 @@
-context('extra cards', () => {
-  it('is visible', () => {
+
+  context('extra cards', () => {
+    it('is visible', () => {
+    cy.viewport(1320, 1050)
     cy.visit('/')
     cy.get('.extra-card').should('have.length.greaterThan', 0)
     cy.contains('Feta from fixture')
   }),
-
-  it.skip('info card visible', () => {
-    cy.get('.info-card').should('have.length.greaterThan', 0)
-    cy.percySnapshot()
-  }),
-
   it('ad card visible', () => {
+    cy.viewport(1320, 1050)
     cy.get('.ad-card').should('have.length.greaterThan', 0)
     cy.percySnapshot()
   }),
 
-  it('ad card at first position', () => {
+  it('extra card at first position', () => {
     cy.get('.card').first().should('have.class', 'extra-card')
-  }),
-
-  it('last card is extra card', () => {
-    cy.viewport(2560, 1050)
-    cy.visit('/').wait(500)
-    cy.get('.card').last().should('have.class', 'extra-card')
-  }),
-
-  it.skip('first card Änglamark shows info card', () => {
-    cy.get('.brand').contains('Änglamark').parents('.buddy').find('.info-card header').should('contain.text', 'Änglamark')
   })
 
 })
