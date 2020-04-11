@@ -11,7 +11,6 @@ const generateSkeletons = (n) =>
 const mountWithProps = (component, props = {}) => {
   return mount(component, {
     propsData: {
-      value: 152,
       columns: 3,
       loading: false,
       didShowMore: false,

@@ -59,18 +59,12 @@ import AdCard from './AdCard.vue'
 import SkeletonCard from './SkeletonCard.vue'
 import Coopknapp from './Coopknapp.vue'
 import { CardTypes } from '~/types/Card'
-import event from '@/event'
 
 export default Vue.extend({
   components: {
     Coopknapp
   },
   props: {
-    value: {
-      // cardWidth
-      type: Number,
-      required: true
-    },
     columns: {
       type: Number,
       required: true
@@ -106,22 +100,6 @@ export default Vue.extend({
         [CardTypes.SKELETON]: SkeletonCard,
         [CardTypes.INFO]: InfoCard,
         [CardTypes.AD]: AdCard
-      }
-    }
-  },
-  watch: {
-    cards() {
-      this.setCardWidth()
-    }
-  },
-  mounted() {
-    this.setCardWidth()
-  },
-  methods: {
-    setCardWidth() {
-      if (this.$refs.card) {
-        event('card-width')
-        this.$emit('input', this.$refs.card[0].$el.clientWidth)
       }
     }
   }
@@ -191,13 +169,10 @@ export default Vue.extend({
 <style lang="sass" scoped>
 .grid
   display: grid
-  grid-template-columns: repeat(auto-fill, minmax(142px, 1fr))
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr))
   grid-auto-rows: minmax(350px, auto)
   grid-auto-flow: dense
   grid-gap: 2px
-
-  @media (min-width: 425px)
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr))
 
 .card
   box-sizing: border-box
@@ -208,7 +183,7 @@ export default Vue.extend({
 .buddy
   grid-column-end: span 2
   display: grid
-  grid-template-columns: repeat(auto-fill, minmax(142px, 1fr))
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr))
   grid-gap: 2px
 
 .show-more

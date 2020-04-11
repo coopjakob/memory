@@ -1,7 +1,6 @@
 <template>
   <div ref="grid">
     <grid-view
-      v-model="cardWidth"
       :did-show-more="didShowMore"
       :is-mobile="isMobile"
       :cards="cards"
@@ -22,16 +21,14 @@ import GridView from './GridView.vue'
 import { Cards } from '~/types/Card'
 import event from '@/event'
 
-const initialCardWidth = 150
-
 export default Vue.extend({
   components: {
     GridView
   },
   data() {
     return {
-      cardWidth: initialCardWidth,
-      width: 0
+      width: 320,
+      cardWidth: 150
     }
   },
   computed: {
@@ -101,18 +98,18 @@ export default Vue.extend({
     }
   },
   beforeDestroy() {
-    window.removeEventListener('resize', this.setContainerWidth)
+    window.removeEventListener('resize', this.setGridWidth)
   },
   mounted() {
     event('grid-mounted')
-    window.addEventListener('resize', this.setContainerWidth)
-    this.setContainerWidth()
+    window.addEventListener('resize', this.setGridWidth)
+    this.setGridWidth()
     this.fetchCart()
     this.init()
   },
   methods: {
-    setContainerWidth() {
-      event('set-widths')
+    setGridWidth() {
+      event('grid-width')
       if (this.$refs.grid) {
         this.width = this.$refs.grid['clientWidth']
       }
