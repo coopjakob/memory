@@ -4,8 +4,8 @@ import { ConfigState } from '~/types/Config'
 declare global {
   interface Window {
     ACC: {
-      config: ConfigState;
-    };
+      config: ConfigState
+    }
   }
 }
 declare module 'vue/types/vue' {
@@ -15,4 +15,3 @@ declare module 'vue/types/vue' {
     }
   }
 }
-

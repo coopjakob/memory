@@ -17,6 +17,7 @@ export type Cards = Array<ProductCard | ExtraCard>
 export type ExtraCard = AdCard | InfoCard | SkeletonCard
 
 interface GenericExtraCard {
+  name?: string
   position?: number
   column?: number | 'last'
   row?: number

@@ -17,7 +17,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import event from '@/event'
+import { event } from '@/event'
 
 export default Vue.extend({
   props: {
@@ -29,7 +29,6 @@ export default Vue.extend({
   computed: {
     splash(): any {
       if (this.description === '') {
-        event('no-splash')
         return false
       }
 

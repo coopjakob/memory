@@ -3,7 +3,7 @@ import qs from 'query-string'
 import uniqBy from 'lodash.uniqby'
 import Product from '~/types/Product'
 import { CardTypes, ProductCard } from '~/types/Card'
-import event from '@/event'
+import { event } from '@/event'
 
 // const wait = (time: number) =>
 //   new Promise((resolve) => {
@@ -32,7 +32,6 @@ const productsModule: Module<ProductsState, any> = {
     init({ dispatch, commit }) {
       const rcs = sessionStorage.getItem('rcs')
       commit('newRcs', rcs)
-      commit('clearProducts')
       dispatch('loadFew')
     },
     async loadFew({ dispatch, commit }) {
@@ -108,7 +107,7 @@ const productsModule: Module<ProductsState, any> = {
     },
     gotProductsFull(state: ProductsState, products: Array<Product>) {
       event('remove-duplicates')
-      state.recieved = uniqBy([...state.recieved, ...products], 'code')
+      state.recieved = uniqBy([...products, ...state.recieved], 'code')
       state.loading = false
       state.inited = true
     }

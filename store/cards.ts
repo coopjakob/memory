@@ -1,13 +1,13 @@
 import { Module } from 'vuex'
 import { CardTypes, ExtraCard, Cards } from '../types/Card'
 import Product from '~/types/Product'
-import event from '@/event'
+import { event } from '@/event'
 
 interface CardsState {
   extra: Array<ExtraCard>
 }
 
-const generateSkeltons = (n: number) =>
+const generateSkeletons = (n: number) =>
   Array(n).fill({
     type: CardTypes.SKELETON
   })
@@ -17,6 +17,7 @@ const cardsModule: Module<CardsState, any> = {
     return {
       extra: [
         {
+          name: 'sa-funkar-det',
           type: CardTypes.AD,
           include: {
             user: 'anonymous'
@@ -29,6 +30,7 @@ const cardsModule: Module<CardsState, any> = {
           buttonText: 'Så funkar det'
         },
         {
+          name: 'gardsbutiken',
           type: CardTypes.AD,
           position: 3,
           row: 1,
@@ -45,6 +47,7 @@ const cardsModule: Module<CardsState, any> = {
           buttonText: 'Gårdsbutiken'
         },
         {
+          name: 'recept',
           type: CardTypes.AD,
           position: 3,
           row: 1,
@@ -58,6 +61,7 @@ const cardsModule: Module<CardsState, any> = {
           buttonText: 'Recept'
         },
         {
+          name: 'recept',
           type: CardTypes.AD,
           position: 3,
           row: 1,
@@ -70,6 +74,7 @@ const cardsModule: Module<CardsState, any> = {
           buttonText: 'Recept'
         },
         {
+          name: 'anglamark',
           type: CardTypes.AD,
           include: {
             b2bUser: true
@@ -80,6 +85,7 @@ const cardsModule: Module<CardsState, any> = {
           buttonText: 'Änglamark'
         },
         {
+          name: 'valio',
           type: CardTypes.AD,
           include: {
             user: 'anonymous'
@@ -92,6 +98,7 @@ const cardsModule: Module<CardsState, any> = {
           link: 'https://www.coop.se/handla/search?text=valio'
         },
         {
+          name: 'matkassar',
           type: CardTypes.AD,
           include: {
             b2bUser: false
@@ -104,12 +111,14 @@ const cardsModule: Module<CardsState, any> = {
           buttonText: 'Matkassar'
         },
         {
+          name: 'poang',
           type: CardTypes.AD,
           image: 'https://coop-static.netlify.com/poang.jpg',
           link: 'https://www.coop.se/medlemsinfo',
           buttonText: 'Läs mer'
         },
         {
+          name: 'olw',
           type: CardTypes.AD,
           image: 'https://coop-static.netlify.com/Gridbanner_OLW_330x704.jpg',
           link: 'https://www.coop.se/handla/search?text=OLW'
@@ -123,26 +132,25 @@ const cardsModule: Module<CardsState, any> = {
       let cards = rootGetters['products/getProductsAsCards']
 
       if (!rootGetters['products/isInited']) {
-        cards = [
-          ...rootGetters['products/getProductsAsCards'],
-          ...generateSkeltons(30)
-        ]
+        cards = [...cards, ...generateSkeletons(30)]
       }
 
       const unusedCards: Array<ExtraCard> = []
       const used: string[] = []
       state.extra.forEach((card) => {
         if (card.column && !card.position) {
-          event('grid-position')
+          event('rowcol-only')
           cards.splice(0, 0, card)
           return
         }
         if (card.include) {
+          event('include-audience', card)
           for (const [key, value] of Object.entries(card.include)) {
             if (config[key] !== value) return
           }
         }
         if (card.exclude) {
+          event('exclude-audience', card)
           for (const [key, value] of Object.entries(card.exclude)) {
             if (config[key] === value) return
           }

@@ -17,7 +17,7 @@ const mountWithProps = (component, props = {}) => {
       isMobile: false,
       width: 800,
       cards: generateSkeletons(10),
-      unusedCards: [],
+      selectedFillers: [],
       emptySlots: 5,
       loadFull: jest.fn(),
       ...props

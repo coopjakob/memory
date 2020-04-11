@@ -26,7 +26,7 @@
       </template>
       <component
         :is="components[card.type]"
-        v-for="card in unusedCards.slice(0, emptySlots)"
+        v-for="card in selectedFillers"
         :key="card.sortKey"
         :card="card"
         :columns="columns"
@@ -80,7 +80,7 @@ export default Vue.extend({
       type: Array,
       required: true
     },
-    unusedCards: {
+    selectedFillers: {
       type: Array,
       required: true
     },

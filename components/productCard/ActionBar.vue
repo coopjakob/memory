@@ -40,7 +40,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import event from '@/event'
+import { event } from '@/event'
 export default Vue.extend({
   props: {
     id: {

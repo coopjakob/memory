@@ -1,5 +1,5 @@
 import { CartState } from '~/types/Cart'
-import event from '@/event'
+import { event } from '@/event'
 
 export const state = () => ({
   entries: [
