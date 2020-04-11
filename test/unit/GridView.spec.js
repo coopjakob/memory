@@ -88,7 +88,6 @@ describe('Grid.spec.js', () => {
       expect(
         wrapper
           .find('.show-more.loading')
-          .find('.lds-ellipsis')
           .exists()
       ).toBe(true)
     })
