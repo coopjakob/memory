@@ -72,7 +72,6 @@ export default Vue.extend({
   background-size: cover
   background-repeat: no-repeat
   background-position: center top
-  min-height: 300px
   background-color: white
   padding: 15px
   color: #333

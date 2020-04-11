@@ -249,6 +249,7 @@ export default Vue.extend({
 .grid
   display: grid
   grid-template-columns: repeat(auto-fill, minmax(142px, 1fr))
+  grid-auto-rows: minmax(350px, auto)
   grid-auto-flow: dense
   grid-gap: 2px
 

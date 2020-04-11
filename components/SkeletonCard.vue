@@ -15,7 +15,6 @@ export default Vue.extend({})
 <style lang="sass" scoped>
 .card
   background-color: white
-  min-height: 300px
   padding: 15px
   color: #333
 
