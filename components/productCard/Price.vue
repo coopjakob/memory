@@ -72,7 +72,7 @@ export default Vue.extend({
 }
 .product-price {
   font-size: 20px;
-  margin-bottom: 10px;
+  margin-bottom: 3px;
 }
 .promo-price {
   display: inline-block;
