@@ -87,7 +87,7 @@ describe('Grid.spec.js', () => {
       expect(wrapper.vm.isMobile).toBe(true)
       expect(
         wrapper
-          .find('.show-more')
+          .find('.show-more.loading')
           .find('.lds-ellipsis')
           .exists()
       ).toBe(true)
@@ -102,8 +102,7 @@ describe('Grid.spec.js', () => {
       await Vue.nextTick()
       expect(
         wrapper
-          .find('.show-more')
-          .find('.lds-ellipsis')
+          .find('.show-more.loading')
           .exists()
       ).toBe(false)
       expect(wrapper.vm.cards.length).toBeGreaterThan(6)

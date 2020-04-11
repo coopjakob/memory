@@ -41,7 +41,7 @@
         @click="loadFull"
       />
     </div>
-    <div v-else-if="isMobile" class="show-more">
+    <div v-else-if="isMobile" class="show-more, loading">
       <div class="lds-ellipsis">
         <div />
         <div />
