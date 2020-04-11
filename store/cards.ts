@@ -18,36 +18,66 @@ const cardsModule: Module<CardsState, any> = {
       extra: [
         {
           type: CardTypes.AD,
-          position: 1,
           include: {
             user: 'anonymous'
           },
-          image:
-            'https://coop-static.netlify.com/SFC0864_Dumle_easter_330x704px.jpg',
-          link: 'https://www.coop.se/handla/search?text=dumle'
-        },
-        {
-          type: CardTypes.AD,
           position: 1,
-          include: {
-            user: 'anonymousb2b'
-          },
-          image: 'https://coop-static.netlify.com/anglamark.jpg',
-          link: 'https://www.coop.se/handla/anglamark',
-          buttonText: 'Änglamark'
+          row: 1,
+          column: 1,
+          image: 'https://coop-static.netlify.com/sa-funkar-det.jpg',
+          link: 'https://www.coop.se/handla/sa-funkar-det',
+          buttonText: 'Så funkar det'
         },
         {
           type: CardTypes.AD,
-          position: 2,
+          position: 3,
+          row: 1,
+          column: 'last',
           include: {
             storeName: 'STOCKHOLM'
           },
           exclude: {
             sessionPostCode: ''
           },
-          image: 'https://source.unsplash.com/random/230x460/?stockholm',
-          link: 'http://coop.se/product',
-          buttonText: 'Stockholm'
+          image:
+            'https://www.coop.se/medias/330x704-ny-grid.jpg?context=bWFzdGVyfHJvb3R8OTkxMjl8aW1hZ2UvanBlZ3xoZTcvaDFkLzg5MzQxNDUxOTYwNjIvMzMweDcwNF9ueSBncmlkLmpwZ3wyZmEwMzJhZTc2ZDFlOTQzZGNlMmU4YTRjOTlkZTQ5NTQxMWIyMjVlZjY1NWYwY2Y4ZWY3Y2Q0OWIyZTFjNGRh',
+          link: 'https://www.coop.se/handla/gardsbutiken',
+          buttonText: 'Gårdsbutiken'
+        },
+        {
+          type: CardTypes.AD,
+          position: 3,
+          row: 1,
+          column: 'last',
+          include: {
+            sessionPostCode: '',
+            storeName: 'STOCKHOLM'
+          },
+          image: 'https://coop-static.netlify.com/recept.jpg',
+          link: 'https://www.coop.se/handla/kopklara-recept',
+          buttonText: 'Recept'
+        },
+        {
+          type: CardTypes.AD,
+          position: 3,
+          row: 1,
+          column: 'last',
+          exclude: {
+            storeName: 'STOCKHOLM'
+          },
+          image: 'https://coop-static.netlify.com/recept.jpg',
+          link: 'https://www.coop.se/handla/kopklara-recept',
+          buttonText: 'Recept'
+        },
+        {
+          type: CardTypes.AD,
+          include: {
+            b2bUser: true
+          },
+          brand: 'Änglamark',
+          image: 'https://coop-static.netlify.com/anglamark.jpg',
+          link: 'https://www.coop.se/handla/anglamark',
+          buttonText: 'Änglamark'
         },
         {
           type: CardTypes.AD,
@@ -56,10 +86,10 @@ const cardsModule: Module<CardsState, any> = {
           },
           position: 8,
           row: 2,
-          column: 3,
-          image: 'https://coop-static.netlify.com/sa-funkar-det.jpg',
-          link: 'https://www.coop.se/handla/sa-funkar-det',
-          buttonText: 'Så funkar det'
+          column: -4,
+          image:
+            'https://coop-static.netlify.com/Gridbanner_Valio_Desktop330x704_Vanilj.jpg',
+          link: 'https://www.coop.se/handla/search?text=valio'
         },
         {
           type: CardTypes.AD,
@@ -72,12 +102,6 @@ const cardsModule: Module<CardsState, any> = {
           image: 'https://coop-static.netlify.com/matkassar.jpg',
           link: 'https://www.coop.se/handla/matkasse',
           buttonText: 'Matkassar'
-        },
-        {
-          type: CardTypes.AD,
-          image:
-            'https://coop-static.netlify.com/Gridbanner_Valio_Desktop330x704_Vanilj.jpg',
-          link: 'https://www.coop.se/handla/search?text=valio'
         },
         {
           type: CardTypes.AD,
