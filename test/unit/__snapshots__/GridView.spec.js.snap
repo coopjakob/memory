@@ -11,20 +11,32 @@ exports[`Grid.spec.js snapshots 1`] = `
       columns="3"
     >
       <div
-        class="image"
-      />
+        class="top"
+      >
+        <div
+          class="image"
+        />
+         
+        <div
+          class="line"
+        />
+         
+        <div
+          class="line"
+        />
+      </div>
        
       <div
-        class="line"
-      />
-       
-      <div
-        class="line"
-      />
-       
-      <div
-        class="button"
-      />
+        class="bottom"
+      >
+        <div
+          class="short-line"
+        />
+         
+        <div
+          class="button"
+        />
+      </div>
     </div>
     <div
       card="[object Object]"
@@ -32,20 +44,32 @@ exports[`Grid.spec.js snapshots 1`] = `
       columns="3"
     >
       <div
-        class="image"
-      />
+        class="top"
+      >
+        <div
+          class="image"
+        />
+         
+        <div
+          class="line"
+        />
+         
+        <div
+          class="line"
+        />
+      </div>
        
       <div
-        class="line"
-      />
-       
-      <div
-        class="line"
-      />
-       
-      <div
-        class="button"
-      />
+        class="bottom"
+      >
+        <div
+          class="short-line"
+        />
+         
+        <div
+          class="button"
+        />
+      </div>
     </div>
     <div
       card="[object Object]"
@@ -53,20 +77,32 @@ exports[`Grid.spec.js snapshots 1`] = `
       columns="3"
     >
       <div
-        class="image"
-      />
+        class="top"
+      >
+        <div
+          class="image"
+        />
+         
+        <div
+          class="line"
+        />
+         
+        <div
+          class="line"
+        />
+      </div>
        
       <div
-        class="line"
-      />
-       
-      <div
-        class="line"
-      />
-       
-      <div
-        class="button"
-      />
+        class="bottom"
+      >
+        <div
+          class="short-line"
+        />
+         
+        <div
+          class="button"
+        />
+      </div>
     </div>
     <div
       card="[object Object]"
@@ -74,20 +110,32 @@ exports[`Grid.spec.js snapshots 1`] = `
       columns="3"
     >
       <div
-        class="image"
-      />
+        class="top"
+      >
+        <div
+          class="image"
+        />
+         
+        <div
+          class="line"
+        />
+         
+        <div
+          class="line"
+        />
+      </div>
        
       <div
-        class="line"
-      />
-       
-      <div
-        class="line"
-      />
-       
-      <div
-        class="button"
-      />
+        class="bottom"
+      >
+        <div
+          class="short-line"
+        />
+         
+        <div
+          class="button"
+        />
+      </div>
     </div>
     <div
       card="[object Object]"
@@ -95,20 +143,32 @@ exports[`Grid.spec.js snapshots 1`] = `
       columns="3"
     >
       <div
-        class="image"
-      />
+        class="top"
+      >
+        <div
+          class="image"
+        />
+         
+        <div
+          class="line"
+        />
+         
+        <div
+          class="line"
+        />
+      </div>
        
       <div
-        class="line"
-      />
-       
-      <div
-        class="line"
-      />
-       
-      <div
-        class="button"
-      />
+        class="bottom"
+      >
+        <div
+          class="short-line"
+        />
+         
+        <div
+          class="button"
+        />
+      </div>
     </div>
     <div
       card="[object Object]"
@@ -116,20 +176,32 @@ exports[`Grid.spec.js snapshots 1`] = `
       columns="3"
     >
       <div
-        class="image"
-      />
+        class="top"
+      >
+        <div
+          class="image"
+        />
+         
+        <div
+          class="line"
+        />
+         
+        <div
+          class="line"
+        />
+      </div>
        
       <div
-        class="line"
-      />
-       
-      <div
-        class="line"
-      />
-       
-      <div
-        class="button"
-      />
+        class="bottom"
+      >
+        <div
+          class="short-line"
+        />
+         
+        <div
+          class="button"
+        />
+      </div>
     </div>
     <div
       card="[object Object]"
@@ -137,20 +209,32 @@ exports[`Grid.spec.js snapshots 1`] = `
       columns="3"
     >
       <div
-        class="image"
-      />
+        class="top"
+      >
+        <div
+          class="image"
+        />
+         
+        <div
+          class="line"
+        />
+         
+        <div
+          class="line"
+        />
+      </div>
        
       <div
-        class="line"
-      />
-       
-      <div
-        class="line"
-      />
-       
-      <div
-        class="button"
-      />
+        class="bottom"
+      >
+        <div
+          class="short-line"
+        />
+         
+        <div
+          class="button"
+        />
+      </div>
     </div>
     <div
       card="[object Object]"
@@ -158,20 +242,32 @@ exports[`Grid.spec.js snapshots 1`] = `
       columns="3"
     >
       <div
-        class="image"
-      />
+        class="top"
+      >
+        <div
+          class="image"
+        />
+         
+        <div
+          class="line"
+        />
+         
+        <div
+          class="line"
+        />
+      </div>
        
       <div
-        class="line"
-      />
-       
-      <div
-        class="line"
-      />
-       
-      <div
-        class="button"
-      />
+        class="bottom"
+      >
+        <div
+          class="short-line"
+        />
+         
+        <div
+          class="button"
+        />
+      </div>
     </div>
     <div
       card="[object Object]"
@@ -179,20 +275,32 @@ exports[`Grid.spec.js snapshots 1`] = `
       columns="3"
     >
       <div
-        class="image"
-      />
+        class="top"
+      >
+        <div
+          class="image"
+        />
+         
+        <div
+          class="line"
+        />
+         
+        <div
+          class="line"
+        />
+      </div>
        
       <div
-        class="line"
-      />
-       
-      <div
-        class="line"
-      />
-       
-      <div
-        class="button"
-      />
+        class="bottom"
+      >
+        <div
+          class="short-line"
+        />
+         
+        <div
+          class="button"
+        />
+      </div>
     </div>
     <div
       card="[object Object]"
@@ -200,20 +308,32 @@ exports[`Grid.spec.js snapshots 1`] = `
       columns="3"
     >
       <div
-        class="image"
-      />
+        class="top"
+      >
+        <div
+          class="image"
+        />
+         
+        <div
+          class="line"
+        />
+         
+        <div
+          class="line"
+        />
+      </div>
        
       <div
-        class="line"
-      />
-       
-      <div
-        class="line"
-      />
-       
-      <div
-        class="button"
-      />
+        class="bottom"
+      >
+        <div
+          class="short-line"
+        />
+         
+        <div
+          class="button"
+        />
+      </div>
     </div>
      
   </div>
@@ -237,20 +357,32 @@ exports[`Grid.spec.js snapshots 2`] = `
       columns="3"
     >
       <div
-        class="image"
-      />
+        class="top"
+      >
+        <div
+          class="image"
+        />
+         
+        <div
+          class="line"
+        />
+         
+        <div
+          class="line"
+        />
+      </div>
        
       <div
-        class="line"
-      />
-       
-      <div
-        class="line"
-      />
-       
-      <div
-        class="button"
-      />
+        class="bottom"
+      >
+        <div
+          class="short-line"
+        />
+         
+        <div
+          class="button"
+        />
+      </div>
     </div>
     <div
       card="[object Object]"
@@ -258,20 +390,32 @@ exports[`Grid.spec.js snapshots 2`] = `
       columns="3"
     >
       <div
-        class="image"
-      />
+        class="top"
+      >
+        <div
+          class="image"
+        />
+         
+        <div
+          class="line"
+        />
+         
+        <div
+          class="line"
+        />
+      </div>
        
       <div
-        class="line"
-      />
-       
-      <div
-        class="line"
-      />
-       
-      <div
-        class="button"
-      />
+        class="bottom"
+      >
+        <div
+          class="short-line"
+        />
+         
+        <div
+          class="button"
+        />
+      </div>
     </div>
     <div
       card="[object Object]"
@@ -279,20 +423,32 @@ exports[`Grid.spec.js snapshots 2`] = `
       columns="3"
     >
       <div
-        class="image"
-      />
+        class="top"
+      >
+        <div
+          class="image"
+        />
+         
+        <div
+          class="line"
+        />
+         
+        <div
+          class="line"
+        />
+      </div>
        
       <div
-        class="line"
-      />
-       
-      <div
-        class="line"
-      />
-       
-      <div
-        class="button"
-      />
+        class="bottom"
+      >
+        <div
+          class="short-line"
+        />
+         
+        <div
+          class="button"
+        />
+      </div>
     </div>
     <div
       card="[object Object]"
@@ -300,20 +456,32 @@ exports[`Grid.spec.js snapshots 2`] = `
       columns="3"
     >
       <div
-        class="image"
-      />
+        class="top"
+      >
+        <div
+          class="image"
+        />
+         
+        <div
+          class="line"
+        />
+         
+        <div
+          class="line"
+        />
+      </div>
        
       <div
-        class="line"
-      />
-       
-      <div
-        class="line"
-      />
-       
-      <div
-        class="button"
-      />
+        class="bottom"
+      >
+        <div
+          class="short-line"
+        />
+         
+        <div
+          class="button"
+        />
+      </div>
     </div>
     <div
       card="[object Object]"
@@ -321,20 +489,32 @@ exports[`Grid.spec.js snapshots 2`] = `
       columns="3"
     >
       <div
-        class="image"
-      />
+        class="top"
+      >
+        <div
+          class="image"
+        />
+         
+        <div
+          class="line"
+        />
+         
+        <div
+          class="line"
+        />
+      </div>
        
       <div
-        class="line"
-      />
-       
-      <div
-        class="line"
-      />
-       
-      <div
-        class="button"
-      />
+        class="bottom"
+      >
+        <div
+          class="short-line"
+        />
+         
+        <div
+          class="button"
+        />
+      </div>
     </div>
     <div
       card="[object Object]"
@@ -342,20 +522,32 @@ exports[`Grid.spec.js snapshots 2`] = `
       columns="3"
     >
       <div
-        class="image"
-      />
+        class="top"
+      >
+        <div
+          class="image"
+        />
+         
+        <div
+          class="line"
+        />
+         
+        <div
+          class="line"
+        />
+      </div>
        
       <div
-        class="line"
-      />
-       
-      <div
-        class="line"
-      />
-       
-      <div
-        class="button"
-      />
+        class="bottom"
+      >
+        <div
+          class="short-line"
+        />
+         
+        <div
+          class="button"
+        />
+      </div>
     </div>
     <div
       card="[object Object]"
@@ -363,20 +555,32 @@ exports[`Grid.spec.js snapshots 2`] = `
       columns="3"
     >
       <div
-        class="image"
-      />
+        class="top"
+      >
+        <div
+          class="image"
+        />
+         
+        <div
+          class="line"
+        />
+         
+        <div
+          class="line"
+        />
+      </div>
        
       <div
-        class="line"
-      />
-       
-      <div
-        class="line"
-      />
-       
-      <div
-        class="button"
-      />
+        class="bottom"
+      >
+        <div
+          class="short-line"
+        />
+         
+        <div
+          class="button"
+        />
+      </div>
     </div>
     <div
       card="[object Object]"
@@ -384,20 +588,32 @@ exports[`Grid.spec.js snapshots 2`] = `
       columns="3"
     >
       <div
-        class="image"
-      />
+        class="top"
+      >
+        <div
+          class="image"
+        />
+         
+        <div
+          class="line"
+        />
+         
+        <div
+          class="line"
+        />
+      </div>
        
       <div
-        class="line"
-      />
-       
-      <div
-        class="line"
-      />
-       
-      <div
-        class="button"
-      />
+        class="bottom"
+      >
+        <div
+          class="short-line"
+        />
+         
+        <div
+          class="button"
+        />
+      </div>
     </div>
     <div
       card="[object Object]"
@@ -405,20 +621,32 @@ exports[`Grid.spec.js snapshots 2`] = `
       columns="3"
     >
       <div
-        class="image"
-      />
+        class="top"
+      >
+        <div
+          class="image"
+        />
+         
+        <div
+          class="line"
+        />
+         
+        <div
+          class="line"
+        />
+      </div>
        
       <div
-        class="line"
-      />
-       
-      <div
-        class="line"
-      />
-       
-      <div
-        class="button"
-      />
+        class="bottom"
+      >
+        <div
+          class="short-line"
+        />
+         
+        <div
+          class="button"
+        />
+      </div>
     </div>
     <div
       card="[object Object]"
@@ -426,20 +654,32 @@ exports[`Grid.spec.js snapshots 2`] = `
       columns="3"
     >
       <div
-        class="image"
-      />
+        class="top"
+      >
+        <div
+          class="image"
+        />
+         
+        <div
+          class="line"
+        />
+         
+        <div
+          class="line"
+        />
+      </div>
        
       <div
-        class="line"
-      />
-       
-      <div
-        class="line"
-      />
-       
-      <div
-        class="button"
-      />
+        class="bottom"
+      >
+        <div
+          class="short-line"
+        />
+         
+        <div
+          class="button"
+        />
+      </div>
     </div>
      
   </div>
@@ -469,20 +709,32 @@ exports[`Grid.spec.js snapshots 3`] = `
       columns="3"
     >
       <div
-        class="image"
-      />
+        class="top"
+      >
+        <div
+          class="image"
+        />
+         
+        <div
+          class="line"
+        />
+         
+        <div
+          class="line"
+        />
+      </div>
        
       <div
-        class="line"
-      />
-       
-      <div
-        class="line"
-      />
-       
-      <div
-        class="button"
-      />
+        class="bottom"
+      >
+        <div
+          class="short-line"
+        />
+         
+        <div
+          class="button"
+        />
+      </div>
     </div>
     <div
       card="[object Object]"
@@ -490,20 +742,32 @@ exports[`Grid.spec.js snapshots 3`] = `
       columns="3"
     >
       <div
-        class="image"
-      />
+        class="top"
+      >
+        <div
+          class="image"
+        />
+         
+        <div
+          class="line"
+        />
+         
+        <div
+          class="line"
+        />
+      </div>
        
       <div
-        class="line"
-      />
-       
-      <div
-        class="line"
-      />
-       
-      <div
-        class="button"
-      />
+        class="bottom"
+      >
+        <div
+          class="short-line"
+        />
+         
+        <div
+          class="button"
+        />
+      </div>
     </div>
     <div
       card="[object Object]"
@@ -511,20 +775,32 @@ exports[`Grid.spec.js snapshots 3`] = `
       columns="3"
     >
       <div
-        class="image"
-      />
+        class="top"
+      >
+        <div
+          class="image"
+        />
+         
+        <div
+          class="line"
+        />
+         
+        <div
+          class="line"
+        />
+      </div>
        
       <div
-        class="line"
-      />
-       
-      <div
-        class="line"
-      />
-       
-      <div
-        class="button"
-      />
+        class="bottom"
+      >
+        <div
+          class="short-line"
+        />
+         
+        <div
+          class="button"
+        />
+      </div>
     </div>
     <div
       card="[object Object]"
@@ -532,20 +808,32 @@ exports[`Grid.spec.js snapshots 3`] = `
       columns="3"
     >
       <div
-        class="image"
-      />
+        class="top"
+      >
+        <div
+          class="image"
+        />
+         
+        <div
+          class="line"
+        />
+         
+        <div
+          class="line"
+        />
+      </div>
        
       <div
-        class="line"
-      />
-       
-      <div
-        class="line"
-      />
-       
-      <div
-        class="button"
-      />
+        class="bottom"
+      >
+        <div
+          class="short-line"
+        />
+         
+        <div
+          class="button"
+        />
+      </div>
     </div>
     <div
       card="[object Object]"
@@ -553,20 +841,32 @@ exports[`Grid.spec.js snapshots 3`] = `
       columns="3"
     >
       <div
-        class="image"
-      />
+        class="top"
+      >
+        <div
+          class="image"
+        />
+         
+        <div
+          class="line"
+        />
+         
+        <div
+          class="line"
+        />
+      </div>
        
       <div
-        class="line"
-      />
-       
-      <div
-        class="line"
-      />
-       
-      <div
-        class="button"
-      />
+        class="bottom"
+      >
+        <div
+          class="short-line"
+        />
+         
+        <div
+          class="button"
+        />
+      </div>
     </div>
     <div
       card="[object Object]"
@@ -574,20 +874,32 @@ exports[`Grid.spec.js snapshots 3`] = `
       columns="3"
     >
       <div
-        class="image"
-      />
+        class="top"
+      >
+        <div
+          class="image"
+        />
+         
+        <div
+          class="line"
+        />
+         
+        <div
+          class="line"
+        />
+      </div>
        
       <div
-        class="line"
-      />
-       
-      <div
-        class="line"
-      />
-       
-      <div
-        class="button"
-      />
+        class="bottom"
+      >
+        <div
+          class="short-line"
+        />
+         
+        <div
+          class="button"
+        />
+      </div>
     </div>
     <div
       card="[object Object]"
@@ -595,20 +907,32 @@ exports[`Grid.spec.js snapshots 3`] = `
       columns="3"
     >
       <div
-        class="image"
-      />
+        class="top"
+      >
+        <div
+          class="image"
+        />
+         
+        <div
+          class="line"
+        />
+         
+        <div
+          class="line"
+        />
+      </div>
        
       <div
-        class="line"
-      />
-       
-      <div
-        class="line"
-      />
-       
-      <div
-        class="button"
-      />
+        class="bottom"
+      >
+        <div
+          class="short-line"
+        />
+         
+        <div
+          class="button"
+        />
+      </div>
     </div>
     <div
       card="[object Object]"
@@ -616,20 +940,32 @@ exports[`Grid.spec.js snapshots 3`] = `
       columns="3"
     >
       <div
-        class="image"
-      />
+        class="top"
+      >
+        <div
+          class="image"
+        />
+         
+        <div
+          class="line"
+        />
+         
+        <div
+          class="line"
+        />
+      </div>
        
       <div
-        class="line"
-      />
-       
-      <div
-        class="line"
-      />
-       
-      <div
-        class="button"
-      />
+        class="bottom"
+      >
+        <div
+          class="short-line"
+        />
+         
+        <div
+          class="button"
+        />
+      </div>
     </div>
     <div
       card="[object Object]"
@@ -637,20 +973,32 @@ exports[`Grid.spec.js snapshots 3`] = `
       columns="3"
     >
       <div
-        class="image"
-      />
+        class="top"
+      >
+        <div
+          class="image"
+        />
+         
+        <div
+          class="line"
+        />
+         
+        <div
+          class="line"
+        />
+      </div>
        
       <div
-        class="line"
-      />
-       
-      <div
-        class="line"
-      />
-       
-      <div
-        class="button"
-      />
+        class="bottom"
+      >
+        <div
+          class="short-line"
+        />
+         
+        <div
+          class="button"
+        />
+      </div>
     </div>
     <div
       card="[object Object]"
@@ -658,20 +1006,32 @@ exports[`Grid.spec.js snapshots 3`] = `
       columns="3"
     >
       <div
-        class="image"
-      />
+        class="top"
+      >
+        <div
+          class="image"
+        />
+         
+        <div
+          class="line"
+        />
+         
+        <div
+          class="line"
+        />
+      </div>
        
       <div
-        class="line"
-      />
-       
-      <div
-        class="line"
-      />
-       
-      <div
-        class="button"
-      />
+        class="bottom"
+      >
+        <div
+          class="short-line"
+        />
+         
+        <div
+          class="button"
+        />
+      </div>
     </div>
      
   </div>
