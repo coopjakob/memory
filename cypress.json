@@ -2,7 +2,7 @@
   "baseUrl": "http://localhost:3000",
   "projectId": "55t2mo",
   "integrationFolder": "test/e2e/integration",
-  "fixturesFolder": false,
+  "fixturesFolder": "test/e2e/fixtures",
   "pluginsFile": "test/e2e/plugins/index.js",
   "supportFile": "test/e2e/support/index.js"
 }
