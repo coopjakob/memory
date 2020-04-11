@@ -2,7 +2,7 @@
   <div id="memory" class="o-start-module">
     <div class="header-module">
       <h2 class="a-heading-1">
-        Populära varor
+        Popul&auml;ra varor
       </h2>
       <a class="a-link" href="" />
     </div>

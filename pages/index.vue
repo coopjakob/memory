@@ -2,7 +2,7 @@
   <div id="memory" class="o-start-module">
     <div class="header-module">
       <h2 class="a-heading-1">
-        TESTMILJLÖ / Populära varor
+        TESTMILJ&Ouml; / Popul&auml;ra varor
       </h2>
       <a class="a-link" href="" />
     </div>
@@ -13,7 +13,10 @@
 <script>
 import Grid from '@/components/Grid.vue'
 
-if (process.env.NODE_ENV !== 'production') {
+if (
+  process.env.NODE_ENV !== 'production' ||
+  window.location.toString() === 'http://localhost:3000/'
+) {
   // eslint-disable-next-line no-console
   console.warn('Using fake config - data is not real')
   window.ACC = {

@@ -1,11 +1,11 @@
 context('extra cards', () => {
-
   it('is visible', () => {
     cy.visit('/')
     cy.get('.extra-card').should('have.length.greaterThan', 0)
+    cy.contains('Feta from fixture')
   }),
 
-  it('info card visible', () => {
+  it.skip('info card visible', () => {
     cy.get('.info-card').should('have.length.greaterThan', 0)
     cy.percySnapshot()
   }),
@@ -25,7 +25,7 @@ context('extra cards', () => {
     cy.get('.card').last().should('have.class', 'extra-card')
   }),
 
-  it('first card Änglamark shows info card', () => {
+  it.skip('first card Änglamark shows info card', () => {
     cy.get('.brand').contains('Änglamark').parents('.buddy').find('.info-card header').should('contain.text', 'Änglamark')
   })
 
