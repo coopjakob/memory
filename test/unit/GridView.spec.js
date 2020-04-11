@@ -85,11 +85,7 @@ describe('Grid.spec.js', () => {
       expect(func.mock.calls.length).toBe(1)
       expect(wrapper.vm.loading).toBe(true)
       expect(wrapper.vm.isMobile).toBe(true)
-      expect(
-        wrapper
-          .find('.show-more.loading')
-          .exists()
-      ).toBe(true)
+      expect(wrapper.find('.show-more.loading').exists()).toBe(true)
     })
 
     test('after load', async () => {
@@ -99,11 +95,7 @@ describe('Grid.spec.js', () => {
         cards: generateSkeletons(30)
       })
       await Vue.nextTick()
-      expect(
-        wrapper
-          .find('.show-more.loading')
-          .exists()
-      ).toBe(false)
+      expect(wrapper.find('.show-more.loading').exists()).toBe(false)
       expect(wrapper.vm.cards.length).toBeGreaterThan(6)
     })
   })
