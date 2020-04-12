@@ -1,7 +1,7 @@
 <template>
   <div class="card extra-card ad-card" :style="classObject">
     <div class="action">
-      <a class="button" :href="card.link">
+      <a class="button" :href="card.link" @click="click">
         {{ card.buttonText || 'Handla nu' }}
       </a>
     </div>
@@ -11,6 +11,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import { AdCard } from '@/types/Card'
+import { event } from '@/event'
 
 export default Vue.extend({
   props: {
@@ -62,6 +63,11 @@ export default Vue.extend({
       }
 
       return style
+    }
+  },
+  methods: {
+    click() {
+      event('ad-click', this.card.name)
     }
   }
 })

@@ -31,7 +31,26 @@ bus.$on('show-card', (data) => {
   }
 })
 
-declare let ga: Function
+bus.$on('ad-click', (data) => {
+  event('ga-send', {
+    hitType: 'event',
+    eventCategory: 'memory',
+    eventAction: 'ad-click',
+    eventLabel: data
+  })
+})
+
+declare const ga: Function
+
+bus.$once('ga-send', () => {
+  event('beacon-transport')
+  if (typeof ga !== 'undefined') {
+    ga('set', 'transport', 'beacon')
+  }
+})
+
 bus.$on('ga-send', (data) => {
-  ga('send', data)
+  if (typeof ga !== 'undefined') {
+    ga('send', data)
+  }
 })
