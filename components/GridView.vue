@@ -174,6 +174,9 @@ export default Vue.extend({
   grid-auto-flow: dense
   grid-gap: 2px
 
+  @media (max-width: 332px)
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr))
+
 .card
   box-sizing: border-box
   display: flex
