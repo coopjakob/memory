@@ -1,4 +1,8 @@
 ;(function() {
+  if (!!window.MSInputMethodContext && !!document.documentMode) {
+    return
+  }
+
   const domain = 'https://coop-memory-jam.netlify.com'
 
   const link = document.createElement('link')
