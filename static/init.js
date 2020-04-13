@@ -1,5 +1,5 @@
 ;(function() {
-  if (!!window.MSInputMethodContext && !!document.documentMode) {
+  if (!CSS.supports('display: grid')) {
     return
   }
 
