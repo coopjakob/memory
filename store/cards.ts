@@ -22,9 +22,7 @@ const cardsModule: Module<CardsState, any> = {
           include: {
             user: 'anonymous'
           },
-          position: 1,
-          row: 1,
-          column: 1,
+          position: 4,
           image: 'https://coop-static.netlify.com/sa-funkar-det.jpg',
           link: 'https://www.coop.se/handla/sa-funkar-det',
           buttonText: 'Så funkar det'
@@ -32,9 +30,7 @@ const cardsModule: Module<CardsState, any> = {
         {
           name: 'gardsbutiken',
           type: CardTypes.AD,
-          position: 3,
-          row: 1,
-          column: 'last',
+          position: 9,
           include: {
             storeName: 'STOCKHOLM'
           },
@@ -49,9 +45,7 @@ const cardsModule: Module<CardsState, any> = {
         {
           name: 'recept',
           type: CardTypes.AD,
-          position: 3,
-          row: 1,
-          column: 'last',
+          position: 9,
           include: {
             sessionPostCode: '',
             storeName: 'STOCKHOLM'
@@ -63,9 +57,7 @@ const cardsModule: Module<CardsState, any> = {
         {
           name: 'recept',
           type: CardTypes.AD,
-          position: 3,
-          row: 1,
-          column: 'last',
+          position: 9,
           exclude: {
             storeName: 'STOCKHOLM'
           },
@@ -90,12 +82,20 @@ const cardsModule: Module<CardsState, any> = {
           include: {
             user: 'anonymous'
           },
-          position: 8,
-          row: 2,
-          column: -4,
+          brand: 'Valio',
           image:
             'https://coop-static.netlify.com/Gridbanner_Valio_Desktop330x704_Vanilj.jpg',
           link: 'https://www.coop.se/handla/search?text=valio'
+        },
+        {
+          name: 'olw',
+          type: CardTypes.AD,
+          include: {
+            user: 'anonymous'
+          },
+          brand: 'OLW',
+          image: 'https://coop-static.netlify.com/Gridbanner_OLW_330x704.jpg',
+          link: 'https://www.coop.se/handla/search?text=OLW'
         },
         {
           name: 'matkassar',
@@ -103,9 +103,7 @@ const cardsModule: Module<CardsState, any> = {
           include: {
             b2bUser: false
           },
-          position: 15,
-          row: 3,
-          column: 'last',
+          position: 22,
           image: 'https://coop-static.netlify.com/matkassar.jpg',
           link: 'https://www.coop.se/handla/matkasse',
           buttonText: 'Matkassar'
@@ -116,12 +114,6 @@ const cardsModule: Module<CardsState, any> = {
           image: 'https://coop-static.netlify.com/poang.jpg',
           link: 'https://www.coop.se/medlemsinfo',
           buttonText: 'Läs mer'
-        },
-        {
-          name: 'olw',
-          type: CardTypes.AD,
-          image: 'https://coop-static.netlify.com/Gridbanner_OLW_330x704.jpg',
-          link: 'https://www.coop.se/handla/search?text=OLW'
         }
       ]
     }
