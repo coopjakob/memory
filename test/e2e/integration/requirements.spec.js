@@ -10,12 +10,7 @@
     cy.viewport(1320, 1050)
     cy.get('.ad-card').should('have.length.greaterThan', 0)
     cy.percySnapshot('ad card', {widths: [1320+30]})
-  }),
-
-  it('extra card at first position', () => {
-    cy.get('.card').first().should('have.class', 'extra-card')
   })
-
 })
 
 context('show 3 rows of products', () => {
