@@ -189,6 +189,9 @@ export default Vue.extend({
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr))
   grid-gap: 2px
 
+  @media (max-width: 332px)
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr))
+
 .show-more
   width: 100%
   text-align: center
