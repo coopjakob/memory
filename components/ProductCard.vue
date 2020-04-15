@@ -1,5 +1,5 @@
 <template>
-  <div class="card" data-testid="productCard">
+  <div class="card" :data-clickurl="card.clickUrl">
     <div class="product-labels">
       <div v-for="label in card.productLabels" :key="label.sortKey">
         <img :src="label.icon" />
@@ -48,7 +48,7 @@ import Splash from './Splash.vue'
 import SwedishFlag from './productCard/SwedishFlag.vue'
 import Price from './productCard/Price.vue'
 import ActionBar from './productCard/ActionBar.vue'
-import event from '@/event'
+import { event } from '@/event'
 import { ProductCard } from '~/types/Card'
 
 export default Vue.extend({
@@ -76,8 +76,8 @@ export default Vue.extend({
 
       const cart = this.$store.state.cart
 
-      if (cart.response?.entries) {
-        const foundInCart = cart.response.entries.find(
+      if (cart.entries) {
+        const foundInCart = cart.entries.find(
           (entry: any) => entry.product.code === this.card.code
         )
         if (foundInCart) {

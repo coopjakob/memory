@@ -3,13 +3,19 @@ import qs from 'query-string'
 import uniqBy from 'lodash.uniqby'
 import Product from '~/types/Product'
 import { CardTypes, ProductCard } from '~/types/Card'
-import event from '@/event'
+import { event } from '@/event'
+
+// const wait = (time: number) =>
+//   new Promise((resolve) => {
+//     setTimeout(resolve, time)
+//   })
 
 interface ProductsState {
   recieved: Array<Product>
   rcs?: string
   didShowMore: boolean
   loading: boolean
+  inited: boolean
 }
 
 const productsModule: Module<ProductsState, any> = {
@@ -18,14 +24,14 @@ const productsModule: Module<ProductsState, any> = {
       recieved: [],
       rcs: undefined,
       didShowMore: false,
-      loading: false
+      loading: false,
+      inited: false
     }
   },
   actions: {
     init({ dispatch, commit }) {
       const rcs = sessionStorage.getItem('rcs')
       commit('newRcs', rcs)
-      commit('clearProducts')
       dispatch('loadFew')
     },
     async loadFew({ dispatch, commit }) {
@@ -33,7 +39,7 @@ const productsModule: Module<ProductsState, any> = {
       const products = await dispatch('fetch', {
         placements: 'home_page.2020_start_few'
       })
-      commit('gotProducts', products)
+      commit('gotProductsFew', products)
     },
     async loadFull({ state, dispatch, commit }) {
       if (state.didShowMore) {
@@ -44,12 +50,12 @@ const productsModule: Module<ProductsState, any> = {
       const products = await dispatch('fetch', {
         placements: 'home_page.2020_start_full'
       })
-      commit('gotProducts', products)
+      commit('gotProductsFull', products)
       commit('didShowMore')
     },
-    async fetch({ rootState, state, commit }, { placements }) {
+    async fetch({ state, commit }, { placements }) {
       event('fetch-products')
-      const { config } = rootState
+      const config = window.ACC.config
       commit('loading')
       const baseUrl = 'https://www.coop.se/ws/v2/coop/users/' + config.user
       const query = {
@@ -61,7 +67,15 @@ const productsModule: Module<ProductsState, any> = {
       }
       const queryString = qs.stringify(query)
       const url = `${baseUrl}/products/recommend-segmented?${queryString}`
-      const response = await this['$axios'].$get(url)
+
+      let axiosConfig = {}
+      if (config.user !== 'anonymous' && config.user !== 'anonymousb2b') {
+        axiosConfig = {
+          headers: { Authorization: `Bearer ${config.authToken}` }
+        }
+      }
+
+      const response = await this['$axios'].$get(url, axiosConfig)
       const { products, rcs } = response.placements[0]
       commit('newRcs', rcs)
       return products
@@ -86,15 +100,24 @@ const productsModule: Module<ProductsState, any> = {
       event('clear-products')
       state.recieved = []
     },
-    gotProducts(state: ProductsState, products: Array<Product>) {
+    gotProductsFew(state: ProductsState, products: Array<Product>) {
       event('remove-duplicates')
       state.recieved = uniqBy([...state.recieved, ...products], 'code')
       state.loading = false
+    },
+    gotProductsFull(state: ProductsState, products: Array<Product>) {
+      event('remove-duplicates')
+      state.recieved = uniqBy([...products, ...state.recieved], 'code')
+      state.loading = false
+      state.inited = true
     }
   },
   getters: {
     isLoading(state: ProductsState): boolean {
       return state.loading
+    },
+    isInited(state: ProductsState): boolean {
+      return state.inited
     },
     didShowMore(state: ProductsState) {
       return state.didShowMore

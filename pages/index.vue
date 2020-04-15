@@ -1,15 +1,42 @@
 <template>
-  <div class="home">
-    <ProductMatrix />
+  <div id="memory" class="o-start-module">
+    <div class="header-module">
+      <h2 class="a-heading-1">
+        TESTMILJ&Ouml; / Popul&auml;ra varor
+      </h2>
+      <a class="a-link" href="" />
+    </div>
+    <Grid />
   </div>
 </template>
 
 <script>
-import ProductMatrix from '@/components/ProductMatrix.vue'
+import Grid from '@/components/Grid.vue'
+
 export default {
-  name: 'Home',
   components: {
-    ProductMatrix
+    Grid
+  },
+  middleware() {
+    // eslint-disable-next-line no-console
+    console.warn('Using fake config - data is not real')
+    window.ACC = {
+      config: {
+        cartguid: '145bda80-f874-4671-ab0b-c2be71355140',
+        rrSessionId: 's162292562862688',
+        coopStore: '016001',
+        storeName: 'STOCKHOLM',
+        user: 'anonymous',
+        sessionPostCode: '11647',
+        b2bUser: false
+      }
+    }
+
+    // add Rich Relevance session identifier
+    sessionStorage.setItem(
+      'rcs',
+      'eF5j4cotK8lMETA0N7bUNdQ1ZClN9jAxNDFLS05O1k0xMzTRNTFNSdFNTTFMBXJNk5Is0xKNEg0tAZ_oDyg'
+    )
   }
 }
 </script>

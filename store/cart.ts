@@ -1,25 +1,45 @@
 import { CartState } from '~/types/Cart'
-import event from '@/event'
+import { event } from '@/event'
+
+export const state = () => ({
+  entries: [
+    {
+      product: {
+        code: ''
+      },
+      quantity: 0
+    }
+  ]
+})
 
 export const actions = {
-  async fetchCart({ rootState, commit }) {
-    const { config } = rootState
+  async fetchCart({ commit }) {
+    const config = window.ACC.config
 
     try {
       event('fetch-cart')
-      const { data } = await this['$axios'].get(
-        `https://www.coop.se/ws/v2/coop/users/${config.user}/carts/${config.cartguid}?fields=DEFAULT`
+      let axiosConfig = {}
+      if (config.user !== 'anonymous' && config.user !== 'anonymousb2b') {
+        axiosConfig = {
+          headers: { Authorization: `Bearer ${config.authToken}` }
+        }
+      }
+      const data = await this['$axios'].$get(
+        `https://www.coop.se/ws/v2/coop/users/${config.user}/carts/${config.cartguid}?fields=DEFAULT`,
+        axiosConfig
       )
-      commit('setCart', data)
+      commit('saveEntries', data)
     } catch (error) {
       event('cart-error')
+      // eslint-disable-next-line no-console
+      console.error(error)
     }
   }
 }
 
 export const mutations = {
-  setCart(state, payload: CartState) {
+  saveEntries(state: CartState, payload: CartState) {
     event('set-cart')
-    state.response = payload
+    state.entries = payload.entries
   }
 }

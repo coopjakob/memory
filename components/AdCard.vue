@@ -1,11 +1,8 @@
 <template>
-  <div
-    class="card extra-card ad-card"
-    :style="{ 'background-image': 'url(' + card.image + ')' }"
-  >
+  <div class="card extra-card ad-card" :style="classObject">
     <div class="action">
-      <a class="button" :href="card.link">
-        Handla nu
+      <a class="button" :href="card.link" @click="click">
+        {{ card.buttonText || 'Handla nu' }}
       </a>
     </div>
   </div>
@@ -13,13 +10,64 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { ExtraCard } from '@/types/Card'
+import { AdCard } from '@/types/Card'
+import { event } from '@/event'
 
 export default Vue.extend({
   props: {
     card: {
-      type: Object as () => ExtraCard,
+      type: Object as () => AdCard,
       required: true
+    },
+    columns: {
+      type: Number,
+      required: true
+    }
+  },
+  computed: {
+    classObject() {
+      let style = {}
+
+      if (this.card.image) {
+        style = {
+          ...style,
+          'background-image': `url('${this.card.image}')`
+        }
+      }
+
+      if (this.card.column) {
+        const row = this.card.row || 1
+        let column = this.card.column
+
+        if (column === -1) {
+          column = 'last'
+        }
+
+        if (column === 'last') {
+          column = -2
+        }
+
+        if (column > this.columns) {
+          column = this.columns
+        }
+
+        if (column < -this.columns) {
+          column = 1
+        }
+
+        style = {
+          ...style,
+          'grid-row': row,
+          'grid-column': column
+        }
+      }
+
+      return style
+    }
+  },
+  methods: {
+    click() {
+      event('ad-click', this.card.name)
     }
   }
 })
@@ -30,7 +78,6 @@ export default Vue.extend({
   background-size: cover
   background-repeat: no-repeat
   background-position: center top
-  min-height: 300px
   background-color: white
   padding: 15px
   color: #333

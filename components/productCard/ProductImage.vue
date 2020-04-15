@@ -1,7 +1,13 @@
 <template>
   <div class="product-image">
     <a :href="url" :title="title">
-      <img width="200" height="200" :src="cloudinaryImg" :alt="title" />
+      <img
+        width="200"
+        height="200"
+        loading="lazy"
+        :src="cloudinaryImg"
+        :alt="title"
+      />
     </a>
   </div>
 </template>

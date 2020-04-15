@@ -1,91 +1,152 @@
 import { Module } from 'vuex'
 import { CardTypes, ExtraCard, Cards } from '../types/Card'
 import Product from '~/types/Product'
-import event from '@/event'
+import { event } from '@/event'
 
 interface CardsState {
   extra: Array<ExtraCard>
 }
+
+const generateSkeletons = (n: number) =>
+  Array(n).fill({
+    type: CardTypes.SKELETON
+  })
 
 const cardsModule: Module<CardsState, any> = {
   state(): CardsState {
     return {
       extra: [
         {
+          name: 'sa-funkar-det',
           type: CardTypes.AD,
-          position: 1,
-          image:
-            'https://res.cloudinary.com/coopsverige/image/upload/v1585574793/cooponline/2020/480x760.jpg',
-          link: 'http://coop.se/product'
+          include: {
+            user: 'anonymous'
+          },
+          position: 4,
+          image: 'https://coop-static.netlify.com/sa-funkar-det.jpg',
+          link: 'https://www.coop.se/handla/sa-funkar-det',
+          buttonText: 'Så funkar det'
         },
         {
+          name: 'gardsbutiken',
           type: CardTypes.AD,
-          position: 14,
+          position: 9,
+          include: {
+            storeName: 'STOCKHOLM'
+          },
+          exclude: {
+            sessionPostCode: ''
+          },
           image:
-            'https://res.cloudinary.com/coopsverige/image/upload/v1585574785/cooponline/2020/330x704_ny_grid.jpg',
-          link: 'http://coop.se/product'
+            'https://www.coop.se/medias/330x704-ny-grid.jpg?context=bWFzdGVyfHJvb3R8OTkxMjl8aW1hZ2UvanBlZ3xoZTcvaDFkLzg5MzQxNDUxOTYwNjIvMzMweDcwNF9ueSBncmlkLmpwZ3wyZmEwMzJhZTc2ZDFlOTQzZGNlMmU4YTRjOTlkZTQ5NTQxMWIyMjVlZjY1NWYwY2Y4ZWY3Y2Q0OWIyZTFjNGRh',
+          link: 'https://www.coop.se/handla/gardsbutiken',
+          buttonText: 'Gårdsbutiken'
         },
         {
+          name: 'recept',
           type: CardTypes.AD,
-          position: 21,
-          image:
-            'https://res.cloudinary.com/coopsverige/image/upload/v1585574777/cooponline/2020/Coop_kategoribanners5.jpg',
-          link: 'http://coop.se/product'
+          position: 9,
+          include: {
+            sessionPostCode: '',
+            storeName: 'STOCKHOLM'
+          },
+          image: 'https://coop-static.netlify.com/recept.jpg',
+          link: 'https://www.coop.se/handla/kopklara-recept',
+          buttonText: 'Recept'
         },
         {
-          type: CardTypes.INFO,
+          name: 'recept',
+          type: CardTypes.AD,
+          position: 9,
+          exclude: {
+            storeName: 'STOCKHOLM'
+          },
+          image: 'https://coop-static.netlify.com/recept.jpg',
+          link: 'https://www.coop.se/handla/kopklara-recept',
+          buttonText: 'Recept'
+        },
+        {
+          name: 'anglamark',
+          type: CardTypes.AD,
+          include: {
+            b2bUser: true
+          },
           brand: 'Änglamark',
-          image:
-            'https://res.cloudinary.com/coopsverige/image/upload/cooponline/produktmarkning/NyckelhalLogo.svg',
-          imageAltText: '',
-          buttonText: 'Mer info',
-          header: 'Änglamark',
-          text: `Änglamark är vårt varumärke. Smod tempor incididunt ut labore et dol.
-            Magna aliqua. Ut enim ad minim veniam`,
-          link: 'http://coop.se/product'
+          image: 'https://coop-static.netlify.com/anglamark.jpg',
+          link: 'https://www.coop.se/handla/anglamark',
+          buttonText: 'Änglamark'
         },
         {
-          type: CardTypes.INFO,
-          label: 'KRAV0U0MARK',
-          image:
-            'https://res.cloudinary.com/coopsverige/image/upload/cooponline/alltid-bra-pris-200x200.png',
-          imageAltText: '',
-          buttonText: 'Krav på Coop',
-          header: 'Kravmärkt',
-          text:
-            'Ekologiskt betyder att det är dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
-          link: 'http://coop.se/product'
-        },
-        {
-          type: CardTypes.INFO,
-          image:
-            'https://res.cloudinary.com/coopsverige/image/upload/v1576163066/cooponline/G%C3%A5rdsbutiken/landingpage-recommended-producers/syltkrukan-type4.jpg',
-          imageAltText: '',
-          buttonText: 'Gårdsbutiken',
-          header: 'Handla lokalt',
-          text:
-            'I gårdsbutiken finns lokala varo rdolor sit amet, consectetur adipiscing elit, sed do et dolore magna aliqua. Ut enim ad minim veniam',
-          link: 'http://coop.se/product'
-        },
-        {
+          name: 'valio',
           type: CardTypes.AD,
-          image: 'https://source.unsplash.com/random/230x460/?food',
-          link: 'http://example.com/product'
+          include: {
+            user: 'anonymous'
+          },
+          brand: 'Valio',
+          image:
+            'https://coop-static.netlify.com/Gridbanner_Valio_Desktop330x704_Vanilj.jpg',
+          link: 'https://www.coop.se/handla/search?text=valio'
         },
         {
+          name: 'olw',
           type: CardTypes.AD,
-          image: 'https://source.unsplash.com/random/230x460/?dinner',
-          link: 'http://coop.se/product'
+          include: {
+            user: 'anonymous'
+          },
+          brand: 'OLW',
+          image: 'https://coop-static.netlify.com/Gridbanner_OLW_330x704.jpg',
+          link: 'https://www.coop.se/handla/search?text=OLW'
+        },
+        {
+          name: 'matkassar',
+          type: CardTypes.AD,
+          include: {
+            b2bUser: false
+          },
+          position: 22,
+          image: 'https://coop-static.netlify.com/matkassar.jpg',
+          link: 'https://www.coop.se/handla/matkasse',
+          buttonText: 'Matkassar'
+        },
+        {
+          name: 'poang',
+          type: CardTypes.AD,
+          image: 'https://coop-static.netlify.com/poang.jpg',
+          link: 'https://www.coop.se/medlemsinfo',
+          buttonText: 'Läs mer'
         }
       ]
     }
   },
   getters: {
     getAllCards(state, getters, rootState, rootGetters): Cards {
-      const cards = rootGetters['products/getProductsAsCards']
+      const { config } = window.ACC
+      let cards = rootGetters['products/getProductsAsCards']
+
+      if (!rootGetters['products/isInited']) {
+        cards = [...cards, ...generateSkeletons(30)]
+      }
+
       const unusedCards: Array<ExtraCard> = []
       const used: string[] = []
       state.extra.forEach((card) => {
+        if (card.column && !card.position) {
+          event('rowcol-only')
+          cards.splice(0, 0, card)
+          return
+        }
+        if (card.include) {
+          event('include-audience', card)
+          for (const [key, value] of Object.entries(card.include)) {
+            if (config[key] !== value) return
+          }
+        }
+        if (card.exclude) {
+          event('exclude-audience', card)
+          for (const [key, value] of Object.entries(card.exclude)) {
+            if (config[key] === value) return
+          }
+        }
         if (card.position) {
           event('position-card')
           cards.splice(card.position - 1, 0, card)

@@ -1,19 +1,17 @@
 const webpack = require('webpack')
 
+let meta = []
+
 export default {
   mode: 'spa',
   /*
    ** Headers of the page
    */
-  head: {
-    meta: [
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-    ]
-  },
+  head: {},
   /*
    ** Customize the progress-bar color
    */
-  loading: { color: '#fff' },
+  loading: false,
   /*
    ** Global CSS
    */
@@ -22,8 +20,7 @@ export default {
    ** Plugins to load before mounting the App
    */
   plugins: [
-    '~/plugins/filters.js',
-    { src: '~/plugins/config.ts', mode: 'client' }
+    '~/plugins/filters.js'
   ],
   /*
    ** Nuxt.js dev-modules
