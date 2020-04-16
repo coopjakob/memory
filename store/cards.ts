@@ -19,9 +19,6 @@ const cardsModule: Module<CardsState, any> = {
         {
           name: 'sa-funkar-det',
           type: CardTypes.AD,
-          include: {
-            user: 'anonymous'
-          },
           position: 4,
           image: 'https://coop-static.netlify.com/sa-funkar-det.jpg',
           link: 'https://www.coop.se/handla/sa-funkar-det',
@@ -35,7 +32,8 @@ const cardsModule: Module<CardsState, any> = {
             storeName: 'STOCKHOLM'
           },
           exclude: {
-            sessionPostCode: ''
+            sessionPostCode: '',
+            b2bUser: true
           },
           image:
             'https://www.coop.se/medias/330x704-ny-grid.jpg?context=bWFzdGVyfHJvb3R8OTkxMjl8aW1hZ2UvanBlZ3xoZTcvaDFkLzg5MzQxNDUxOTYwNjIvMzMweDcwNF9ueSBncmlkLmpwZ3wyZmEwMzJhZTc2ZDFlOTQzZGNlMmU4YTRjOTlkZTQ5NTQxMWIyMjVlZjY1NWYwY2Y4ZWY3Y2Q0OWIyZTFjNGRh',
@@ -50,6 +48,9 @@ const cardsModule: Module<CardsState, any> = {
             sessionPostCode: '',
             storeName: 'STOCKHOLM'
           },
+          exclude: {
+            b2bUser: true
+          },
           image: 'https://coop-static.netlify.com/recept.jpg',
           link: 'https://www.coop.se/handla/kopklara-recept',
           buttonText: 'Recept'
@@ -59,61 +60,23 @@ const cardsModule: Module<CardsState, any> = {
           type: CardTypes.AD,
           position: 9,
           exclude: {
-            storeName: 'STOCKHOLM'
+            storeName: 'STOCKHOLM',
+            b2bUser: true
           },
           image: 'https://coop-static.netlify.com/recept.jpg',
           link: 'https://www.coop.se/handla/kopklara-recept',
           buttonText: 'Recept'
         },
         {
-          name: 'anglamark',
-          type: CardTypes.AD,
-          include: {
-            b2bUser: true
-          },
-          brand: 'Änglamark',
-          image: 'https://coop-static.netlify.com/anglamark.jpg',
-          link: 'https://www.coop.se/handla/anglamark',
-          buttonText: 'Änglamark'
-        },
-        {
-          name: 'valio',
-          type: CardTypes.AD,
-          include: {
-            user: 'anonymous'
-          },
-          brand: 'Valio',
-          image:
-            'https://coop-static.netlify.com/Gridbanner_Valio_Desktop330x704_Vanilj.jpg',
-          link: 'https://www.coop.se/handla/search?text=valio'
-        },
-        {
-          name: 'olw',
-          type: CardTypes.AD,
-          include: {
-            user: 'anonymous'
-          },
-          brand: 'OLW',
-          image: 'https://coop-static.netlify.com/Gridbanner_OLW_330x704.jpg',
-          link: 'https://www.coop.se/handla/search?text=OLW'
-        },
-        {
           name: 'matkassar',
           type: CardTypes.AD,
-          include: {
-            b2bUser: false
+          exclude: {
+            b2bUser: true
           },
           position: 22,
           image: 'https://coop-static.netlify.com/matkassar.jpg',
           link: 'https://www.coop.se/handla/matkasse',
           buttonText: 'Matkassar'
-        },
-        {
-          name: 'poang',
-          type: CardTypes.AD,
-          image: 'https://coop-static.netlify.com/poang.jpg',
-          link: 'https://www.coop.se/medlemsinfo',
-          buttonText: 'Läs mer'
         }
       ]
     }
