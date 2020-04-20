@@ -67,7 +67,10 @@ export default Vue.extend({
   },
   computed: {
     promoDescription(): string | undefined {
-      return this.card.potentialPromotions[0]?.description
+      return (
+        this.card.potentialPromotions[0] &&
+        this.card.potentialPromotions[0].description
+      )
     },
     initQty(): number {
       if (!this.$store) {
@@ -91,45 +94,47 @@ export default Vue.extend({
 })
 </script>
 
-<style lang="sass" scoped>
-.card
-  background-color: white
-  padding: 15px
-  color: #333
+<style lang="scss" scoped>
+.card {
+  background-color: white;
+  padding: 15px;
+  color: #333;
+}
+.product-labels {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 30px;
 
-.product-labels
-  position: absolute
-  top: 10px
-  left: 10px
-  width: 30px
-
-  img
-    width: 100%
-
-.splash
-  position: absolute
-  top: 10px
-  right: 10px
-
-.product-name
-  font-size: 16px
-  margin-bottom: 7px
-
-.product-summary
-  font-size: 12px
-  margin-bottom: 15px
-
-.brand
-  font-weight: bold
-
-.consumer-info
-  font-size: 14px
-  color: rgb(170, 170, 170)
-  margin-bottom: 10px
-
-.deposit
-  font-size: 12px
-  color: rgb(153, 153, 153)
-  font-style: italic
-  white-space: nowrap
+  img {
+    width: 100%;
+  }
+}
+.splash {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.product-name {
+  font-size: 16px;
+  margin-bottom: 7px;
+}
+.product-summary {
+  font-size: 12px;
+  margin-bottom: 15px;
+}
+.brand {
+  font-weight: bold;
+}
+.consumer-info {
+  font-size: 14px;
+  color: rgb(170, 170, 170);
+  margin-bottom: 10px;
+}
+.deposit {
+  font-size: 12px;
+  color: rgb(153, 153, 153);
+  font-style: italic;
+  white-space: nowrap;
+}
 </style>

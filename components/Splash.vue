@@ -37,7 +37,7 @@ export default Vue.extend({
 
       const parts = regex.exec(this.description)
 
-      if (parts?.groups) {
+      if (parts && parts.groups) {
         event('show-splash')
 
         let label = parts.groups.label
