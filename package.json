@@ -11,7 +11,9 @@
     "lint": "eslint --ext .js,.ts,.vue .",
     "test": "jest test/unit",
     "cypress": "cypress open",
-    "e2e": "percy exec -- cypress run"
+    "e2e": "percy exec -- cypress run",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "lint-staged": {
     "*.{js,vue,ts}": "yarn lint"
@@ -22,7 +24,8 @@
     }
   },
   "dependencies": {
-    "@nuxtjs/axios": "^5.3.6",
+    "@nuxtjs/axios": "^5.9.7",
+    "core-js": "2",
     "eslint-plugin-cypress": "^2.10.3",
     "lodash": "^4.17.15",
     "lodash.uniqby": "^4.7.0",
@@ -32,15 +35,22 @@
     "vue-property-decorator": "^8.4.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.9.0",
     "@nuxt/typescript-build": "^0.6.0",
     "@nuxtjs/eslint-config": "^2.0.0",
     "@nuxtjs/eslint-module": "^1.0.0",
     "@percy/cypress": "^2.3.1",
+    "@storybook/addon-actions": "^5.3.18",
+    "@storybook/addon-links": "^5.3.18",
+    "@storybook/addons": "^5.3.18",
+    "@storybook/vue": "^5.3.18",
     "@typescript-eslint/eslint-plugin": "^2.22.0",
     "@typescript-eslint/parser": "^2.22.0",
     "@vue/test-utils": "^1.0.0-beta.27",
     "babel-eslint": "^10.1.0",
     "babel-jest": "^25.1.0",
+    "babel-loader": "^8.1.0",
+    "babel-preset-vue": "^2.0.2",
     "cypress": "^4.3.0",
     "eslint": "^6.1.0",
     "eslint-config-prettier": "^6.10.0",

@@ -17,36 +17,41 @@ import Vue from 'vue'
 export default Vue.extend({})
 </script>
 
-<style lang="sass" scoped>
-.card
-  padding: 15px
-  background-color: white
-  color: #333
-  display: flex
-  flex-direction: column
+<style lang="scss" scoped>
+.card {
+  padding: 15px;
+  background-color: white;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+}
+.top {
+  flex-grow: 1;
+}
 
-  .top
-    flex-grow: 1
+.image {
+  padding-top: 100%;
+  position: relative;
+  background-color: #f4f4f4;
+}
 
-  .image
-    padding-top: 100%
-    position: relative
-    background-color: #F4F4F4
+.line {
+  height: 21px;
+  margin-top: 14px;
+  background-color: #f4f4f4;
+}
 
-  .line
-    height: 21px
-    margin-top: 14px
-    background-color: #F4F4F4
+.short-line {
+  width: 50%;
+  height: 21px;
+  margin-top: 14px;
+  background-color: #f4f4f4;
+}
 
-  .short-line
-    width: 50%
-    height: 21px
-    margin-top: 14px
-    background-color: #F4F4F4
-
-  .button
-    margin-top: 14px
-    height: 40px
-    background-color: #F4F4F4
-    border-radius: 20px
+.button {
+  margin-top: 14px;
+  height: 40px;
+  background-color: #f4f4f4;
+  border-radius: 20px;
+}
 </style>
