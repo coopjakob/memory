@@ -19,10 +19,36 @@ const cardsModule: Module<CardsState, any> = {
         {
           name: 'sa-funkar-det',
           type: CardTypes.AD,
+          include: {
+            user: 'anonymous'
+          },
           position: 4,
           image: 'https://coop-static.netlify.com/sa-funkar-det.jpg',
           link: 'https://www.coop.se/handla/sa-funkar-det',
           buttonText: 'Så funkar det'
+        },
+        {
+          name: 'sa-funkar-det',
+          type: CardTypes.AD,
+          include: {
+            b2bUser: true
+          },
+          position: 4,
+          image: 'https://coop-static.netlify.com/sa-funkar-det.jpg',
+          link: 'https://www.coop.se/handla/sa-funkar-det',
+          buttonText: 'Så funkar det'
+        },
+        {
+          name: 'valio',
+          type: CardTypes.AD,
+          exclude: {
+            user: 'anonymous',
+            b2bUser: true
+          },
+          position: 4,
+          image:
+            'https://coop-static.netlify.com/Gridbanner_Valio_Desktop330x704_Vanilj.jpg',
+          link: 'https://www.coop.se/handla/search?text=valio+yoghurt'
         },
         {
           name: 'gardsbutiken',
