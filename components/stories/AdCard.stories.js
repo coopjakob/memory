@@ -5,17 +5,18 @@ export default {
   component: AdCard
 }
 
-const components = { AdCard }
-
-export const saFunkarDet = () => ({
-  components,
+const generateCard = ({ image, text }) => () => ({
+  components: { AdCard },
+  story: {
+    name: text
+  },
   data() {
     return {
       card: {
         type: 'ad',
-        image: 'https://coop-static.netlify.com/sa-funkar-det.jpg',
+        image,
         link: '#',
-        buttonText: 'Så funkar det'
+        buttonText: text
       }
     }
   },
@@ -26,29 +27,23 @@ export const saFunkarDet = () => ({
   `
 })
 
-saFunkarDet.story = {
-  name: 'Så funkar det'
-}
-
-export const recept = () => ({
-  components,
-  data() {
-    return {
-      card: {
-        type: 'ad',
-        image: 'https://coop-static.netlify.com/recept.jpg',
-        link: '#',
-        buttonText: 'Recept'
-      }
-    }
-  },
-  template: `
-    <div>
-      <ad-card style="width: 175px; height: 350px;" :card="card" :columns="3" />
-    </div>
-  `
+export const matkassar = generateCard({
+  image: 'https://coop-static.netlify.com/matkassar.jpg',
+  text: 'Matkassar'
 })
 
-recept.story = {
-  name: 'Recept'
-}
+export const saFunkarDet = generateCard({
+  image: 'https://coop-static.netlify.com/sa-funkar-det.jpg',
+  text: 'Så funkar det'
+})
+
+export const recept = generateCard({
+  image: 'https://coop-static.netlify.com/recept.jpg',
+  text: 'Recept'
+})
+
+export const gardsbutiken = generateCard({
+  image:
+    'https://www.coop.se/medias/330x704-ny-grid.jpg?context=bWFzdGVyfHJvb3R8OTkxMjl8aW1hZ2UvanBlZ3xoZTcvaDFkLzg5MzQxNDUxOTYwNjIvMzMweDcwNF9ueSBncmlkLmpwZ3wyZmEwMzJhZTc2ZDFlOTQzZGNlMmU4YTRjOTlkZTQ5NTQxMWIyMjVlZjY1NWYwY2Y4ZWY3Y2Q0OWIyZTFjNGRh',
+  text: 'Gårdsbutiken'
+})
