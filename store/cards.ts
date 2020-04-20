@@ -7,7 +7,7 @@ interface CardsState {
   extra: Array<ExtraCard>
 }
 
-const generateSkeletons = (n: number) =>
+export const generateSkeletons = (n: number) =>
   Array(n).fill({
     type: CardTypes.SKELETON
   })
