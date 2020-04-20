@@ -44,4 +44,6 @@ jobs:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
 
       - name: Build storybook
-        run: yarn build-storybook
+        run: yarn snapshot
+        env:
+          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}

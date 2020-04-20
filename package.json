@@ -13,7 +13,8 @@
     "cypress": "cypress open",
     "e2e": "percy exec -- cypress run",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "snapshot": "build-storybook && percy-storybook --widths=320"
   },
   "lint-staged": {
     "*.{js,vue,ts}": "yarn lint"
@@ -40,6 +41,7 @@
     "@nuxtjs/eslint-config": "^2.0.0",
     "@nuxtjs/eslint-module": "^1.0.0",
     "@percy/cypress": "^2.3.1",
+    "@percy/storybook": "^3.3.0",
     "@storybook/addon-actions": "^5.3.18",
     "@storybook/addon-links": "^5.3.18",
     "@storybook/addons": "^5.3.18",
