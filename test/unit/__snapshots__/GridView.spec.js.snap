@@ -687,12 +687,10 @@ exports[`Grid.spec.js snapshots 2`] = `
   <div
     class="show-more"
   >
-    <button
-      class="coopknapp"
-    >
+    <button>
       
-  Visa mer
-
+      Visa mer
+    
     </button>
   </div>
 </div>

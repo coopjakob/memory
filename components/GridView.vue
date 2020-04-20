@@ -34,12 +34,13 @@
     </div>
 
     <div v-if="!loading" class="show-more">
-      <Coopknapp
+      <c-button
         v-if="!didShowMore && isMobile"
-        cta="Visa mer"
         :disabled="loading"
         @click="loadFull"
-      />
+      >
+        Visa mer
+      </c-button>
     </div>
     <div v-else-if="isMobile" class="show-more loading">
       <div class="lds-ellipsis">
@@ -57,12 +58,12 @@ import ProductCard from './ProductCard.vue'
 import InfoCard from './InfoCard.vue'
 import AdCard from './AdCard.vue'
 import SkeletonCard from './SkeletonCard.vue'
-import Coopknapp from './Coopknapp.vue'
+import Button from './Button.vue'
 import { CardTypes } from '~/types/Card'
 
 export default Vue.extend({
   components: {
-    Coopknapp
+    'c-button': Button
   },
   props: {
     columns: {
