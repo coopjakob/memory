@@ -18,11 +18,7 @@ const generateCard = ({ image, text }) => {
         }
       }
     },
-    template: `
-      <div>
-        <ad-card style="width: 175px; height: 350px;" :card="card" :columns="3" />
-      </div>
-    `
+    template: `<ad-card style="width: 175px; height: 350px;" :card="card" :columns="3" />`
   })
   output.story = {
     name: text

@@ -17,11 +17,7 @@ const generateCard = ({ name, card = {} } = {}) => {
         }
       }
     },
-    template: `
-      <div>
-        <product-card style="width: 175px; height: 350px;" :card="card" />
-      </div>
-    `
+    template: `<product-card style="width: 175px; height: 350px;" :card="card" />`
   })
   output.story = {
     name
