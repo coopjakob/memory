@@ -5,27 +5,30 @@ export default {
   component: AdCard
 }
 
-const generateCard = ({ image, text }) => () => ({
-  components: { AdCard },
-  story: {
-    name: text
-  },
-  data() {
-    return {
-      card: {
-        type: 'ad',
-        image,
-        link: '#',
-        buttonText: text
+const generateCard = ({ image, text }) => {
+  const output = () => ({
+    components: { AdCard },
+    data() {
+      return {
+        card: {
+          type: 'ad',
+          image,
+          link: '#',
+          buttonText: text
+        }
       }
-    }
-  },
-  template: `
-    <div>
-      <ad-card style="width: 175px; height: 350px;" :card="card" :columns="3" />
-    </div>
-  `
-})
+    },
+    template: `
+      <div>
+        <ad-card style="width: 175px; height: 350px;" :card="card" :columns="3" />
+      </div>
+    `
+  })
+  output.story = {
+    name: text
+  }
+  return output
+}
 
 export const matkassar = generateCard({
   image: 'https://coop-static.netlify.com/matkassar.jpg',

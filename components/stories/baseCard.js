@@ -1,26 +1,20 @@
 export const baseCard = {
   type: 'product',
   categories: [
-    {
-      code: '6327',
-      name: 'Ost'
-    },
-    {
-      code: '32462',
-      name: 'Matost'
-    },
-    {
-      code: '32542',
-      name: 'Fetaost - Salladsost'
-    }
+    { code: '6262', name: 'Mejeri & Ägg' },
+    { code: '32205', name: 'Bak - Matlagning' },
+    { code: '32247', name: 'Låglaktos - Laktosfritt' },
+    { code: '6262', name: 'Mejeri & Ägg' },
+    { code: '6264', name: 'Mjölk & Fil' },
+    { code: '32191', name: 'Havre - Soja - Ris' }
   ],
   clickUrl: '#',
-  code: '7350002402658',
+  code: '7394376616037',
   comparisonPrice: {
     currencyIso: 'SEK',
-    formattedValue: '133:- kr/kg',
+    formattedValue: '17:95 kr/lit',
     priceType: 'BUY',
-    value: 133
+    value: 17.95
   },
   consumerInformationText: [],
   depositPrice: {
@@ -32,32 +26,25 @@ export const baseCard = {
   fromSweden: false,
   images: [
     {
-      altText: 'Feta 23 %',
-      url: 'https://res.cloudinary.com/coopsverige/image/upload/303124.tiff'
+      altText: 'IKaffe',
+      url: 'https://res.cloudinary.com/coopsverige/image/upload/380703.tiff'
     }
   ],
-  manufacturer: 'Zeta',
-  name: 'Feta 23 %',
-  packageSize: 150,
-  packageSizeInformation: '150 g',
-  packageSizeUnit: 'G',
+  manufacturer: 'Oatly',
+  name: 'IKaffe',
+  packageSize: 1000,
+  packageSizeInformation: '1L',
+  packageSizeUnit: 'ML',
   pieceWeight: 0,
-  potentialPromotions: [
-    {
-      code: 'flerköp zeta ost',
-      description: '2 för 38:-',
-      endDate: '2020-05-10T19:59:00+0000',
-      medmera: false,
-      startDate: '2020-01-19T23:00:00+0000'
-    }
-  ],
+  potentialPromotions: [],
   price: {
     currencyIso: 'SEK',
-    formattedValue: '19:95',
+    formattedValue: '17:95',
     priceType: 'BUY',
-    value: 19.95
+    value: 17.95
   },
   productLabels: [],
-  url: '/handla/varor/ost/matost/fetaost-salladsost/feta-23-7350002402658',
+  url:
+    '/handla/varor/mejeri-agg/bak-matlagning/laglaktos-laktosfritt/ikaffe-7394376616037',
   variances: []
 }

@@ -1,34 +1,79 @@
-// Can't get this to work
+import { baseCard } from './baseCard'
+import ProductCard from '@/components/ProductCard.vue'
 
-// import { baseCard } from './baseCard'
-// import ProductCard from '@/components/ProductCard'
+export default {
+  title: 'ProductCard',
+  component: ProductCard
+}
 
-// export default {
-//   title: 'ProductCard',
-//   component: ProductCard
-// }
+const generateCard = ({ name, card = {} } = {}) => {
+  const output = () => ({
+    components: { ProductCard },
+    data() {
+      return {
+        card: {
+          ...baseCard,
+          ...card
+        }
+      }
+    },
+    template: `
+      <div>
+        <product-card style="width: 175px; height: 350px;" :card="card" />
+      </div>
+    `
+  })
+  output.story = {
+    name
+  }
+  return output
+}
 
-// const generateCard = ({ text, card = {} }) => () => ({
-//   components: { ProductCard },
-//   story: {
-//     name: text
-//   },
-//   data() {
-//     return {
-//       card: {
-//         ...baseCard,
-//         ...card
-//       }
-//     }
-//   },
-//   template: `
-//     <div>
-//       asdf
-//       <div style="width: 175px; height: 350px;" :card="card" />
-//     </div>
-//   `
-// })
+export const card = generateCard({ name: 'Basic' })
+export const fromSweden = generateCard({
+  name: 'from Sweden',
+  card: {
+    fromSweden: true
+  }
+})
+export const withDeposit = generateCard({
+  name: 'with Deposit',
+  card: {
+    depositPrice: {
+      value: '2kr',
+      formattedValue: '2kr'
+    }
+  }
+})
+export const withLabels = generateCard({
+  name: 'with Labels',
+  card: {
+    productLabels: [
+      {
+        code: 'NYCKELHALET',
+        icon:
+          'https://res.cloudinary.com/coopsverige/image/upload/cooponline/produktmarkning/NyckelhalLogo.svg',
+        priority: 10
+      },
+      {
+        code: 'KRAV0U0MARK',
+        icon:
+          'https://res.cloudinary.com/coopsverige/image/upload/cooponline/produktmarkning/KRAVLogo.svg',
+        priority: 10
+      },
+      {
+        code: 'alltidlagtpris',
+        icon:
+          'https://res.cloudinary.com/coopsverige/image/upload/cooponline/alltid-bra-pris-200x200.png',
+        priority: 10
+      }
+    ]
+  }
+})
 
-// export const basic = generateCard({
-//   text: 'Basic'
-// })
+export const withConsumerInfoText = generateCard({
+  name: 'with Consumer Information Text',
+  card: {
+    consumerInformationText: ["It's vegan!"]
+  }
+})
