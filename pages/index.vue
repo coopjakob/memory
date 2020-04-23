@@ -6,7 +6,12 @@
       </h2>
       <a class="a-link" href="" />
     </div>
-    <Grid />
+    <grid placement="home_page.horizontal_recs1" :rows="1" />
+    <grid
+      placement="home_page.2020_start_few"
+      placement-more="home_page.2020_start_full"
+      :rows="3"
+    />
   </div>
 </template>
 

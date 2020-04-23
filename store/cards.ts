@@ -82,81 +82,84 @@ const cardsModule: Module<CardsState, any> = {
     }
   },
   getters: {
-    getAllCards(state, getters, rootState, rootGetters): Cards {
-      const { config } = window.ACC
-      let cards = rootGetters['products/getProductsAsCards']
+    getAllCards(state, getters, rootState, rootGetters): (id: string) => Cards {
+      return (id) => {
+        const isInited = rootGetters['products/isInited'](id)
+        const { config } = window.ACC
+        let cards = rootGetters['products/getProductsAsCards'](id)
 
-      if (!rootGetters['products/isInited']) {
-        cards = [...cards, ...generateSkeletons(30)]
+        if (!isInited) {
+          cards = [...cards, ...generateSkeletons(30)]
+        }
+
+        const unusedCards: Array<ExtraCard> = []
+        const used: string[] = []
+        state.extra.forEach((card) => {
+          if (card.column && !card.position) {
+            event('rowcol-only')
+            cards.splice(0, 0, card)
+            return
+          }
+          if (card.include) {
+            event('include-audience', card)
+            for (const [key, value] of Object.entries(card.include)) {
+              if (config[key] !== value) return
+            }
+          }
+          if (card.exclude) {
+            event('exclude-audience', card)
+            for (const [key, value] of Object.entries(card.exclude)) {
+              if (config[key] === value) return
+            }
+          }
+          if (card.position) {
+            event('position-card')
+            cards.splice(card.position - 1, 0, card)
+            return
+          }
+          if (card.label) {
+            event('label-card')
+            const product = cards.find(
+              (product: Product) =>
+                product.productLabels?.find(
+                  (label) => card.label === label.code
+                ) && !used.includes(product.code)
+            )
+            if (product) {
+              const index = cards.indexOf(product)
+              used.push(product.code)
+              cards[index] = [card, product]
+              // cards.splice(index, 0, card)
+              return
+            }
+          }
+          if (card.brand) {
+            event('brand-card')
+            const product = cards.find(
+              (product: Product) =>
+                product.manufacturer === card.brand &&
+                !used.includes(product.code)
+            )
+            if (product) {
+              const index = cards.indexOf(product)
+              used.push(product.code)
+              cards[index] = [card, product]
+              // cards.splice(index, 0, card)
+              return
+            }
+          }
+          unusedCards.push(card)
+        })
+        return [cards, unusedCards]
       }
-
-      const unusedCards: Array<ExtraCard> = []
-      const used: string[] = []
-      state.extra.forEach((card) => {
-        if (card.column && !card.position) {
-          event('rowcol-only')
-          cards.splice(0, 0, card)
-          return
-        }
-        if (card.include) {
-          event('include-audience', card)
-          for (const [key, value] of Object.entries(card.include)) {
-            if (config[key] !== value) return
-          }
-        }
-        if (card.exclude) {
-          event('exclude-audience', card)
-          for (const [key, value] of Object.entries(card.exclude)) {
-            if (config[key] === value) return
-          }
-        }
-        if (card.position) {
-          event('position-card')
-          cards.splice(card.position - 1, 0, card)
-          return
-        }
-        if (card.label) {
-          event('label-card')
-          const product = cards.find(
-            (product: Product) =>
-              product.productLabels?.find(
-                (label) => card.label === label.code
-              ) && !used.includes(product.code)
-          )
-          if (product) {
-            const index = cards.indexOf(product)
-            used.push(product.code)
-            cards[index] = [card, product]
-            // cards.splice(index, 0, card)
-            return
-          }
-        }
-        if (card.brand) {
-          event('brand-card')
-          const product = cards.find(
-            (product: Product) =>
-              product.manufacturer === card.brand &&
-              !used.includes(product.code)
-          )
-          if (product) {
-            const index = cards.indexOf(product)
-            used.push(product.code)
-            cards[index] = [card, product]
-            // cards.splice(index, 0, card)
-            return
-          }
-        }
-        unusedCards.push(card)
-      })
-      return [cards, unusedCards]
     },
     getCards(state, getters) {
       event('get-cards')
-      return getters.getAllCards[0]
+      return (id) => getters.getAllCards(id)[0]
     },
     getUnusedCards(state, getters) {
       event('unused-cards')
-      return getters.getAllCards[1]
+      return (id) => getters.getAllCards(id)[1]
     }
   }
 }
