@@ -54,7 +54,7 @@ export default {
 <style lang="scss" scoped>
 @media only percy {
   .hide-in-percy {
-    visibility: hidden;
+    display: none;
   }
 }
 </style>
