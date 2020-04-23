@@ -16,7 +16,6 @@ const mountWithProps = (component, props = {}) => {
       loading: false,
       didShowMore: false,
       isMobile: false,
-      width: 800,
       cards: generateSkeletons(10),
       selectedFillers: [],
       emptySlots: 5,

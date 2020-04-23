@@ -6,7 +6,11 @@
       </h2>
       <a class="a-link" href="" />
     </div>
-    <grid placement="home_page.horizontal_recs1" :rows="1" />
+    <grid
+      class="hide-in-percy"
+      placement="home_page.horizontal_recs1"
+      :rows="1"
+    />
     <grid
       placement="home_page.2020_start_few"
       placement-more="home_page.2020_start_full"
@@ -45,3 +49,11 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+@media only percy {
+  .hide-in-percy {
+    visibility: hidden;
+  }
+}
+</style>

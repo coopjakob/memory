@@ -76,10 +76,6 @@ export default Vue.extend({
     loading: Boolean,
     didShowMore: Boolean,
     isMobile: Boolean,
-    width: {
-      type: Number,
-      required: true
-    },
     cards: {
       type: Array,
       required: true

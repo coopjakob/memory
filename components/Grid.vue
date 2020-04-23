@@ -6,7 +6,6 @@
       :is-mobile="isMobile"
       :cards="cards"
       :empty-slots="emptySlots"
-      :width="width"
       :columns="columns"
       :selected-fillers="selectedFillers"
       :loading="loading(id)"
