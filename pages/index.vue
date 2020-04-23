@@ -12,6 +12,7 @@
       :rows="1"
     />
     <grid
+      id="main"
       placement="home_page.2020_start_few"
       placement-more="home_page.2020_start_full"
       :rows="3"
