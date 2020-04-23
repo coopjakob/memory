@@ -1,3 +1,4 @@
+import Vue from 'vue'
 import { Module } from 'vuex'
 import qs from 'query-string'
 import uniqBy from 'lodash.uniqby'
@@ -97,14 +98,14 @@ const productsModule: Module<ProductsState, any> = {
       state.rcs = rcs
     },
     init(state: ProductsState, { placement, placementMore, id }) {
-      state[id] = {
+      Vue.set(state, id, {
         recieved: [],
         didShowMore: false,
         loading: false,
         inited: false,
         placement,
         placementMore
-      }
+      })
     },
     didShowMore(state: ProductsState, id: string) {
       state[id].didShowMore = true
