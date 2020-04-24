@@ -1,3 +1,4 @@
+import Vue from 'vue'
 import { Module } from 'vuex'
 import qs from 'query-string'
 import uniqBy from 'lodash.uniqby'
@@ -5,58 +6,61 @@ import Product from '~/types/Product'
 import { CardTypes, ProductCard } from '~/types/Card'
 import { event } from '@/event'
 
-// const wait = (time: number) =>
-//   new Promise((resolve) => {
-//     setTimeout(resolve, time)
-//   })
-
-interface ProductsState {
-  recieved: Array<Product>
+interface State {
   rcs?: string
-  didShowMore: boolean
-  loading: boolean
-  inited: boolean
 }
+
+interface GenericProducts {
+  [key: string]: () => {
+    recieved: Array<Product>
+    didShowMore: boolean
+    loading: boolean
+    inited: boolean
+    placement: string
+    placementMore?: string
+  }
+}
+
+type ProductsState = State | GenericProducts
 
 const productsModule: Module<ProductsState, any> = {
   state(): ProductsState {
-    return {
-      recieved: [],
-      rcs: undefined,
-      didShowMore: false,
-      loading: false,
-      inited: false
-    }
+    return {}
   },
   actions: {
-    init({ dispatch, commit }) {
+    init({ dispatch, commit }, { placement, placementMore, id }) {
       const rcs = sessionStorage.getItem('rcs')
       commit('newRcs', rcs)
-      dispatch('loadFew')
+      commit('init', { id, placement, placementMore })
+      dispatch('loadFew', id)
     },
-    async loadFew({ dispatch, commit }) {
+    async loadFew({ state, dispatch, commit }, id) {
       event('load-few')
       const products = await dispatch('fetch', {
-        placements: 'home_page.2020_start_few'
+        placements: state[id].placement,
+        id
       })
-      commit('gotProductsFew', products)
+      commit('gotProductsFew', { products, id })
     },
-    async loadFull({ state, dispatch, commit }) {
-      if (state.didShowMore) {
+    async loadFull({ state, dispatch, commit }, id) {
+      if (state[id].didShowMore) {
         event('full-exists')
         return
       }
-      event('load-full')
-      const products = await dispatch('fetch', {
-        placements: 'home_page.2020_start_full'
-      })
-      commit('gotProductsFull', products)
-      commit('didShowMore')
+      if (state[id].placementMore) {
+        event('load-full')
+        const products = await dispatch('fetch', {
+          placements: state[id].placementMore,
+          id
+        })
+        commit('gotProductsFull', { products, id })
+      }
+      commit('didShowMore', id)
     },
-    async fetch({ state, commit }, { placements }) {
+    async fetch({ state, commit }, { placements, id }) {
       event('fetch-products')
       const config = window.ACC.config
-      commit('loading')
+      commit('loading', id)
       const baseUrl = 'https://www.coop.se/ws/v2/coop/users/' + config.user
       const query = {
         placements,
@@ -82,8 +86,8 @@ const productsModule: Module<ProductsState, any> = {
     }
   },
   mutations: {
-    loading(state, status = true) {
-      state.loading = status
+    loading(state, id) {
+      state[id].loading = true
     },
     newRcs(state: ProductsState, rcs) {
       if (!rcs) {
@@ -93,43 +97,63 @@ const productsModule: Module<ProductsState, any> = {
       sessionStorage.setItem('rcs', rcs)
       state.rcs = rcs
     },
-    didShowMore(state: ProductsState) {
-      state.didShowMore = true
+    init(state: ProductsState, { placement, placementMore, id }) {
+      Vue.set(state, id, {
+        recieved: [],
+        didShowMore: false,
+        loading: false,
+        inited: false,
+        placement,
+        placementMore
+      })
     },
-    clearProducts(state: ProductsState) {
+    didShowMore(state: ProductsState, id: string) {
+      state[id].didShowMore = true
+    },
+    clearProducts(state: ProductsState, id: string) {
       event('clear-products')
-      state.recieved = []
+      state[id].recieved = []
     },
-    gotProductsFew(state: ProductsState, products: Array<Product>) {
+    gotProductsFew(
+      state: ProductsState,
+      { id, products }: { products: Array<Product>; id: string }
+    ) {
       event('remove-duplicates')
-      state.recieved = uniqBy([...state.recieved, ...products], 'code')
-      state.loading = false
+      state[id].recieved = uniqBy([...state[id].recieved, ...products], 'code')
+      state[id].loading = false
+      state[id].inited = true
     },
-    gotProductsFull(state: ProductsState, products: Array<Product>) {
+    gotProductsFull(
+      state: ProductsState,
+      { id, products }: { products: Array<Product>; id: string }
+    ) {
       event('remove-duplicates')
-      state.recieved = uniqBy([...products, ...state.recieved], 'code')
-      state.loading = false
-      state.inited = true
+      state[id].recieved = uniqBy([...products, ...state[id].recieved], 'code')
+      state[id].loading = false
+      state[id].inited = true
     }
   },
   getters: {
-    isLoading(state: ProductsState): boolean {
-      return state.loading
+    isLoading(state: ProductsState): (id: string) => boolean {
+      return (id) => state[id].loading
     },
-    isInited(state: ProductsState): boolean {
-      return state.inited
+    isInited(state: ProductsState): (id: string) => boolean {
+      return (id) => state[id].inited
     },
-    didShowMore(state: ProductsState) {
-      return state.didShowMore
+    didShowMore(state: ProductsState): (id: string) => boolean {
+      return (id) => state[id].didShowMore
     },
-    getProducts(state: ProductsState): Array<Product> {
-      return state.recieved
+    getProducts(state: ProductsState): (id: string) => Array<Product> {
+      return (id) => state[id].recieved
     },
-    getProductsAsCards(state: ProductsState): Array<ProductCard> {
-      return state.recieved.map((p) => ({
-        ...p,
-        type: CardTypes.PRODUCT
-      }))
+    getProductsAsCards(
+      state: ProductsState
+    ): (id: string) => Array<ProductCard> {
+      return (id) =>
+        state[id].recieved.map((p) => ({
+          ...p,
+          type: CardTypes.PRODUCT
+        }))
     }
   }
 }

@@ -1,16 +1,17 @@
 <template>
   <div ref="grid">
     <grid-view
-      :did-show-more="didShowMore"
+      :id="id"
+      :did-show-more="didShowMore(id)"
       :is-mobile="isMobile"
       :cards="cards"
       :empty-slots="emptySlots"
-      :width="width"
       :columns="columns"
       :selected-fillers="selectedFillers"
-      :loading="loading"
+      :loading="loading(id)"
       :load-full="loadFull"
     />
+    <hr />
   </div>
 </template>
 
@@ -25,6 +26,25 @@ export default Vue.extend({
   components: {
     GridView
   },
+  props: {
+    placement: {
+      type: String,
+      required: true
+    },
+    placementMore: {
+      type: String,
+      required: false,
+      default: undefined
+    },
+    rows: {
+      type: Number,
+      default: 3
+    },
+    hideExtras: {
+      type: Boolean,
+      default: false
+    }
+  },
   data() {
     return {
       width: 320,
@@ -33,7 +53,13 @@ export default Vue.extend({
     }
   },
   computed: {
+    id(): string {
+      return this.placement
+    },
     cards(): Cards {
+      if (this.hideExtras) {
+        return this.productCards(this.id).slice(0, this.columns * this.rows)
+      }
       return this.selectedCards()
     },
     isMobile(): boolean {
@@ -55,7 +81,8 @@ export default Vue.extend({
       allCards: 'cards/getCards',
       unusedCards: 'cards/getUnusedCards',
       loading: 'products/isLoading',
-      didShowMore: 'products/didShowMore'
+      didShowMore: 'products/didShowMore',
+      productCards: 'products/getProductsAsCards'
     }),
     emptySlots(): number {
       const numberOfCards =
@@ -72,30 +99,35 @@ export default Vue.extend({
     isMobile(newValue) {
       if (newValue === false) {
         event('not-phone')
-        this.loadFull()
+        this.loadFull(this.id)
       }
     }
   },
   beforeDestroy() {
     window.removeEventListener('resize', this.setGridWidth)
   },
+  created() {
+    this.init({
+      id: this.placement,
+      placement: this.placement,
+      placementMore: this.placementMore
+    })
+  },
   mounted() {
     event('grid-mounted')
     window.addEventListener('resize', this.setGridWidth)
     this.setGridWidth()
     this.fetchCart()
-    this.init()
   },
   methods: {
     selectedCards() {
       const cardContent: Cards = this.lastSelectedCards
-      const newCards: Cards = this.allCards
+      const newCards: Cards = this.allCards(this.id)
       // const oldCards: Cards = this.lastSelectedCards
 
-      const limitRows = 3
-      let limitSpace = this.columns * limitRows
+      let limitSpace = this.columns * this.rows
 
-      if (this.isMobile && this.didShowMore) {
+      if (this.isMobile && this.didShowMore(this.id)) {
         limitSpace = Infinity
       }
 
@@ -106,7 +138,7 @@ export default Vue.extend({
           break
         }
 
-        if (this.didShowMore && Array.isArray(newCards[index])) {
+        if (this.didShowMore(this.id) && Array.isArray(newCards[index])) {
           if (limitSpace - filledSpace > 1) {
             if (!cardContent[index] || cardContent[index].type === 'skeleton') {
               event('show-card', newCards[index][0])

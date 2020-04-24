@@ -38,7 +38,7 @@
         v-if="!didShowMore && isMobile"
         cta="Visa mer"
         :disabled="loading"
-        @click="loadFull"
+        @click="loadFull(id)"
       />
     </div>
     <div v-else-if="isMobile" class="show-more loading">
@@ -65,6 +65,10 @@ export default Vue.extend({
     Coopknapp
   },
   props: {
+    id: {
+      type: String,
+      required: true
+    },
     columns: {
       type: Number,
       required: true
@@ -72,10 +76,6 @@ export default Vue.extend({
     loading: Boolean,
     didShowMore: Boolean,
     isMobile: Boolean,
-    width: {
-      type: Number,
-      required: true
-    },
     cards: {
       type: Array,
       required: true
