@@ -9,6 +9,7 @@
     <grid
       class="hide-in-percy"
       placement="home_page.horizontal_recs1"
+      :hide-extras="true"
       :rows="1"
     />
     <grid

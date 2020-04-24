@@ -39,6 +39,10 @@ export default Vue.extend({
     rows: {
       type: Number,
       default: 3
+    },
+    hideExtras: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
@@ -53,6 +57,9 @@ export default Vue.extend({
       return this.placement
     },
     cards(): Cards {
+      if (this.hideExtras) {
+        return this.productCards(this.id).slice(0, this.columns * this.rows)
+      }
       return this.selectedCards()
     },
     isMobile(): boolean {
@@ -74,7 +81,8 @@ export default Vue.extend({
       allCards: 'cards/getCards',
       unusedCards: 'cards/getUnusedCards',
       loading: 'products/isLoading',
-      didShowMore: 'products/didShowMore'
+      didShowMore: 'products/didShowMore',
+      productCards: 'products/getProductsAsCards'
     }),
     emptySlots(): number {
       const numberOfCards =
