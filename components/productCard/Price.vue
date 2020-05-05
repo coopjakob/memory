@@ -11,6 +11,9 @@
     <div v-if="maxUseText" class="max-use">
       {{ maxUseText }}
     </div>
+    <span v-if="product.depositPrice.value" class="deposit">
+      + {{ product.depositPrice | price }} Pant
+    </span>
     <div class="product-price" :class="{ 'is-promo': promoPrice }">
       <div v-if="promoPrice" class="promo-price">
         {{ promoPrice }}<span class="unit">/st</span>
@@ -78,6 +81,12 @@ export default Vue.extend({
 .max-use {
   font-size: 12px;
   color: rgb(255, 51, 0);
+}
+.deposit {
+  font-size: 12px;
+  color: rgb(153, 153, 153);
+  font-style: italic;
+  white-space: nowrap;
 }
 .product-price {
   font-size: 20px;

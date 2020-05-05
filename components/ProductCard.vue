@@ -21,9 +21,6 @@
       <span class="brand">{{ card.manufacturer }}.</span>
       {{ card.packageSizeInformation }}.
       <span>Jmf-pris {{ card.comparisonPrice | price }}.</span>
-      <span v-if="card.depositPrice.value" class="deposit">
-        Pant {{ card.depositPrice | price }}
-      </span>
     </div>
     <div
       v-for="text in card.consumerInformationText"
@@ -130,11 +127,5 @@ export default Vue.extend({
   font-size: 14px;
   color: rgb(170, 170, 170);
   margin-bottom: 10px;
-}
-.deposit {
-  font-size: 12px;
-  color: rgb(153, 153, 153);
-  font-style: italic;
-  white-space: nowrap;
 }
 </style>

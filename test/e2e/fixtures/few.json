@@ -87,12 +87,12 @@
                         "priceType": "BUY",
                         "value": 12.6
                     },
-                    "consumerInformationText": [],
-                    "depositPrice": {
-                        "currencyIso": "SEK",
-                        "formattedValue": "0:-",
-                        "priceType": "BUY",
-                        "value": 0
+                    "consumerInformationText" : [ "Dagsfärsk", "Ej tillgänglig genom expressleverans" ],
+                    "depositPrice" : {
+                        "currencyIso" : "SEK",
+                        "formattedValue" : "1:-",
+                        "priceType" : "BUY",
+                        "value" : 1.0
                     },
                     "fromSweden": false,
                     "images": [
