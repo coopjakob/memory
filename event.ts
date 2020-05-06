@@ -26,7 +26,8 @@ bus.$on('show-card', (data) => {
       hitType: 'event',
       eventCategory: 'memory',
       eventAction: 'show-ad',
-      eventLabel: data.name
+      eventLabel: data.name,
+      nonInteraction: true
     })
   }
 })
