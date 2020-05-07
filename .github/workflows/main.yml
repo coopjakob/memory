@@ -42,3 +42,8 @@ jobs:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+
+      - name: Build storybook
+        run: yarn snapshot
+        env:
+          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}

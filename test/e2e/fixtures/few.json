@@ -40,7 +40,7 @@
                         }
                     ],
                     "manufacturer": "Zeta",
-                    "name": "Feta from fixture 23 %",
+                    "name": "Feta from fixture with variances",
                     "packageSize": 150,
                     "packageSizeInformation": "150 g",
                     "packageSizeUnit": "G",
@@ -62,9 +62,53 @@
                     },
                     "productLabels": [],
                     "url": "/handla/varor/ost/matost/fetaost-salladsost/feta-23-7350002402658",
-                    "variances": []
-                },
-                {
+                    "variances" : [ {
+                       "code" : "ca200g_016001_2097748600003",
+                       "name" : "Ca 200 g",
+                       "price" : {
+                          "currencyIso" : "SEK",
+                          "formattedValue" : "45:80",
+                          "priceType" : "BUY",
+                          "value" : 45.8
+                       }
+                    }, {
+                       "code" : "ca300g_016001_2097748600003",
+                       "name" : "Ca 300 g",
+                       "price" : {
+                          "currencyIso" : "SEK",
+                          "formattedValue" : "68:70",
+                          "priceType" : "BUY",
+                          "value" : 68.7
+                       }
+                    }, {
+                       "code" : "ca400g_016001_2097748600003",
+                       "name" : "Ca 400 g",
+                       "price" : {
+                          "currencyIso" : "SEK",
+                          "formattedValue" : "91:60",
+                          "priceType" : "BUY",
+                          "value" : 91.6
+                       }
+                    }, {
+                       "code" : "ca500g_016001_2097748600003",
+                       "name" : "Ca 500 g",
+                       "price" : {
+                          "currencyIso" : "SEK",
+                          "formattedValue" : "114:50",
+                          "priceType" : "BUY",
+                          "value" : 114.5
+                       }
+                    }, {
+                       "code" : "ca1000g_016001_2097748600003",
+                       "name" : "Ca 1000 g",
+                       "price" : {
+                          "currencyIso" : "SEK",
+                          "formattedValue" : "229:-",
+                          "priceType" : "BUY",
+                          "value" : 229.0
+                       }
+                    } ]
+                 }, {
                     "categories": [
                         {
                             "code": "6262",
@@ -87,13 +131,13 @@
                         "priceType": "BUY",
                         "value": 12.6
                     },
-                    "consumerInformationText": [],
-                    "depositPrice": {
-                        "currencyIso": "SEK",
-                        "formattedValue": "0:-",
-                        "priceType": "BUY",
-                        "value": 0
-                    },
+                    "consumerInformationText" : [ "Dagsfärsk", "Ej tillgänglig genom expressleverans" ],
+                    "depositPrice" : {
+                        "currencyIso" : "SEK",
+                        "formattedValue" : "1:-",
+                        "priceType" : "BUY",
+                        "value" : 1.0
+                     },
                     "fromSweden": false,
                     "images": [
                         {
@@ -107,7 +151,13 @@
                     "packageSizeInformation": "1 L",
                     "packageSizeUnit": "L",
                     "pieceWeight": 0,
-                    "potentialPromotions": [],
+                    "potentialPromotions" : [ {
+                        "code" : "MF Tomatkvist",
+                        "description" : "15:- /kg",
+                        "endDate" : "2020-05-10T19:59:00+0000",
+                        "medmera" : true,
+                        "startDate" : "2020-05-03T22:00:00+0000"
+                     } ],
                     "price": {
                         "currencyIso": "SEK",
                         "formattedValue": "12:60",
