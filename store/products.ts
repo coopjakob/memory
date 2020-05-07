@@ -76,6 +76,11 @@ const productsModule: Module<ProductsState, any> = {
       }
 
       const response = await this['$axios'].$get(url, axiosConfig)
+
+      response.placements[0].products = response.placements[0].products.filter(
+        (product) => product.variances.length === 0
+      )
+
       const { products, rcs } = response.placements[0]
       commit('newRcs', rcs)
       return products
