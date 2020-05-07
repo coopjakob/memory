@@ -1,5 +1,5 @@
 <template>
-  <div v-if="splash" class="splash">
+  <div class="splash">
     <div v-if="splash.label" class="promo-text">
       {{ splash.label }}
     </div>
@@ -23,21 +23,17 @@ export default Vue.extend({
   props: {
     description: {
       type: String,
-      default: ''
+      required: true
     }
   },
   computed: {
     splash(): any {
-      if (this.description === '') {
-        return false
-      }
-
       const regex = /(?<label>\d+ för)? *(?<price>\d+)[:.]-?(?<decimal>[\d]+)? *k?r?\/*(?<unit>.*)/g
       // https://regex101.com/
 
       const parts = regex.exec(this.description)
 
-      if (parts?.groups) {
+      if (parts && parts.groups) {
         event('show-splash')
 
         let label = parts.groups.label
@@ -81,6 +77,8 @@ export default Vue.extend({
   height: 47px;
   text-align: center;
   line-height: normal;
+  font-family: CoopNew, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 400;
   color: #ff3300;
   background-image: url('https://res.cloudinary.com/coopsverige/image/upload/v1569329381/cooponline/SVGs/pricesplash.svg');
   background-size: contain;

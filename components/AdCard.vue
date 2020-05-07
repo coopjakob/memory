@@ -73,31 +73,32 @@ export default Vue.extend({
 })
 </script>
 
-<style lang="sass" scoped>
-.card
-  background-size: cover
-  background-repeat: no-repeat
-  background-position: center top
-  background-color: white
-  padding: 15px
-  color: #333
-
-.action
-  margin-top: auto
-
-.button
-  display: inline-block
-  width: 100%
-  height: 40px
-  justify-content: center
-  align-items: center
-  background-color: #00aa46
-  border: 0
-  outline: 0
-  border-radius: 20px
-  cursor: pointer
-  text-align: center
-  font-size: 16px
-  line-height: 40px
-  color: white
+<style lang="scss" scoped>
+.card {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-color: white;
+  padding: 15px;
+  color: #333;
+}
+.action {
+  margin-top: auto;
+}
+.button {
+  display: inline-block;
+  width: 100%;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  background-color: #00aa46;
+  border: 0;
+  outline: 0;
+  border-radius: 20px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 16px;
+  line-height: 40px;
+  color: white;
+}
 </style>

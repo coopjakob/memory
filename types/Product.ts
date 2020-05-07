@@ -1,4 +1,5 @@
 interface Price {
+  value: any
   formattedValue: string
 }
 
