@@ -22,7 +22,14 @@
       <swedish-flag v-if="card.fromSweden" />
       <span class="brand">{{ card.manufacturer }}.</span>
       {{ card.packageSizeInformation }}.
-      <span>Jmf-pris {{ card.comparisonPrice | price }}.</span>
+
+      <span
+        v-if="card.promotionComparisonPrice"
+        class="promotion-comparison-price"
+      >
+        Jmf-pris {{ card.promotionComparisonPrice | price }}.
+      </span>
+      <span v-else>Jmf-pris {{ card.comparisonPrice | price }}.</span>
     </div>
     <div
       v-for="text in card.consumerInformationText"
@@ -124,6 +131,9 @@ export default Vue.extend({
 }
 .brand {
   font-weight: bold;
+}
+.promotion-comparison-price {
+  color: #f30;
 }
 .consumer-info {
   font-size: 14px;
