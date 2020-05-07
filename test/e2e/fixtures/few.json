@@ -151,7 +151,13 @@
                     "packageSizeInformation": "1 L",
                     "packageSizeUnit": "L",
                     "pieceWeight": 0,
-                    "potentialPromotions": [],
+                    "potentialPromotions" : [ {
+                        "code" : "MF Tomatkvist",
+                        "description" : "15:- /kg",
+                        "endDate" : "2020-05-10T19:59:00+0000",
+                        "medmera" : true,
+                        "startDate" : "2020-05-03T22:00:00+0000"
+                     } ],
                     "price": {
                         "currencyIso": "SEK",
                         "formattedValue": "12:60",

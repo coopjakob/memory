@@ -10,9 +10,11 @@
       :image-url="card.images[0].url"
       :title="card.name"
     />
-    <div class="splash">
-      <splash :product="card" />
-    </div>
+    <splash
+      v-if="card.potentialPromotions[0]"
+      class="splash"
+      :description="card.potentialPromotions[0].description"
+    />
     <div class="product-name">
       {{ card.name }}
     </div>
