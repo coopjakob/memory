@@ -40,7 +40,8 @@ export default Vue.extend({
       return this.columns <= 3
     },
     columns(): number {
-      const columns = Math.floor(this.width / this.cardWidth)
+      const gap = 2 // px
+      const columns = Math.floor((this.width + gap) / (this.cardWidth + gap))
       return Math.max(2, columns)
     },
     selectedFillers(): Cards {
