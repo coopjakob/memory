@@ -39,18 +39,6 @@ const cardsModule: Module<CardsState, any> = {
           buttonText: 'Så funkar det'
         },
         {
-          name: 'valio',
-          type: CardTypes.AD,
-          exclude: {
-            user: 'anonymous',
-            b2bUser: true
-          },
-          position: 4,
-          image:
-            'https://coop-static.netlify.com/Gridbanner_Valio_Desktop330x704_Vanilj.jpg',
-          link: 'https://www.coop.se/handla/search?text=valio+yoghurt'
-        },
-        {
           name: 'gardsbutiken',
           type: CardTypes.AD,
           position: 9,
