@@ -17,38 +17,15 @@ const cardsModule: Module<CardsState, any> = {
     return {
       extra: [
         {
-          name: 'sa-funkar-det',
+          name: 'recept',
           type: CardTypes.AD,
-          include: {
-            user: 'anonymous'
-          },
           position: 4,
-          image: 'https://coop-static.netlify.com/sa-funkar-det.jpg',
-          link: 'https://www.coop.se/handla/sa-funkar-det',
-          buttonText: 'Så funkar det'
-        },
-        {
-          name: 'sa-funkar-det',
-          type: CardTypes.AD,
-          include: {
-            b2bUser: true
-          },
-          position: 4,
-          image: 'https://coop-static.netlify.com/sa-funkar-det.jpg',
-          link: 'https://www.coop.se/handla/sa-funkar-det',
-          buttonText: 'Så funkar det'
-        },
-        {
-          name: 'valio',
-          type: CardTypes.AD,
           exclude: {
-            user: 'anonymous',
             b2bUser: true
           },
-          position: 4,
-          image:
-            'https://coop-static.netlify.com/Gridbanner_Valio_Desktop330x704_Vanilj.jpg',
-          link: 'https://www.coop.se/handla/search?text=valio+yoghurt'
+          image: 'https://coop-static.netlify.com/recept.jpg',
+          link: 'https://www.coop.se/handla/kopklara-recept',
+          buttonText: 'Recept'
         },
         {
           name: 'gardsbutiken',
@@ -65,33 +42,6 @@ const cardsModule: Module<CardsState, any> = {
             'https://www.coop.se/medias/330x704-ny-grid.jpg?context=bWFzdGVyfHJvb3R8OTkxMjl8aW1hZ2UvanBlZ3xoZTcvaDFkLzg5MzQxNDUxOTYwNjIvMzMweDcwNF9ueSBncmlkLmpwZ3wyZmEwMzJhZTc2ZDFlOTQzZGNlMmU4YTRjOTlkZTQ5NTQxMWIyMjVlZjY1NWYwY2Y4ZWY3Y2Q0OWIyZTFjNGRh',
           link: 'https://www.coop.se/handla/gardsbutiken',
           buttonText: 'Gårdsbutiken'
-        },
-        {
-          name: 'recept',
-          type: CardTypes.AD,
-          position: 9,
-          include: {
-            sessionPostCode: '',
-            storeName: 'STOCKHOLM'
-          },
-          exclude: {
-            b2bUser: true
-          },
-          image: 'https://coop-static.netlify.com/recept.jpg',
-          link: 'https://www.coop.se/handla/kopklara-recept',
-          buttonText: 'Recept'
-        },
-        {
-          name: 'recept',
-          type: CardTypes.AD,
-          position: 9,
-          exclude: {
-            storeName: 'STOCKHOLM',
-            b2bUser: true
-          },
-          image: 'https://coop-static.netlify.com/recept.jpg',
-          link: 'https://www.coop.se/handla/kopklara-recept',
-          buttonText: 'Recept'
         },
         {
           name: 'matkassar',

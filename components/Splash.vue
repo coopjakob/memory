@@ -75,6 +75,7 @@ export default Vue.extend({
   align-items: center;
   width: 64px;
   height: 47px;
+  padding-top: 2px;
   text-align: center;
   line-height: normal;
   font-family: CoopNew, 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -85,9 +86,8 @@ export default Vue.extend({
 }
 
 .promo-text {
-  margin-bottom: -2px;
   font-size: 10px;
-  line-height: 10px;
+  line-height: 8px;
 }
 
 .price {
@@ -95,28 +95,31 @@ export default Vue.extend({
   align-self: flex-start;
   position: relative;
   margin: 0 auto;
-  font-size: 22px;
-  line-height: 22px;
 }
 
 .price-start {
   display: inline-block;
+  font-size: 22px;
+  line-height: 22px;
 }
 
 .price-end {
   display: inline-block;
   position: relative;
   font-size: 22px;
+  line-height: 22px;
 }
 
 .decimal {
   position: absolute;
-  top: 1px;
+  top: 0.5px;
   left: 0;
-  font-size: 12px;
+  font-size: 10px;
+  line-height: 10px;
 }
 
 .unit {
-  font-size: 12px;
+  font-size: 16px;
+  line-height: 16px;
 }
 </style>
