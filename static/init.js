@@ -3,7 +3,7 @@
     return
   }
 
-  const domain = 'https://coop-memory-jam.netlify.com'
+  const domain = 'https://coop-memory-jam.netlify.app'
 
   const link = document.createElement('link')
   link.rel = 'stylesheet'
