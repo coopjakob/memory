@@ -17,13 +17,40 @@ const cardsModule: Module<CardsState, any> = {
     return {
       extra: [
         {
-          name: 'recept',
+          name: 'lottal',
           type: CardTypes.AD,
           position: 4,
           exclude: {
             b2bUser: true
           },
-          image: 'https://coop-static.netlify.com/recept.jpg',
+          image: 'https://coop-static.netlify.app/lottal.jpg',
+          link: 'https://www.coop.se/handla/lottal',
+          buttonText: 'Handla nu'
+        },
+        {
+          name: 'recept',
+          type: CardTypes.AD,
+          position: 9,
+          include: {
+            sessionPostCode: '',
+            storeName: 'STOCKHOLM'
+          },
+          exclude: {
+            b2bUser: true
+          },
+          image: 'https://coop-static.netlify.app/recept.jpg',
+          link: 'https://www.coop.se/handla/kopklara-recept',
+          buttonText: 'Recept'
+        },
+        {
+          name: 'recept',
+          type: CardTypes.AD,
+          position: 9,
+          exclude: {
+            storeName: 'STOCKHOLM',
+            b2bUser: true
+          },
+          image: 'https://coop-static.netlify.app/recept.jpg',
           link: 'https://www.coop.se/handla/kopklara-recept',
           buttonText: 'Recept'
         },
@@ -50,7 +77,7 @@ const cardsModule: Module<CardsState, any> = {
             b2bUser: true
           },
           position: 22,
-          image: 'https://coop-static.netlify.com/matkassar.jpg',
+          image: 'https://coop-static.netlify.app/matkassar.jpg',
           link: 'https://www.coop.se/handla/matkasse',
           buttonText: 'Matkassar'
         }
