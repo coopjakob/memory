@@ -15,7 +15,7 @@
       />
       <input
         class="js-qty-selector-input"
-        type="number"
+        type="text"
         :value="initQty"
         min="0"
         max="999"
