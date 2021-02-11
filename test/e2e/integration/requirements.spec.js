@@ -1,6 +1,6 @@
 
-  context('extra cards', () => {
-    it('is visible', () => {
+context('extra cards', () => {
+  it('is visible', () => {
     cy.viewport(1320, 1050)
     cy.visit('/')
     cy.get('.extra-card').should('have.length.greaterThan', 0)
@@ -13,8 +13,14 @@
   })
 })
 
-context('show 3 rows of products', () => {
+context('loading screens', () => {
+  it ('shows skeletons', () => {
+    cy.visit('/skeleton')
+    cy.percySnapshot()
+  })
+})
 
+context('show 3 rows of products', () => {
   it('tiny phone show 6 cards', () => {
     cy.viewport(320, 1050)
     cy.visit('/')
